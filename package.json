@@ -1,5 +1,5 @@
 {
-  "name": "Simple React Portfolio",
+  "name": "Simple-React-Portfolio",
   "version": "1.0.0",
   "description": "personal portfolio project built with react",
   "main": "src/main.js",
@@ -49,6 +49,8 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
-    "react": "^15.3.2"
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "^2.8.1"
   }
 }

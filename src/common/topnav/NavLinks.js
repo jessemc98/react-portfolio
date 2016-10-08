@@ -4,10 +4,16 @@ import { Link, IndexLink } from 'react-router'
 const NavLinks = ({ links, classes }) => {
 
   const routeLinks = links.map((link, i) => {
-    if(!link.isIndex){
-      return <Link to={link.path} key={i}>{link.name}</Link>
+    const props = {
+      to: link.path,
+      activeClassName: "active",
+      key: i
     }
-    return <IndexLink to={link.path} key={i}>{link.name}</IndexLink>
+
+    if(!link.isIndex){
+      return <Link {...props}>{link.name}</Link>
+    }
+    return <IndexLink {...props}>{link.name}</IndexLink>
   })
 
   return (

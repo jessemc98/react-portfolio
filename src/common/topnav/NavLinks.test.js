@@ -60,4 +60,14 @@ describe("NavLinks", function () {
     let wrapper = setup(links)
     expect(wrapper.find('IndexLink').length).toEqual(0);
   });
+  it("should pass 'active' to the links props.activeClassName", function () {
+    const links = [
+      {isIndex: true, path:'/', name: 'test'},
+      {path: '/', name: 'test'}
+    ]
+    const wrapper = setup(links)
+
+    expect(wrapper.find('Link').prop("activeClassName")).toEqual("active");
+    expect(wrapper.find('IndexLink').prop("activeClassName")).toEqual("active");
+  });
 });

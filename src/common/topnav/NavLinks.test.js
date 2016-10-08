@@ -70,4 +70,15 @@ describe("NavLinks", function () {
     expect(wrapper.find('Link').prop("activeClassName")).toEqual("active");
     expect(wrapper.find('IndexLink').prop("activeClassName")).toEqual("active");
   });
+  it("should add a key prop to rendered links", function () {
+    const links = [
+      {path:'/', name: 'test'},
+      {path: '/', name: 'test'}
+    ]
+    const wrapper = setup(links)
+
+    wrapper.children().forEach((link) => {
+      expect(link.props()).toIncludeKey('key')
+    })
+  });
 });

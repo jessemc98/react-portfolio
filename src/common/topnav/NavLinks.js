@@ -7,13 +7,12 @@ const NavLinks = ({ links, classes }) => {
     const props = {
       to: link.path,
       activeClassName: "active",
-      key: i
     }
 
     if(!link.isIndex){
-      return <Link {...props}>{link.name}</Link>
+      return <Link {...props} key={i}>{link.name}</Link>
     }
-    return <IndexLink {...props}>{link.name}</IndexLink>
+    return <IndexLink {...props} key={i}>{link.name}</IndexLink>
   })
 
   return (

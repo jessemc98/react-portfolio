@@ -3,8 +3,8 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import NavLinks from './NavLinks'
 
-function setup(links) {
-  const props = { links }
+function setup(links, classes) {
+  const props = { links, classes }
 
   return shallow(<NavLinks {...props}/>)
 }
@@ -23,7 +23,25 @@ describe("NavLinks", function () {
     wrapper = setup([...links, {path:'/path4', name:'four'}])
     expect(wrapper.find('Link').length).toEqual(4)
   });
+  it("should render a div with the class passed into props.classes as a string", function () {
+    const classes = "test"
+    const wrapper = setup([], classes)
+    expect(wrapper.is("div")).toBeTruthy();
+    expect(wrapper.hasClass("test")).toBeTruthy();
+  });
+  it("should render with multiple classes when passed a space deliminated string through props.classes", function () {
+    const classes = "test test2 test3"
+    const wrapper = setup([], classes)
+    expect(wrapper.hasClass("test")).toBeTruthy();
+    expect(wrapper.hasClass("test2")).toBeTruthy();
+    expect(wrapper.hasClass("test3")).toBeTruthy();
+  });
+  it("should not render any links when passed an empty array", function () {
+    const links = []
+    const wrapper = setup(links)
 
+    expect(wrapper.children().length).toEqual(0)
+  });
   it("should return an indexLink for links with property isIndex set to true", function () {
     const links = [
       {isIndex: true, path:'/', name: 'test'}

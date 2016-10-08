@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Link, IndexLink } from 'react-router'
 
-const NavLinks = ({ links }) => {
+const NavLinks = ({ links, classes }) => {
 
   const routeLinks = links.map((link, i) => {
     if(!link.isIndex){
@@ -11,14 +11,15 @@ const NavLinks = ({ links }) => {
   })
 
   return (
-    <div>
+    <div className={classes}>
       {routeLinks}
     </div>
   )
 }
 
 NavLinks.propTypes = {
-  links: PropTypes.arrayOf(PropTypes.object).isRequired
+  links: PropTypes.arrayOf(PropTypes.object).isRequired,
+  classes: PropTypes.string.isRequired
 }
 
 export default NavLinks

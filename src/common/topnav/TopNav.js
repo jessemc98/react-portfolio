@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NavLinks from './NavLinks'
+import './TopNav.scss'
 
 const navLinks = [
   {path: '/', name: 'home', isIndex: true},
@@ -21,9 +22,9 @@ class TopNav extends Component {
   }
   render() {
     return (
-      <div className={this.state.isOpen ? '' : 'hidden'}>
+      <div className={'TopNav ' + (this.state.isOpen ? '' : 'hidden')}>
         <button className="close" onClick={this.toggleNav} />
-        <NavLinks links={navLinks}/>
+        <NavLinks links={navLinks} classes="TopNav-NavLinks"/>
       </div>
     )
   }

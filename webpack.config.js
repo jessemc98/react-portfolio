@@ -11,7 +11,7 @@ const PATHS = {
   build: path.join(__dirname, 'bin'),
   temp: path.join(__dirname, 'tmp'),
   css: path.join(__dirname, 'src', 'style'),
-  images: path.join(__dirname, 'assets', 'images')
+  images: path.join(__dirname, 'assets')
 }
 
 const common = {
@@ -73,7 +73,7 @@ switch(process.env.npm_lifecycle_event) {
 
   default:
     config = merge(
-      common, 
+      common,
       {
         output: {
           path: PATHS.temp,
@@ -84,7 +84,7 @@ switch(process.env.npm_lifecycle_event) {
         devtool: 'eval-source-map'
       },
       parts.setupImages(PATHS.images),
-      parts.setupCSS(PATHS.css),
+      parts.setupCSS(PATHS.app),
       parts.lint(PATHS.app),
       parts.devServer({
         host: process.env.HOST,

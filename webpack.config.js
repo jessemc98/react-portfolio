@@ -28,7 +28,9 @@ const common = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  plugins: [new HtmlWebpackPlugin()]
+  plugins: [new HtmlWebpackPlugin({
+    template: './src/index.html'
+  })]
 }
 
 let config;

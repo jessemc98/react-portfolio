@@ -17,30 +17,33 @@ describe("TopNav", function () {
     expect(wrapper.is('div')).toBeTruthy()
     expect(wrapper.hasClass('TopNav')).toBeTruthy()
   });
-  it("should render a NavLinks component", function () {
-    const wrapper = setup()
+  describe("it should render a NavLinks component", function () {
+    it("should render a NavLinks component", function () {
+      const wrapper = setup()
 
-    expect(wrapper.find('NavLinks').length).toBe(1)
-  });
-  it("should render the NavLinks component with props.classes of TopNav-NavLinks", function () {
-    const wrapper = setup()
-    const navLinks = wrapper.find('NavLinks')
+      expect(wrapper.find('NavLinks').length).toBe(1)
+    });
+    it("with props.classes of TopNav-NavLinks", function () {
+      const wrapper = setup()
+      const navLinks = wrapper.find('NavLinks')
 
-    expect(navLinks.prop("classes")).toEqual("TopNav-NavLinks")
-  });
-  it("should render the NavLinks Component with a list of links passed as props.links", function () {
-    const wrapper = setup()
-    const navLinks = wrapper.find('NavLinks')
+      expect(navLinks.prop("classes")).toEqual("TopNav-NavLinks")
+    });
+    it("with a list of links passed as props.links", function () {
+      const wrapper = setup()
+      const navLinks = wrapper.find('NavLinks')
 
-    expect(navLinks.prop("links")).toBeA(Array)
-    expect(navLinks.prop("links")[0]).toIncludeKeys(['path', 'name'])
+      expect(navLinks.prop("links")).toBeA(Array)
+      expect(navLinks.prop("links")[0]).toIncludeKeys(['path', 'name'])
+    });
   });
+
   it("should render a button with a class of close", function () {
     const wrapper = setup()
 
     expect(wrapper.find('button').hasClass('close')).toBeTruthy()
   });
-  it("should toggle hidden class to component when close button is clicked", function(){
+  it("should toggle hidden class on component when close button is clicked", function(){
     const wrapper = setup()
     wrapper.setState({isOpen: false})
     const button = wrapper.find('button.close')

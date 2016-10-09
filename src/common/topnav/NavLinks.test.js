@@ -23,10 +23,10 @@ describe("NavLinks", function () {
     wrapper = setup([...links, {path:'/path4', name:'four'}])
     expect(wrapper.find('Link').length).toEqual(4)
   });
-  it("should render a div with the class passed into props.classes as a string", function () {
+  it("should render a ul with the class passed into props.classes as a string", function () {
     const classes = "test"
     const wrapper = setup([], classes)
-    expect(wrapper.is("div")).toBeTruthy();
+    expect(wrapper.is("ul")).toBeTruthy();
     expect(wrapper.hasClass("test")).toBeTruthy();
   });
   it("should render with multiple classes when passed a space deliminated string through props.classes", function () {

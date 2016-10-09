@@ -10,15 +10,15 @@ const NavLinks = ({ links, classes }) => {
     }
 
     if(!link.isIndex){
-      return <Link {...props} key={i}>{link.name}</Link>
+      return <li key={i}><Link {...props}>{link.name}</Link></li>
     }
-    return <IndexLink {...props} key={i}>{link.name}</IndexLink>
+    return <li key={i}><IndexLink {...props}>{link.name}</IndexLink></li>
   })
 
   return (
-    <div className={classes}>
+    <ul className={classes}>
       {routeLinks}
-    </div>
+    </ul>
   )
 }
 

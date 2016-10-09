@@ -3,9 +3,9 @@ import NavLinks from './NavLinks'
 import './TopNav.scss'
 
 const navLinks = [
-  {path: '/', name: 'home', isIndex: true},
-  {path: '/about', name: 'about'},
-  {path: '/contact', name: 'contact'}
+  {path: '/', name: 'HOME', isIndex: true},
+  {path: '/about', name: 'ABOUT'},
+  {path: '/contact', name: 'CONTACT'}
 ]
 
 class TopNav extends Component {

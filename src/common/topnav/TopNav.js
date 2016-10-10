@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import NavLinks from './NavLinks'
 import './TopNav.scss'
+import NavLinks from './NavLinks'
+import FabList from '../FabList/FabList'
+import NavFooter from './NavFooter'
 
-const navLinks = [
-  {path: '/', name: 'HOME', isIndex: true},
-  {path: '/about', name: 'ABOUT'},
-  {path: '/contact', name: 'CONTACT'}
-]
+import { navLinks, socialLinks } from './../../store/links'
 
 class TopNav extends Component {
   constructor(props, context){
@@ -24,7 +22,10 @@ class TopNav extends Component {
     return (
       <div className={'TopNav ' + (this.state.isOpen ? '' : 'hidden')}>
         <button className="close" onClick={this.toggleNav} />
+        <div className="logo"><div /></div>
         <NavLinks links={navLinks} classes="TopNav-NavLinks"/>
+        <FabList links={socialLinks} />
+        <NavFooter />
       </div>
     )
   }

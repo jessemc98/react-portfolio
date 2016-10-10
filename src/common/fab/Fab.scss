@@ -1,0 +1,23 @@
+.Fab {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  background: black;
+  border-radius: 50%;
+  &.small {
+    width: 32px;
+    height: 32px;
+    img {
+      width: 65%;
+    }
+  }
+
+  img {
+    top: 0;
+    display: block;
+    margin: auto;
+    height: inherit;
+    width: inherit;
+  }
+}

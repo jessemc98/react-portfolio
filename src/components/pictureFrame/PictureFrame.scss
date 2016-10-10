@@ -1,0 +1,21 @@
+$PictureFrame-size: 235px;
+
+.PictureFrame {
+  width: $PictureFrame-size;
+
+  & > img {
+    width: inherit;
+    height: $PictureFrame-size;
+    border: 3px solid black;
+    border-radius: 50%;
+    background-color: #555;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  }
+
+  .FabList {
+    a:first-of-type, a:last-of-type {
+      transform: translate(0, -50%);
+    }
+  }
+
+}

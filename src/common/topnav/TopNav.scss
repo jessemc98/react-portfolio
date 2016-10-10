@@ -10,6 +10,7 @@ $transition: $animSpeed linear;
 
 
 .TopNav {
+  z-index: 999;
   position: absolute;
   right: 100%;
   transform: translate(100%);
@@ -76,6 +77,10 @@ $transition: $animSpeed linear;
 
   }
 
+  .FabList {
+    margin: 0 10px;
+  }
+
   .NavFooter {
     text-align: center;
     .FabLink {
@@ -116,6 +121,7 @@ $transition: $animSpeed linear;
   }
   a {
     font-size: 2em;
+    font-weight: bold;
     color: $text;
     text-decoration: none;
 

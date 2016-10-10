@@ -5,12 +5,16 @@
   height: 56px;
   background: black;
   border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
   &.small {
     width: 32px;
     height: 32px;
     img {
       width: 65%;
     }
+  }
+  &:hover {
+    background: #555;
   }
 
   img {
@@ -20,4 +24,5 @@
     height: inherit;
     width: inherit;
   }
+
 }

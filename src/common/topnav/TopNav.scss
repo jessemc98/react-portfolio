@@ -5,7 +5,7 @@ $backgroundIndent: darken($background, 5%);
 $text: rgb(50, 50, 50);
 $border: 1px solid $backgroundIndent;
 
-$animSpeed: 0.3s;
+$animSpeed: 0.2s;
 $transition: $animSpeed linear;
 
 
@@ -14,7 +14,7 @@ $transition: $animSpeed linear;
   right: 100%;
   transform: translate(100%);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
   max-width: 270px;
   height: 100vh;
@@ -22,9 +22,11 @@ $transition: $animSpeed linear;
   background: $background;
   box-shadow: 0px 1px 1px 2px rgba(0,0,0,0.57);
   transition: transform $transition;
+  transition-delay: $animSpeed/1.5;
 
   .close {
     position: absolute;
+    z-index: 4;
     right: 0;
     top: 0;
     width: 100px;
@@ -33,14 +35,13 @@ $transition: $animSpeed linear;
     border: 1px solid black;
     border: none;
     outline: none;
+    -webkit-tap-highlight-color: transparent;
     cursor: pointer;
-    border-radius: 0 30% 5% 50%;
+    border-radius: 29% 33% 36% 35%;
     transition:
-      border-radius $animSpeed/5 * 4 linear,
-      transform $animSpeed/5 * 4 linear,
-      box-shadow $animSpeed linear $animSpeed;
-
-    transition-delay: 0;
+      border-radius $animSpeed/1.2 linear,
+      transform $animSpeed/1.2 linear,
+      box-shadow 0.1ms linear $animSpeed/1.8;
 
     &:after, &:before {
       content: "";
@@ -52,23 +53,48 @@ $transition: $animSpeed linear;
       width: 50px;
       background-image: url(../../../assets/icons/delete.svg);
       background-size: cover;
-      transition: opacity $animSpeed/5 linear;
+      transition: opacity $animSpeed/5 linear $animSpeed/2;
     }
     &:before {
       opacity: 0;
       left: 10px;
       background-image: url(../../../assets/icons/menu-button.svg);
-      transition-delay: $animSpeed/4;
+      transition-delay: $animSpeed/2;
+    }
+  }
+
+  .logo {
+    height: 115px;
+    & > div {
+      background-image: url(../../../assets/images/logo.png);
+      background-repeat: space;
+      background-size: contain;
+      height: 70%;
+      width: auto;
+      margin: 2rem;
+    }
+
+  }
+
+  .NavFooter {
+    text-align: center;
+    .FabLink {
+      margin-bottom: 0.5rem;
     }
   }
 
 }
 .TopNav.hidden {
     transform: translate(0);
+    transition-delay: 0s;
   .close {
     transform: translate(100%);
     border-radius: 0 0 100% 0;
-    transition-delay: $animSpeed - $animSpeed/2;
+    transition:
+      border-radius $animSpeed/8 * 4 linear $animSpeed ,
+      transform $animSpeed/8 * 4 linear $animSpeed ,
+      box-shadow $animSpeed linear $animSpeed/2;
+    // transition-delay: $animSpeed - $animSpeed/2;
     box-shadow: 0px 1px 1px 2px rgba(0,0,0,0.57);
     &:before {
       opacity: 1;
@@ -78,7 +104,6 @@ $transition: $animSpeed linear;
       opacity: 0;
     }
   }
-
 }
 
 .TopNav-NavLinks {

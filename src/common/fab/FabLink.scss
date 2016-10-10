@@ -1,0 +1,12 @@
+.FabLink {
+  position: relative;
+  a:last-of-type {
+    position: relative;
+    top: -11px;
+    display: inline-block;
+    color: black;
+    margin-left: 0.6em;
+    height: 32px;
+    line-height: 32px;
+  }
+}

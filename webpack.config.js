@@ -57,10 +57,10 @@ switch(process.env.npm_lifecycle_event) {
       ),
        parts.extractBundle({
         name: 'vendor',
-        entries: ['react', 'babel-polyfill']
+        entries: ['react', 'react-dom', 'react-router', 'babel-polyfill']
       }),
       parts.loadImages(PATHS.images),
-      parts.extractCSS(PATHS.css),
+      parts.extractCSS(PATHS.app),
       parts.uglifyJs()
       // {
       //   resolve: {

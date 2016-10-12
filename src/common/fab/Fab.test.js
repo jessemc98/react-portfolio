@@ -40,4 +40,12 @@ describe("Fab", function () {
 
     expect(wrapper.hasClass('small')).toBeTruthy()
   })
+  it("should call onClick when clicked", function () {
+    const mySpy = expect.createSpy()
+    const wrapper = setup({onClick: mySpy})
+
+    wrapper.simulate('click')
+
+    expect(mySpy).toHaveBeenCalled()
+  });
 });

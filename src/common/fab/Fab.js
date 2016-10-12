@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react'
 import Icon from '../icon/Icon'
 import './Fab.scss'
 
-const Fab = ({ iconName, path, small}) => {
+const Fab = ({ iconName, path, small, onClick}) => {
   let className = "Fab"
   if(small){
     className += " small"
   }
   return (
-      <a className={className} href={path}>
+      <a className={className} href={path} onClick={onClick}>
         <Icon iconName={iconName}/>
       </a>
   )
@@ -16,8 +16,9 @@ const Fab = ({ iconName, path, small}) => {
 
 Fab.propTypes = {
   iconName: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  small: PropTypes.bool
+  path: PropTypes.string,
+  small: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 export default Fab

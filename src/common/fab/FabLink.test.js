@@ -20,7 +20,7 @@ describe("FabLink", function () {
 
     expect(wrapper.find('Fab').length).toEqual(1)
   })
-  it("should pass down correct props to 'Fab'", function () {
+  it("should create small 'Fab' with correct props", function () {
     const wrapper = setup({iconName: 'menu-button', path: '/test'})
 
     const expected = {
@@ -28,7 +28,10 @@ describe("FabLink", function () {
       path: '/test',
       small: true
     }
-    expect(wrapper.find('Fab').props()).toEqual(expected);
+
+    expect(wrapper.find('Fab').prop('iconName')).toEqual(expected.iconName);
+    expect(wrapper.find('Fab').prop('path')).toEqual(expected.path);
+    expect(wrapper.find('Fab').prop('small')).toEqual(expected.small);
   });
   it("should render an <a />  / link element", function () {
     const wrapper = setup()
@@ -45,4 +48,15 @@ describe("FabLink", function () {
 
     expect(wrapper.find('a').prop('href')).toEqual('/test')
   })
+  it("should call onClick when children are clicked", function () {
+    const mySpy = expect.createSpy()
+    const wrapper = setup({onClick: mySpy})
+    const children = wrapper.children()
+
+    children.forEach(child => {
+      child.simulate('click')
+    })
+
+    expect(mySpy.calls.length).toEqual(children.length)
+  });
 });

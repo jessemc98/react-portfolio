@@ -6,15 +6,15 @@ import Spoiler from './Spoiler'
 
 describe("Spoiler", function () {
   describe("it renders with correct state", function () {
-    it("when props.hidden is undefined", function () {
+    it("when props.showDefault is undefined/false", function () {
       const wrapper = shallow(<Spoiler />)
 
-      expect(wrapper.state('hidden')).toBeFalsy()
-    });
-    it("when props.hidden is true", function () {
-      const wrapper = shallow(<Spoiler hidden={true} />)
-
       expect(wrapper.state('hidden')).toBeTruthy()
+    });
+    it("when props.showDefault is true", function () {
+      const wrapper = shallow(<Spoiler showDefault={true} />)
+      console.log('hidden state!!!!!', wrapper.state('hidden'))
+      expect(wrapper.state('hidden')).toBeFalsy()
     });
   });
   describe("it renders the passed component", function () {

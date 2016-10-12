@@ -11,7 +11,7 @@ class TopNav extends Component {
     super(props, context)
 
     this.state = {
-      isOpen: true
+      isOpen: false
     }
     this.toggleNav = this.toggleNav.bind(this)
   }

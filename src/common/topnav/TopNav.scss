@@ -11,8 +11,9 @@ $transition: $animSpeed linear;
 
 .TopNav {
   z-index: 999;
-  position: absolute;
+  position: fixed;
   right: 100%;
+  top: 0;
   transform: translate(100%);
   display: flex;
   justify-content: space-between;

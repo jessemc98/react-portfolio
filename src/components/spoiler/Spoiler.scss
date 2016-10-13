@@ -1,0 +1,9 @@
+.Spoiler {
+  & > div {
+    overflow: hidden;
+    transition: height 0.25s linear;
+  }
+  .FabLink {
+    margin-top: 1rem;
+  }
+}

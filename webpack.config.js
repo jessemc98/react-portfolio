@@ -11,7 +11,7 @@ const PATHS = {
   build: path.join(__dirname, 'bin'),
   temp: path.join(__dirname, 'tmp'),
   css: path.join(__dirname, 'src', 'style'),
-  images: path.join(__dirname, 'assets')
+  images: path.join(__dirname, 'src', 'assets')
 }
 
 const common = {

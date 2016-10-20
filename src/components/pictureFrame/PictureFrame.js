@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
-import FabList from '../../common/FabList/FabList'
+import FabList from '../common/FabList/FabList'
 import './PictureFrame.scss'
 
 import { socialLinks } from '../../store/links'
-import picture from '../../../assets/images/logo.png'
+import picture from '../../assets/images/logo.png'
 
 const PictureFrame = (props) => {
   return (

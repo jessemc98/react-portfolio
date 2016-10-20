@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import FabLink from '../../common/fab/FabLink'
+import FabLink from '../common/fab/FabLink'
 import './Spoiler.scss'
 
 class Spoiler extends Component {

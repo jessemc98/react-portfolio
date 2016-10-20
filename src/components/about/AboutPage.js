@@ -1,6 +1,6 @@
 import React from 'react'
 import PictureFrame from '../pictureFrame/PictureFrame'
-import PageDivider from '../../common/pageDivider/PageDivider'
+import PageDivider from '../common/pageDivider/PageDivider'
 import AboutInfo from './AboutInfo'
 import './AboutPage.scss'
 

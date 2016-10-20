@@ -1,6 +1,6 @@
 //handles layout/template used on every page
 import React, { PropTypes, Component} from 'react'
-import TopNav from './../common/topnav/TopNav'
+import TopNav from './common/topnav/TopNav'
 
 class Layout extends Component {
   render() {

@@ -12,8 +12,8 @@ describe("Icon component", function () {
     const wrapper = setup()
     expect(wrapper.type()).toEqual('img')
   });
-  it("should return an img with src === ../../../assets/icons/props.iconName.svg", function () {
+  it("should return an img with src === src/assets/icons/props.iconName.svg", function () {
     const wrapper = setup('test')
-    expect(wrapper.prop('src')).toEqual('../../../assets/icons/test.svg');
+    expect(wrapper.prop('src')).toEqual('src/assets/icons/test.svg');
   });
 });

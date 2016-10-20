@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 
 const Icon = ({ iconName }) => {
-  const basePath = '../../../assets/icons/'
+  const basePath = 'src/assets/icons'
   return (
-    <img src={`${basePath}${iconName}.svg`}/>
+    <img src={`${basePath}/${iconName}.svg`}/>
   )
 }
 

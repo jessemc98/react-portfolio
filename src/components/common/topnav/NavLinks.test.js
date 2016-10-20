@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import NavLinks from './NavLinks'
 
-function setup(links, classes) {
+function setup(links, classes=" ") {
   const props = { links, classes }
 
   return shallow(<NavLinks {...props}/>)

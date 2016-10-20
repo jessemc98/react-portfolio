@@ -4,7 +4,11 @@
   height: 100%;
   overflow: hidden;
 }
-.Modal-container::before {
+.modal-enter.Modal-container::before, .modal-leave-active.Modal-container::before {
+  opacity: 0;
+}
+
+.Modal-container::before, .modal-leave::before{
   pointer-events: none;
   z-index: 1;
   content: "";
@@ -16,10 +20,7 @@
   background: black;
   opacity: 0.6;
   will-change: opacity;
-  transition: opacity 0.35s ease;
-}
-.Modal-hidden::before {
-  opacity: 0;
+  transition: opacity 350ms ease;
 }
 .Modal {
   z-index: 1;
@@ -34,10 +35,10 @@
 -moz-box-shadow: 0px 0px 27px 5px rgba(0,0,0,1);
 box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.4);
   will-change: transform;
-  transition: transform 0.35s ease;
+  transition: transform 350ms ease;
   overflow: hidden;
 }
-.Modal-hidden > .Modal {
+.modal-enter .Modal, .modal-leave-active .Modal{
   transform: translate(100vw);
 }
 .Modal_button {
@@ -57,9 +58,9 @@ box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.4);
   width: 100%;
   margin-top: 15px;
   margin-left: 15px;
-  transition: opacity 0.2s ease 0.2s;
+  transition: opacity 0.4s ease 0.1s;
 }
-.Modal-hidden .Modal_header {
+.modal-enter .Modal_header {
   opacity: 0;
 }
 .Modal_image {
@@ -76,19 +77,8 @@ box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.4);
   height: 60%;
   margin: 0 25px;
   overflow: scroll;
-  transition: opacity 0.2s ease 0.2s;
+  transition: opacity 0.4s ease 0.1s;
 }
-.Modal-hidden .Modal_content {
+.modal-enter.modal-enter-active .Modal_content {
   opacity: 0;
-}
-.open-button {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 7px 13px;
-  margin: auto;
-  color: white;
-  background-color: #9e40bd;
-  border: none;
 }

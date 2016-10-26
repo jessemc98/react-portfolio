@@ -57,7 +57,7 @@ class MyForm extends React.Component {
     return (
       <form className="MyForm" onSubmit={this.onSubmit}>
         {this._childrenWithProps}
-        <input type="submit" value="SEND"/>
+        <input className="MyForm_button-submit jmc_button" type="submit" value="SEND"/>
       </form>
     )
   }

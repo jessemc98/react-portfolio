@@ -16,9 +16,15 @@ class MyForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
   componentWillMount(){
-      this._childrenWithProps = React.Children.map(this.props.children, (child, i)=> {
-        return React.cloneElement(child, {onChange: (e) => this.onChange(e), key: i})
-      })
+    this._childrenWithProps = this._mapOnChangeToChildren(this.props.children)
+  }
+  componentWillReceiveProps(newProps){
+    this._childrenWithProps = this._mapOnChangeToChildren(newProps.children)
+  }
+  _mapOnChangeToChildren(children) {
+    return React.Children.map(children, (child, i)=> {
+      return React.cloneElement(child, {onChange: (e) => this.onChange(e), key: i})
+    })
   }
   onChange(e) {
     const newForm = Object.assign({}, this.state.form)

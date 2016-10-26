@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import MyForm from '../myForm/Form'
-import MyInput from '../myForm/Input'
+import MyForm from '../common/form/MyForm'
+import MyInput from '../common/inputs/MyInput'
 
 class ContactForm extends React.Component {
   constructor(props, context) {

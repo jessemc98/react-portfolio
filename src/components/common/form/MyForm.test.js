@@ -2,7 +2,7 @@ import expect from 'expect'
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 
-import MyForm from './Form'
+import MyForm from './MyForm'
 
 function setup(numOfInputs){
   const props = {onSubmit: function(){}}

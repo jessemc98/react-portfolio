@@ -2,7 +2,7 @@ import expect from 'expect'
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 
-import MyInput from './Input'
+import MyInput from './MyInput'
 
 function setup(props) {
   return shallow(<MyInput {...props}/>)

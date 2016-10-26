@@ -3,7 +3,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 
 import ContactForm from './ContactForm'
-import MyInput from '../myForm/Input'
+import MyInput from '../common/inputs/MyInput'
 
 describe("ContactForm", function () {
   it("renders correct amount of MyInputs", function () {

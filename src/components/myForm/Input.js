@@ -18,7 +18,7 @@ class MyInput extends React.Component {
       isCompleted: true
     })
   }
-  blur(){
+  blur(e){
     if(!this.props.value || this.props.value === ''){
       this.setState({isCompleted: false})
     }
@@ -27,19 +27,22 @@ class MyInput extends React.Component {
     })
   }
   render(){
-    const { type="text", value="", placeHolder, onChange, name } = this.props
+    const { type="text", value="", placeHolder, onChange, name, error } = this.props
     const { isActive, isCompleted } = this.state
     return (
-      <div className={"MyInput" + (isActive?' MyInput-is-active':'') + (isCompleted?' MyInput-is-completed':'')}>
-        <label className="MyInput_label"
-               htmlFor={name}>{placeHolder}</label>
+      <div className={"MyInput" +
+        (isActive?' MyInput-is-active':'') +
+        (isCompleted?' MyInput-is-completed':'') +
+        (error?' MyInput-has-error':'')}>
+        <label className="MyInput_label" htmlFor={name}>{placeHolder}</label>
         <input className="MyInput_input"
-               type={type}
-               id={name}
-               onChange={onChange}
-               onFocus={this.focus}
-               onBlur={this.blur}
-               value={value}/>
+          type={type}
+          id={name}
+          onChange={onChange}
+          onFocus={this.focus}
+          onBlur={this.blur}
+          value={value}/>
+       {error && <p className="MyInput_error">{error}</p>}
       </div>
     )
   }

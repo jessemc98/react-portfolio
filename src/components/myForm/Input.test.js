@@ -110,4 +110,29 @@ describe("MyInput", function () {
     });
 
   });
+  describe("it renders a errors passed in props", function () {
+    it("renders MyInput_error element when an error is defined", function () {
+      const wrapper = setup({error: 'error!'})
+
+      expect(wrapper.find(".MyInput_error").length).toEqual(1)
+    });
+    it("doesnt render MyInput_error element when an error is not defined", function () {
+      const wrapper = setup()
+
+      expect(wrapper.find(".MyInput_error").length).toEqual(0)
+    });
+    it("sets MyInput-has-error class on wrapper when error is defined", function () {
+      const wrapper = setup({error: 'error!'})
+      const myInputWrapper = wrapper.find('.MyInput')
+
+      expect(myInputWrapper.hasClass('MyInput-has-error')).toBeTruthy()
+    });
+    it("sets MyInput-has-error class on wrapper when error is not defined", function () {
+      let error;
+      const wrapper = setup({ error })
+      const myInputWrapper = wrapper.find('.MyInput')
+
+      expect(myInputWrapper.hasClass('MyInput-has-error')).toBeFalsy()
+    });
+  });
 });

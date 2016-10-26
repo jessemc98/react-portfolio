@@ -6,9 +6,10 @@ class MyForm extends React.Component {
     super(props, context)
 
     this.state = {
-      inputVals: React.Children.map(props.children, child => {
-        return child.props.value
-      })
+      form: React.Children.toArray(props.children).reduce((total, child) => {
+          total[child.props.id] = child.props.value
+          return total
+        }, {})
     }
     this._childrenWithProps = null
     this.onChange = this.onChange.bind(this)
@@ -16,22 +17,23 @@ class MyForm extends React.Component {
   }
   componentWillMount(){
       this._childrenWithProps = React.Children.map(this.props.children, (child, i)=> {
-        return React.cloneElement(child, {onChange: (e) => this.onChange(e, i), key: i})
+        return React.cloneElement(child, {onChange: (e) => this.onChange(e), key: i})
       })
   }
-  onChange(e, i) {
-    const vals = [...this.state.inputVals]
-    const newVal = e.target.value
-    vals[i] = newVal
-    this.setState({inputVals: vals})
+  onChange(e) {
+    const newForm = Object.assign({}, this.state.form)
+    newForm[e.target.id] = e.target.value
+    this.setState({form: newForm})
   }
   onSubmit(e) {
     e.preventDefault()
+    this.props.onSubmit(this.state.form)
   }
   render () {
     if(this._childrenWithProps){
+      //maps values stored in state to internal _childrenWithProps
       this._childrenWithProps = this._childrenWithProps.map((child, i)=> {
-        return React.cloneElement(child, {value: this.state.inputVals[i]})
+        return React.cloneElement(child, {value: this.state.form[child.props.id]})
       })
     }
 
@@ -44,7 +46,8 @@ class MyForm extends React.Component {
   }
 }
 MyForm.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.array,
+  onSubmit: PropTypes.func.isRequired
 }
 
 export default MyForm;

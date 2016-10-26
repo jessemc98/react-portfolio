@@ -14,6 +14,7 @@ class MyForm extends React.Component {
     this._childrenWithProps = null
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.resetForm = this.resetForm.bind(this)
   }
   componentWillMount(){
     this._childrenWithProps = this._mapOnChangeToChildren(this.props.children)
@@ -33,7 +34,17 @@ class MyForm extends React.Component {
   }
   onSubmit(e) {
     e.preventDefault()
-    this.props.onSubmit(this.state.form)
+    this.props.onSubmit(this.state.form, this.resetForm)
+  }
+  resetForm(newForm) {
+    let form = {}
+    for (let key in this.state.form) {
+      if (this.state.form.hasOwnProperty(key)) {
+        form[key] = ""
+      }
+    }
+    form = Object.assign(form, newForm)
+    this.setState({form})
   }
   render () {
     if(this._childrenWithProps){
@@ -52,7 +63,11 @@ class MyForm extends React.Component {
   }
 }
 MyForm.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+
+  ]),
   onSubmit: PropTypes.func.isRequired
 }
 

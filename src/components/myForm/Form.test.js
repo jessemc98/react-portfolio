@@ -5,12 +5,13 @@ import { shallow, mount } from 'enzyme'
 import MyForm from './Form'
 
 function setup(numOfInputs){
+  const props = {onSubmit: function(){}}
   if(numOfInputs === 0)
-    return mount(<MyForm></MyForm>)
+    return mount(<MyForm {...props}></MyForm>)
 
   if(numOfInputs === 1)
     return mount(
-      <MyForm>
+      <MyForm {...props}>
         <input type="text" />
       </MyForm>
     )
@@ -20,7 +21,7 @@ function setup(numOfInputs){
     inputs.push(<input type="text" />)
   }
   return mount(
-    <MyForm>
+    <MyForm {...props}>
       {inputs}
     </MyForm>
   )
@@ -114,14 +115,57 @@ describe("MyForm", function () {
       expect(messageInput.prop('value')).toEqual('dis be a message')
     });
   });
-  it("calls props.onSubmit when form is sumbmitted", function () {
-    //this function can be used to take care of error handling
-    const onSubmit = expect.createSpy()
-    const wrapper = mount(<MyForm onSubmit={onSubmit} />)
-    const submit = wrapper.find('input[type="submit"]')
+  describe("onSubmit", function () {
+    it("calls props.onSubmit when form is sumbmitted", function () {
+      //this function can be used to take care of error handling
+      const onSubmit = expect.createSpy()
+      const wrapper = mount(<MyForm onSubmit={onSubmit} />)
+      const submit = wrapper.find('input[type="submit"]')
 
-    submit.simulate('submit')
+      submit.simulate('submit')
 
-    expect(onSubmit).toHaveBeenCalled()
+      expect(onSubmit).toHaveBeenCalled()
+    });
+    it("injects the current state of the form as the first parameter of onSubmit", function () {
+      const onSubmit = expect.createSpy()
+      const wrapper = mount(<MyForm onSubmit={onSubmit}><input id="nameInput" type="text" /></MyForm>)
+      const input = wrapper.find('input[type="text"]')
+      const submit = wrapper.find('input[type="submit"]')
+
+      input.simulate('change', {target: {id: 'nameInput', value: 'random'}})
+      submit.simulate('submit')
+
+      expect(onSubmit.calls[0].arguments[0]).toEqual({nameInput: 'random'})
+    });
+    describe("injects a function as the second parameter of onSubmit", function () {
+      it("should reset the form when called with no arguments", function () {
+        //arrange
+        const onSubmit = expect.createSpy()
+        const wrapper = mount(<MyForm onSubmit={onSubmit}><input id="nameInput" type="text" /></MyForm>)
+        const input = wrapper.find('input[type="text"]')
+        const submit = wrapper.find('input[type="submit"]')
+        input.simulate('change', {target: {id: 'nameInput', value: 'random'}})
+        submit.simulate('submit')
+        //act
+        //calls the function passed as the second parameter to onSubmit
+        onSubmit.calls[0].arguments[1]()
+        //assert
+        expect(wrapper.state().form.nameInput).toEqual("")
+      });
+      it("should reset the form and set the new state of the form to the passed argument", function () {
+        //arrange
+        const onSubmit = expect.createSpy()
+        const wrapper = mount(<MyForm onSubmit={onSubmit}><input id="nameInput" type="text" /></MyForm>)
+        const input = wrapper.find('input[type="text"]')
+        const submit = wrapper.find('input[type="submit"]')
+        input.simulate('change', {target: {id: 'nameInput', value: 'random'}})
+        submit.simulate('submit')
+        //act
+        //calls the function passed as the second parameter to onSubmit
+        onSubmit.calls[0].arguments[1]({nameInput: 'set to this value'})
+        //assert
+        expect(wrapper.state().form.nameInput).toEqual("set to this value")
+      });
+    });
   });
 });

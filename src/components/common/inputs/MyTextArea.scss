@@ -1,0 +1,65 @@
+.MyTextArea {
+  padding: 0;
+  margin-bottom: 2.2rem;
+  position: relative;
+  &-has-error {
+    color: red;
+  }
+
+  &_label {
+    display: block;
+    font-size: 16px;
+    transform: translateY(25px);
+    color: #e2e2e2;
+    transition: all 0.5s;
+  }
+
+  &_input {
+    position: relative;
+    background: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 8px 0;
+    font-size: 16px;
+    min-height: 2em;
+    height: 2em;
+    resize: none;
+    -webkit-appearance: textarea;
+  }
+
+  &_error {
+    position: absolute;
+  }
+
+}
+
+.MyTextArea:after, .MyTextArea:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #e2e2e2;
+  bottom: 0;
+  left: 0;
+  transition: all 0.5s;
+}
+
+.MyTextArea::after {
+  background-color: #000000;
+  transform: scaleX(0);
+}
+
+.MyTextArea-is-active::after {
+  transform: scaleX(1);
+}
+
+.MyTextArea-is-active .MyTextArea_label {
+  color: #000000;
+}
+
+.MyTextArea-is-completed .MyTextArea_label {
+  font-size: 12px;
+  transform: translateY(0);
+}

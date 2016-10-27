@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import MyForm from '../common/form/MyForm'
 import MyInput from '../common/inputs/MyInput'
+import MyTextArea from '../common/inputs/MyTextArea'
 
 class ContactForm extends React.Component {
   constructor(props, context) {
@@ -72,7 +73,7 @@ class ContactForm extends React.Component {
       <MyForm onSubmit={this.onSubmit}>
         <MyInput name={name.id} {...name} error={this.state.errors.name}/>
         <MyInput name={email.id} {...email} error={this.state.errors.email}/>
-        <MyInput name={message.id} {...message} error={this.state.errors.message}/>
+        <MyTextArea name={message.id} {...message} error={this.state.errors.message}/>
       </MyForm>
     )
   }

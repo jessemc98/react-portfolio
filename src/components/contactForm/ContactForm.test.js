@@ -4,12 +4,14 @@ import { shallow, mount } from 'enzyme'
 
 import ContactForm from './ContactForm'
 import MyInput from '../common/inputs/MyInput'
+import MyTextArea from '../common/inputs/MyTextArea'
 
 describe("ContactForm", function () {
-  it("renders correct amount of MyInputs", function () {
+  it("renders correct amount of inputs", function () {
     const wrapper = shallow(<ContactForm />)
 
-    expect(wrapper.find(MyInput).length).toEqual(3)
+    expect(wrapper.find(MyInput).length).toEqual(2)
+    expect(wrapper.find(MyTextArea).length).toEqual(1)
   });
   describe("validates form when method onSubmit is called", function () {
     describe("passes errors to children", function () {

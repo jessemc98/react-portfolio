@@ -3,7 +3,6 @@
 ## This project uses the following technologies
 * *JS Framework*: ReactJS
 * *Router*: ReactRouter 
-* *UI Framework*: React Material
 * *CSS pre-processor*: Sass with Node
 * *Testing framework*: Mocha
 * *Assertion library*: Expect

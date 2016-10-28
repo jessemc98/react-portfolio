@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import ModalContainer from '../Modal/ModalContainer'
+import FabLink from '../common/fab/FabLink'
 
 const KeySkills = () => {
   return (
@@ -43,6 +44,20 @@ const KeySkills = () => {
           He determined
         </p>
       </ModalContainer>
+      <div className="AboutPage_KeySkills_lists">
+        <ul>
+          <FabLink iconName="eye" path="/" text="Eye" />
+          <FabLink iconName="codepen" path="/" text="Codepen" />
+          <FabLink iconName="github" path="/" text="Github" />
+          <FabLink iconName="message" path="/" text="Message" />
+        </ul>
+        <ul>
+        <FabLink iconName="eye" path="/" text="Eye" />
+        <FabLink iconName="codepen" path="/" text="Codepen" />
+        <FabLink iconName="github" path="/" text="Github" />
+        <FabLink iconName="message" path="/" text="Message" />
+        </ul>
+        </div>
     </div>
   )
 }

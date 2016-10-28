@@ -68,5 +68,9 @@ class ModalContainer extends React.Component {
     )
   }
 }
-
+ModalContainer.propTypes = {
+  children: PropTypes.element.isRequired,
+  title: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired
+}
 export default ModalContainer;

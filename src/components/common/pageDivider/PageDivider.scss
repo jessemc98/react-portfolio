@@ -1,17 +1,19 @@
+@import '../../../style/colors.scss';
+
 .PageDivider {
   display: flex;
   clear: both;
   h2 {
-    border: 2px solid black;
+    border: 2px solid $primary;
     border-radius: 30px;
     padding: 0 1rem 0.3rem;
     margin: 0;
     text-decoration: underline;
-    color: black;
+    color: $primary;
   }
   span {
       content: "";
-      background: black;
+      background: $primary;
       flex: 1;
       height: 2px;
       position: relative;

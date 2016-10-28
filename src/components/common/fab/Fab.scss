@@ -1,12 +1,14 @@
+@import '../../../style/colors.scss';
 .Fab {
   position: relative;
   display: inline-block;
   width: 56px;
   height: 56px;
-  background: black;
+  background: $primary;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
   cursor: pointer;
+  transition: background 150ms ease-in-out;
   &.small {
     width: 32px;
     height: 32px;
@@ -15,7 +17,7 @@
     }
   }
   &:hover {
-    background: #555;
+    background: $primaryLight;
   }
 
   img {

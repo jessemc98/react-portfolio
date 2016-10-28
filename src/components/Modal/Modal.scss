@@ -1,3 +1,5 @@
+@import '../../style/colors.scss';
+
 .Modal-container {
   position: absolute;
   width: 100%;
@@ -30,7 +32,7 @@
   max-width: 90%;
   right: 0%;
   top: 25%;
-  background-color: white;
+  background-color: $background;
   -webkit-box-shadow: 0px 0px 27px 5px rgba(0,0,0,1);
 -moz-box-shadow: 0px 0px 27px 5px rgba(0,0,0,1);
 box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.4);
@@ -59,6 +61,7 @@ box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.4);
   margin-top: 15px;
   margin-left: 15px;
   transition: opacity 0.4s ease 0.1s;
+  color: $secondary;
 }
 .modal-enter .Modal_header {
   opacity: 0;

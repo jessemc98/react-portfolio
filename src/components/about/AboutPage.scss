@@ -1,3 +1,5 @@
+@import '../../style/colors.scss';
+
 #AboutPage {
   .PictureFrame {
     float: right;
@@ -15,7 +17,7 @@
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 0;
-    color: #197db0;
+    color: $primary;
     text-shadow: 1px 1px 2px hsla(0,0%,59%,.8);
   }
 }

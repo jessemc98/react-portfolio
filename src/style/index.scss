@@ -1,3 +1,5 @@
+@import './colors.scss';
+
 html {
   font-size: 16px;
   font-family: Roboto, monospace, sans-serif;
@@ -8,6 +10,7 @@ html {
 }
 body {
   margin: 0;
+  background: $background;
 }
 
 .jmc_button {
@@ -15,7 +18,8 @@ body {
   font-weight: bold;
   display: inline-block;
   padding: 0.2rem 0.8rem;
-  color: black;
-  border: 2px solid black;
+  color: $primaryLight;
+  border: 2px solid $primaryLight;
+  background: transparent;
   border-radius: 2em;
 }

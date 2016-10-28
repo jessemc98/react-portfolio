@@ -57,17 +57,19 @@ This project uses a simple Webpack config for an automated workflow. Check out t
 </pre>
 
 ## Coding Convention
-Redux is not used in order to keep the production build as small as possiblee. Though redux could be used, the advantages are negligable in an app of this size.
+Redux is not used as the advantages of using redux would be negligible in an app of this size and I prefer to keep complexity at a minimum.
+Though redux is not used I believe many of the same principles are useful in most applications.
+When building components we must create 'container components' to hold the business logic which are incharge of passing state to 'presentation components' which are only incharge of displaying information and have no internal logic.
 
+Presentational components must never mutate state. Container components are allowed to change their state but must not mutate any values.
+
+## Unit Tests
 Unit tests are kept in the same folder as the code being tested and are named the same with an added .test. prefix (refer to the directory structure diagram above).
 
-Unit tests are run in node and use jsdom to mock the DOM instead of a browser.
-Unit tests are run with Mocha using the Expect assertion library.
+Tests are run in node and use jsdom to mock the DOM instead of a browser.
+Tests are run with Mocha using the Expect assertion library.
 
-Though redux is not being used I believe its principles are still relevent in most apps. When building components we must create 'container components' to hold the business logic which are incharge of passing state to 'dumb components' which are only incharge of displaying information and have no internal logic.
-
-Dumb components ( or view/presentational components ) must never mutate state. Container components are allowed to change their state but must not mutate any values.
-
+Unit Tests are written in a TDD style, for the most part, they assert on the behaviour of components, not on the internal implementation of the code.
 
 ## Features included in the webpack build
 

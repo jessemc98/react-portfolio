@@ -12,6 +12,11 @@ const AboutPage = (props) => {
       <AboutInfo />
       <PageDivider title="Key Skills"/>
       <KeySkills />
+      <PageDivider title="About this Website" />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+      </p>
+      <a href="https://github.com/jessemc98/react-portfolio" className="jmc_button">View Source on Github</a>
   </div>
   )
 }

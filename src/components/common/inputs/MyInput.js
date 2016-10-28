@@ -52,6 +52,7 @@ MyInput.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeHolder: PropTypes.string.isRequired,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  error: PropTypes.string
 }
 export default MyInput

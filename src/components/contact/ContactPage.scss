@@ -1,5 +1,81 @@
+@import '../../style/colors.scss';
+
 #ContactPage {
+  width: 80%;
+  max-width: 840px;
+  margin: auto;
+  & > h2 {
+    display: inline-block;
+    float: right;
+    padding: 0 10px;
+    font-size: 1.618em;
+    color: $primary;
+    border: 3px solid $primary;
+    border-radius: 3em;
+  }
   .MyForm {
-    margin: auto;
+    width: 100%;
+    & > input {
+      margin-bottom: 30px;
+    }
+  }
+}
+.ContactPage_info {
+  clear: both;
+  font-size: 1.378em;
+  margin-bottom: 40px;
+  a {
+    color: $primaryLight;
+    &:hover {
+      color: darken($primaryLight, 20%);
+    }
+  }
+}
+.ContactPage_buttons {
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  &_location {
+    position: relative;
+    display: inline-block;
+    img {
+      width: 80%;
+    }
+    &:after {
+      content: "Gibraltar";
+      color: #fff;
+      background: #000;
+      font-size: 1.3em;
+    line-height: 1.3em;
+    padding: 0 4px;
+    position: absolute;
+    top: 105%;
+    right: 50%;
+    transform: translate(50%);
+    transition: opacity 150ms ease-in-out;
+    opacity: 0;
+    }
+    &:hover:after {
+      opacity: 0.6;
+    }
+  }
+  .FabList {
+    width: 66%;
+    float: right;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .ContactPage_buttons {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 720px) {
+  #ContactPage {
+    & > h2 {
+      font-size: 2.229em;
+    }
+  }
+  .ContactPage_info {
+    font-size: 1.618em;
   }
 }

@@ -8,15 +8,19 @@ import './AboutPage.scss'
 const AboutPage = (props) => {
   return (
     <div id="AboutPage">
-      <PictureFrame />
-      <AboutInfo />
+      <div className="AboutPage_aboutMe">
+        <PictureFrame />
+        <AboutInfo />
+      </div>
       <PageDivider title="Key Skills"/>
       <KeySkills />
       <PageDivider title="About this Website" />
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-      </p>
-      <a href="https://github.com/jessemc98/react-portfolio" className="jmc_button">View Source on Github</a>
+      <div className="AboutPage_websiteInfo">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+        </p>
+        <a href="https://github.com/jessemc98/react-portfolio" className="jmc_button">View Source on Github</a>
+      </div>
   </div>
   )
 }

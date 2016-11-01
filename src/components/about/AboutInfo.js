@@ -3,7 +3,7 @@ import Spoiler from '../spoiler/Spoiler'
 
 const AboutInfo = (props) => {
   return (
-    <div className="AboutPage-AboutInfo">
+    <div className="AboutPage_aboutMe_AboutInfo">
       <h1>Hi,</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

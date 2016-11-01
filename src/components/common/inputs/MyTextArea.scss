@@ -7,6 +7,24 @@
   &-has-error {
     color: red;
   }
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $secondaryLight;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.3s;
+  }
+  &::after {
+    background-color: $primaryLight;
+    transform: scaleX(0);
+  }
+  &-is-active::after {
+    transform: scaleX(1);
+  }
 
   &_label {
     display: block;
@@ -15,6 +33,12 @@
     transform: translateY(25px);
     color: $secondaryLight;
     transition: transform 0.3s;
+  }
+  &-is-active .MyTextArea_label {
+    color: $primaryLight;
+  }
+  &-is-completed .MyTextArea_label {
+    transform: translateY(0) scale(0.618);
   }
 
   &_input {
@@ -33,34 +57,4 @@
   &_error {
     position: absolute;
   }
-
-}
-
-.MyTextArea:after, .MyTextArea:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: $secondaryLight;
-  bottom: 0;
-  left: 0;
-  transition: transform 0.3s;
-}
-
-.MyTextArea::after {
-  background-color: $primaryLight;
-  transform: scaleX(0);
-}
-
-.MyTextArea-is-active::after {
-  transform: scaleX(1);
-}
-
-.MyTextArea-is-active .MyTextArea_label {
-  color: $primaryLight;
-}
-
-.MyTextArea-is-completed .MyTextArea_label {
-  transform: translateY(0) scale(0.618);
 }

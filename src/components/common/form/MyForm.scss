@@ -1,6 +1,6 @@
 .MyForm {
   width: 80%;
-}
-.MyForm_button-submit {
-  float: right;
+  &_button-submit {
+    float: right;
+  }
 }

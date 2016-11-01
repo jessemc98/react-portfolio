@@ -12,11 +12,13 @@
     margin: 0;
     text-decoration: underline;
     color: $primary;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   }
   span {
       content: "";
       background: $primary;
       flex: 1;
       height: 2px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   }
 }

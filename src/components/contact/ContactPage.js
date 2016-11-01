@@ -1,11 +1,29 @@
 import React from 'react'
 import ContactForm from '../contactForm/ContactForm'
 import './ContactPage.scss'
+import Fab from '../common/fab/Fab'
+import FabList from '../common/FabList/FabList'
+import { socialLinks } from '../../store/links'
 
 const ContactPage = (props) => {
   return (
     <div id="ContactPage">
       <h2>ContactPage</h2>
+      <div className="ContactPage_info">
+        <p>
+          Interested in developing something awesome together?
+        </p>
+        <p>
+          To get in touch contact me at
+        </p>
+        <a href="mailto:jessemc98@hotmail.com?">jessemc98@hotmail.com</a>
+      </div>
+      <div className="ContactPage_buttons">
+        <div className="ContactPage_buttons_location">
+          <Fab iconName="location" />
+        </div>
+        <FabList links={socialLinks} />
+      </div>
       <ContactForm />
     </div>
   )

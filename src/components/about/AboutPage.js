@@ -7,7 +7,7 @@ import './AboutPage.scss'
 
 const AboutPage = (props) => {
   return (
-    <div id="AboutPage">
+    <div className="AboutPage">
       <div className="AboutPage_aboutMe">
         <PictureFrame />
         <AboutInfo />

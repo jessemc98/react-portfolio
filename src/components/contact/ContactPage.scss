@@ -1,6 +1,6 @@
 @import '../../style/colors.scss';
 
-#ContactPage {
+.ContactPage {
   width: 80%;
   max-width: 840px;
   margin: auto;
@@ -71,7 +71,7 @@
   }
 }
 @media only screen and (min-width: 720px) {
-  #ContactPage {
+  .ContactPage {
     & > h2 {
       font-size: 2.229em;
     }

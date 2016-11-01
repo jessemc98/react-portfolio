@@ -1,6 +1,6 @@
 @import '../../style/colors.scss';
 
-#AboutPage {
+.AboutPage {
   .PictureFrame {
     // float: right;
     margin: 0px auto;
@@ -63,7 +63,7 @@
 }
 
 @media only screen and (min-width : 450px) {
-  #AboutPage .PageDivider {
+  .AboutPage .PageDivider {
     font-size: 1.618em;
   }
   .AboutPage_KeySkills .ModalContainer_button {
@@ -74,7 +74,7 @@
   }
 }
 @media only screen and (min-width : 520px) {
-  #AboutPage {
+  .AboutPage {
     .PictureFrame {
       float: right;
       width: 244.469px;

@@ -1,20 +1,24 @@
+@import '../../../style/colors.scss';
+
 .PageDivider {
   display: flex;
+  align-items: center;
+  margin: 1em 0;
   clear: both;
   h2 {
-    border: 2px solid black;
+    border: 2px solid $primary;
     border-radius: 30px;
     padding: 0 1rem 0.3rem;
     margin: 0;
     text-decoration: underline;
-    color: black;
+    color: $primary;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   }
   span {
       content: "";
-      background: black;
+      background: $primary;
       flex: 1;
       height: 2px;
-      position: relative;
-      top: 1em;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   }
 }

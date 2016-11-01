@@ -4,11 +4,11 @@ import { Link } from 'react-router'
 
 const HomePage = (props) => {
   return (
-    <div id="HomePage">
+    <div className="HomePage">
       <div className="HomePage-welcome">
         <h1>JESSE MCINTOSH</h1>
         <h2>Front-end Developer</h2>
-        <Link to="/about">ABOUT</Link>
+        <Link to="/about" className="jmc_button">ABOUT</Link>
       </div>
     </div>
   )

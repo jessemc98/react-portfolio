@@ -7,7 +7,7 @@ import { socialLinks } from '../../store/links'
 
 const ContactPage = (props) => {
   return (
-    <div id="ContactPage">
+    <div className="ContactPage">
       <h2>ContactPage</h2>
       <div className="ContactPage_info">
         <p>

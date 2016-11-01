@@ -1,41 +1,41 @@
-#HomePage {
+@import '../../style/colors.scss';
+
+.HomePage {
   text-align: center;
-}
+  &-welcome {
+    position: relative;
+    top: 40vh;
+  	h1 {
+  		font-size: 2em;
+  		line-height: 1em;
+      margin-top: 0;
+  		margin-bottom: 0;
+  		text-decoration: underline;
+  		color: $primary;
+  		text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.8);
 
-.HomePage-welcome {
-  position: relative;
-  top: 40vh;
-	h1 {
-		font-size: 2em;
-		line-height: 1em;
-    margin-top: 0;
-		margin-bottom: 0;
-		text-decoration: underline;
-		color: black;
-		text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.8);
-
-	}
-	h2 {
-		font-size:1.8em;
-		line-height: 1em;
-		margin-top: 0;
-		margin-bottom: 10px;
-		color: #555;
-		text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.8);
-	}
-  a {
-    font-size: 0.8em;
-    font-weight: bold;
-    display: inline-block;
-    padding: 0.2rem 0.8rem;
-    color: black;
-    border: 2px solid black;
-    border-radius: 2em;
+  	}
+  	h2 {
+  		font-size:1.8em;
+  		line-height: 1em;
+  		margin-top: 0;
+  		margin-bottom: 10px;
+  		color: $secondary;
+  		text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.8);
+  	}
+    a {
+      color: $secondary;
+      border: 2px solid $secondary;
+      text-decoration: none;
+      box-shadow: 1px 1px 2px rgba(150, 150, 150, 0.8);
+    }
   }
 }
 
 @media only screen and (min-width: 450px) {
-	.HomePage-welcome{font-size: 1.4rem;}
+	.HomePage-welcome{
+    font-size: 1.4rem;
+  }
 }
 
 @media only screen and (min-width: 690px) {
@@ -48,5 +48,7 @@
 }
 
 @media only screen and (min-width: 1024px) {
-	.HomePage-welcome{font-size: 2.3rem;}
+	.HomePage-welcome{
+    font-size: 2.3rem;
+  }
 }

@@ -1,33 +1,119 @@
-#AboutPage {
-  .PictureFrame {
-    float: right;
-    margin: 30px 40px;
+@import '../../style/colors.scss';
+
+.AboutPage {
+  &_aboutMe {
+    max-width: 840px;
+    margin: auto;
+
+    .PictureFrame {
+      margin: 0px auto;
+      margin-top: 50px;
+    }
+
+    &_AboutInfo {
+      width: 85%;
+      margin: auto;
+      max-width: 930px;
+      h1 {
+        font-size: 4.236em;
+        font-weight: 700;
+        margin: 0;
+        color: $primary;
+        text-shadow: 1px 1px 2px hsla(0,0%,59%,.8);
+      }
+      p {
+        font-size: 1.378em;
+      }
+      .Spoiler p {
+        color: lighten($textColor, 40%);
+        margin: 0;
+      }
+    }
+
+  }
+
+  &_KeySkills {
+    width: 90%;
+    max-width: 960px;
+    margin: auto;
+    &_keyskills {
+      max-width: 244.469px * 3;
+      margin: auto;
+    }
+    &_lists {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 80%;
+      margin: auto;
+      ul {
+        display: inline-block;
+        padding: 0;
+        .FabLink > .Fab {
+          width: 1.8em;
+          height: 1.8em;
+        }
+      }
+    }
+  }
+
+  &_websiteInfo {
+    width: 90%;
+    max-width: 840px;
+    margin: auto;
+    margin-bottom: 1em;
   }
 }
 
-.AboutPage-AboutInfo {
-  width: 85%;
-  margin: auto;
-  margin-bottom: 2em;
-  padding-top: 40px;
-  max-width: 930px;
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 0;
-    color: #197db0;
-    text-shadow: 1px 1px 2px hsla(0,0%,59%,.8);
+@media only screen and (min-width : 450px) {
+  .AboutPage {
+    .PageDivider {
+      font-size: 1.618em;
+    }
+    &_KeySkills .ModalContainer_button {
+      font-size: 1.05em;
+    }
+    &_websiteInfo {
+      font-size: 1.378em;
+    }
   }
 }
+@media only screen and (min-width : 520px) {
+  .AboutPage {
+    &_aboutMe {
+      margin: 50px 50px 0px 50px;
+      .PictureFrame {
+        float: right;
+        width: 244.469px;
+        & > img {
+          height: 244.469px;
+          margin-bottom: 5px;
+        }
+      }
+    }
 
-.AboutPage_KeySkills_lists {
-  ul {
-    display: inline-block;
-    width: 50%;
-    font-size: 2rem;
-    .FabLink > .Fab {
-      width: 1.8em;
-      height: 1.8em;
+    &_KeySkills {
+      font-size: 1.2em;
+      ul {
+        font-size: 1.378em;
+      }
+    }
+  }
+}
+@media only screen and (min-width : 720px) {
+  .AboutPage {
+    &_KeySkills_lists {
+      justify-content: space-around;
+    }
+    &_KeySkills ul {
+      font-size: 1.8em;
+    }
+  }
+}
+@media only screen and (min-width : 960px) {
+  .AboutPage {
+    &_aboutMe {
+      margin: 50px auto;
     }
   }
 }

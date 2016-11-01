@@ -2,6 +2,8 @@
 
 .PageDivider {
   display: flex;
+  align-items: center;
+  margin: 1em 0;
   clear: both;
   h2 {
     border: 2px solid $primary;
@@ -16,7 +18,5 @@
       background: $primary;
       flex: 1;
       height: 2px;
-      position: relative;
-      top: 1em;
   }
 }

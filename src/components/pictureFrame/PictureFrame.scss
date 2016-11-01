@@ -1,5 +1,5 @@
 @import '../../style/colors.scss';
-$PictureFrame-size: 235px;
+$PictureFrame-size: 287.072px;
 
 .PictureFrame {
   width: $PictureFrame-size;
@@ -7,15 +7,16 @@ $PictureFrame-size: 235px;
   & > img {
     width: inherit;
     height: $PictureFrame-size;
-    border: 3px solid $primary;
+    border: 5px solid $primary;
     border-radius: 50%;
     background-color: $secondary;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
   }
 
   .FabList {
+    justify-content: space-around;
     a:first-of-type, a:last-of-type {
-      transform: translate(0, -50%);
+      transform: translate(0, -40%);
     }
   }
 

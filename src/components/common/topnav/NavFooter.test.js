@@ -13,6 +13,6 @@ describe("NavFooter", function () {
     expect(setup().find('FabLink').length).toEqual(2)
   });
   it("should render with a class of NavFooter", function () {
-    expect(setup().hasClass('NavFooter')).toBeTruthy()
+    expect(setup().hasClass('TopNav_content_NavFooter')).toBeTruthy()
   });
 });

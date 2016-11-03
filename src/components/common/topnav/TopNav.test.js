@@ -17,20 +17,24 @@ describe("TopNav", function () {
     expect(wrapper.is('div')).toBeTruthy()
     expect(wrapper.hasClass('TopNav')).toBeTruthy()
   });
-  describe("it should render a NavLinks component", function () {
+  describe("it should render a NavLinks component when open", function () {
     it("should render a NavLinks component", function () {
       const wrapper = setup()
+      wrapper.setState({isOpen: true})
+      console.log('!!!!!', wrapper.children().length)
 
       expect(wrapper.find('NavLinks').length).toBe(1)
     });
-    it("with props.classes of TopNav-NavLinks", function () {
+    it("with props.classes of TopNav_content_NavLinks", function () {
       const wrapper = setup()
+      wrapper.setState({isOpen: true})
       const navLinks = wrapper.find('NavLinks')
 
-      expect(navLinks.prop("classes")).toEqual("TopNav-NavLinks")
+      expect(navLinks.prop("classes")).toEqual("TopNav_content_NavLinks")
     });
     it("with a list of links passed as props.links", function () {
       const wrapper = setup()
+      wrapper.setState({isOpen: true})
       const navLinks = wrapper.find('NavLinks')
 
       expect(navLinks.prop("links")).toBeA(Array)
@@ -41,12 +45,12 @@ describe("TopNav", function () {
   it("should render a button with a class of close", function () {
     const wrapper = setup()
 
-    expect(wrapper.find('button').hasClass('close')).toBeTruthy()
+    expect(wrapper.find('button').hasClass('TopNav_toggleButton')).toBeTruthy()
   });
   it("should toggle hidden class on component when close button is clicked", function(){
     const wrapper = setup()
     wrapper.setState({isOpen: false})
-    const button = wrapper.find('button.close')
+    const button = wrapper.find('.TopNav_toggleButton')
 
     expect(wrapper.hasClass('hidden')).toBeTruthy()
 
@@ -58,4 +62,14 @@ describe("TopNav", function () {
 
     expect(wrapper.hasClass('hidden')).toBeTruthy()
   })
+  it("should remove its content from the dom when hidden except for the close button", function () {
+    const wrapper = setup()
+    wrapper.setState({isOpen: true})
+    const button = wrapper.find('.TopNav_toggleButton')
+
+    button.simulate('click')
+
+    expect(wrapper.children().length).toEqual(1)
+    expect(wrapper.childAt(0)).toEqual(button)
+  });
 });

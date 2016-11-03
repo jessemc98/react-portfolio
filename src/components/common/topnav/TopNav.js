@@ -19,13 +19,20 @@ class TopNav extends Component {
     this.setState({isOpen: !this.state.isOpen})
   }
   render() {
-    return (
-      <div className={'TopNav ' + (this.state.isOpen ? '' : 'hidden')}>
-        <button className="close" onClick={this.toggleNav} />
-        <div className="logo"><div /></div>
-        <NavLinks links={navLinks} classes="TopNav-NavLinks"/>
-        <FabList links={socialLinks} />
+    const content = (
+      <div className="TopNav_content">
+        <div className="TopNav_content_logo">
+          <img src="src/assets/images/logo.png" />
+        </div>
+        <NavLinks links={navLinks} classes="TopNav_content_NavLinks" delay={150}/>
+        <FabList links={socialLinks} className="TopNav_content_socialLinks"/>
         <NavFooter />
+      </div>
+    )
+    return (
+      <div className={'TopNav' + (this.state.isOpen ? '' : ' hidden')}>
+        <button className="TopNav_toggleButton" onClick={this.toggleNav} />
+        {content}
       </div>
     )
   }

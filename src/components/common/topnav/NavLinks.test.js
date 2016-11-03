@@ -3,8 +3,8 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import NavLinks from './NavLinks'
 
-function setup(links, classes=" ") {
-  const props = { links, classes }
+function setup(links, classes=" ", delay) {
+  const props = { links, classes , delay}
 
   return shallow(<NavLinks {...props}/>)
 }
@@ -79,6 +79,23 @@ describe("NavLinks", function () {
 
     wrapper.children().forEach((link) => {
       expect(link.props()).toIncludeKey('key')
+    })
+  });
+  it("should add a transition-delay of 'delay + (delay*index) ms' to links", function () {
+    const links = [
+      {path:'/', name: 'test'},
+      {path: '/', name: 'test'},
+      {path: '/', name: 'test'}
+    ]
+    const expected = [
+      "200ms", //100 + (100 * 1)
+      "300ms", //100 + (100 * 2)
+      "400ms"  //100 + (100 * 3)
+    ]
+    const wrapper = setup(links, "", 100)
+
+    wrapper.children().forEach((link, i) => {
+      expect(link.prop("style").transitionDelay).toEqual(expected[i])
     })
   });
 });

@@ -62,14 +62,4 @@ describe("TopNav", function () {
 
     expect(wrapper.hasClass('hidden')).toBeTruthy()
   })
-  it("should remove its content from the dom when hidden except for the close button", function () {
-    const wrapper = setup()
-    wrapper.setState({isOpen: true})
-    const button = wrapper.find('.TopNav_toggleButton')
-
-    button.simulate('click')
-
-    expect(wrapper.children().length).toEqual(1)
-    expect(wrapper.childAt(0)).toEqual(button)
-  });
 });

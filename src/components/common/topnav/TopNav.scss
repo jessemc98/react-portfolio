@@ -6,25 +6,22 @@ $border: 1px solid $backgroundIndent;
 $animSpeed: 0.2s;
 $transition: $animSpeed linear;
 
-
 .TopNav {
   z-index: 999;
   position: fixed;
   right: 100%;
   top: 0;
   transform: translate(100%);
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
   max-width: 270px;
-  height: 100vh;
+  height: 100%;
   width: 80%;
   background: darken($background, 5%);
   box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
   transition: transform $transition;
   transition-delay: $animSpeed/1.5;
+  will-change: transform;
 
-  .close {
+  &_toggleButton {
     position: absolute;
     z-index: 4;
     right: 0;
@@ -63,42 +60,88 @@ $transition: $animSpeed linear;
     }
   }
 
-  .logo {
-    height: 115px;
-    & > div {
-      background-image: url(../../../assets/images/logo.png);
-      background-repeat: space;
-      background-size: contain;
-      height: 70%;
-      width: auto;
-      margin: 2rem;
+  &_content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow: hidden;
+    &_logo {
+      height: 115px;
+      img {
+        background-repeat: space;
+        background-size: contain;
+        height: 70%;
+        width: auto;
+        margin: 2rem;
+      }
     }
 
-  }
+    &_NavLinks {
+      margin: 0;
+      padding: 0 0 0 4rem;
+      li {
+        display: block;
+        position: relative;
+        padding: 1rem 0;
+        opacity: 1;
+        transform: translateX(0%);
+        transition: opacity 1s cubic-bezier(.215,.61,.355,1),transform .6s cubic-bezier(.215,.61,.355,1);
+        will-change: opacity, transform;
+        // transition: opacity $animSpeed ease-in, transform $animSpeed ease-in;
+      }
+      a {
+        font-size: 2em;
+        font-weight: bold;
+        color: $textColor;
+        text-decoration: none;
 
-  .FabList {
-    margin: 0 10px;
-  }
-
-  .NavFooter {
-    text-align: center;
-    .FabLink {
-      margin-bottom: 0.5rem;
+        &.active {
+          text-decoration: underline;
+        }
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          right: 100%;
+          margin-right: 7.25px;
+          transform: translateY(0.1em);
+          width: 1em;
+          height: 1em;
+          border-radius: 50%;
+          border: 5px solid black;
+        }
+        &.active:before {
+          background: lighten(black, 20%);
+          animation: TopNav_NavLinks--grow 2s ease-in-out infinite;
+        }
+      }
     }
+
+    .FabList {
+      margin: 0 10px;
+    }
+
+    &_NavFooter {
+      text-align: center;
+      .FabLink {
+        margin-bottom: 0.5rem;
+      }
+    }
+
   }
 
 }
 .TopNav.hidden {
     transform: translate(0);
     transition-delay: 0s;
-  .close {
+  .TopNav_toggleButton {
     transform: translate(100%);
     border-radius: 0 0 100% 0;
     transition:
       border-radius $animSpeed/8 * 4 linear $animSpeed ,
       transform $animSpeed/8 * 4 linear $animSpeed ,
       box-shadow $animSpeed linear $animSpeed/2;
-    // transition-delay: $animSpeed - $animSpeed/2;
     box-shadow: 0px 1px 1px 2px rgba(0,0,0,0.57);
     opacity: 0.8;
     &:before {
@@ -109,25 +152,20 @@ $transition: $animSpeed linear;
       opacity: 0;
     }
   }
-}
-
-.TopNav-NavLinks {
-  margin: 0;
-  padding: 0 0 0 3rem;
-  li {
-    display: block;
-    position: relative;
-    padding: 1rem 0;
-  }
-  a {
-    font-size: 2em;
-    font-weight: bold;
-    color: $textColor;
-    text-decoration: none;
-
-    &.active {
-      text-decoration: underline;
+  .TopNav_content_NavLinks {
+    li {
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0ms ease-in 0s;
     }
   }
+}
 
+@keyframes TopNav_NavLinks--grow {
+  0%, 100% {
+    transform: scale(1.1) translateY(0.1em);
+  }
+  50% {
+    transform: scale(0.8) translateY(0.1em);
+  }
 }

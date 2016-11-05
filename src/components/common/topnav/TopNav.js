@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './TopNav.scss'
+import Backdrop from '../backdrop/Backdrop'
 import NavLinks from './NavLinks'
 import FabList from '../FabList/FabList'
 import NavFooter from './NavFooter'
@@ -20,6 +21,7 @@ class TopNav extends Component {
   }
   render() {
     return (
+      <Backdrop hidden={!this.state.isOpen} onClick={this.toggleNav} duration="200" cssTimingFunc="linear">
       <div className={'TopNav' + (this.state.isOpen ? '' : ' hidden')}>
         <button className="TopNav_toggleButton" onClick={this.toggleNav} />
         <div className="TopNav_content">
@@ -31,6 +33,7 @@ class TopNav extends Component {
           <NavFooter />
         </div>
       </div>
+      </Backdrop>
     )
   }
 }

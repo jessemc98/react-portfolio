@@ -1,5 +1,5 @@
 import expect from 'expect'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import React from 'react'
 
 import TopNav from './TopNav'
@@ -14,8 +14,7 @@ describe("TopNav", function () {
   it("should render a div with class of TopNav", function () {
     const wrapper = setup()
 
-    expect(wrapper.is('div')).toBeTruthy()
-    expect(wrapper.hasClass('TopNav')).toBeTruthy()
+    expect(wrapper.find('div.TopNav').length).toEqual(1)
   });
   describe("it should render a NavLinks component when open", function () {
     it("should render a NavLinks component", function () {
@@ -42,24 +41,23 @@ describe("TopNav", function () {
     });
   });
 
-  it("should render a button with a class of close", function () {
+  it("should render a button with a class of TopNav_toggleButton", function () {
     const wrapper = setup()
 
     expect(wrapper.find('button').hasClass('TopNav_toggleButton')).toBeTruthy()
   });
-  it("should toggle hidden class on component when close button is clicked", function(){
-    const wrapper = setup()
+  it("should toggle hidden class on TopNav when close button is clicked", function(){
+    const wrapper = mount(<TopNav />)
     wrapper.setState({isOpen: false})
+    const topNav = wrapper.find(".TopNav")
     const button = wrapper.find('.TopNav_toggleButton')
 
-    expect(wrapper.hasClass('hidden')).toBeTruthy()
+    button.simulate('click')
+
+    expect(topNav.hasClass('hidden')).toBeFalsy()
 
     button.simulate('click')
 
-    expect(wrapper.hasClass('hidden')).toBeFalsy()
-
-    button.simulate('click')
-
-    expect(wrapper.hasClass('hidden')).toBeTruthy()
+    expect(topNav.hasClass('hidden')).toBeTruthy()
   })
 });

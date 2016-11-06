@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './TopNav.scss'
+import Backdrop from '../backdrop/Backdrop'
 import NavLinks from './NavLinks'
 import FabList from '../FabList/FabList'
 import NavFooter from './NavFooter'
@@ -20,13 +21,19 @@ class TopNav extends Component {
   }
   render() {
     return (
-      <div className={'TopNav ' + (this.state.isOpen ? '' : 'hidden')}>
-        <button className="close" onClick={this.toggleNav} />
-        <div className="logo"><div /></div>
-        <NavLinks links={navLinks} classes="TopNav-NavLinks"/>
-        <FabList links={socialLinks} />
-        <NavFooter />
-      </div>
+      <Backdrop hidden={!this.state.isOpen} onClick={this.toggleNav} duration="200" cssTimingFunc="linear">
+      <nav className={'TopNav' + (this.state.isOpen ? '' : ' hidden')}>
+        <button className="TopNav_toggleButton" onClick={this.toggleNav} />
+        <div className="TopNav_content">
+          <div className="TopNav_content_logo">
+            <img src="src/assets/images/logo.png" alt="logo-jmc-in-block-letters"/>
+          </div>
+          <NavLinks links={navLinks} classes="TopNav_content_NavLinks" delay={150}/>
+          <FabList links={socialLinks} className="TopNav_content_socialLinks"/>
+          <NavFooter />
+        </div>
+      </nav>
+      </Backdrop>
     )
   }
 }

@@ -1,7 +1,7 @@
 const navLinks = [
-    {path: '/', name: 'HOME', isIndex: true},
-    {path: '/about', name: 'ABOUT'},
-    {path: '/contact', name: 'CONTACT'}
+    {path: '/', name: 'HOME', isIndex: true, color: "#0F4E6E"},
+    {path: '/about', name: 'ABOUT', color: "#1370A0"},
+    {path: '/contact', name: 'CONTACT', color: "#3FBEFE"}
 ]
 
 const socialLinks = [

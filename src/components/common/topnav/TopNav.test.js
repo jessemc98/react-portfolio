@@ -11,10 +11,10 @@ function setup() {
 }
 
 describe("TopNav", function () {
-  it("should render a div with class of TopNav", function () {
+  it("should render an element with class of TopNav", function () {
     const wrapper = setup()
 
-    expect(wrapper.find('div.TopNav').length).toEqual(1)
+    expect(wrapper.find('.TopNav').length).toEqual(1)
   });
   describe("it should render a NavLinks component when open", function () {
     it("should render a NavLinks component", function () {

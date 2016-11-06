@@ -91,6 +91,7 @@ $transition: $animSpeed linear;
       }
 
       a {
+        font-family: 'Roboto slab', 'Roboto', serif;
         font-size: 2em;
         font-weight: bold;
         color: $textColor;
@@ -107,8 +108,9 @@ $transition: $animSpeed linear;
           display: block;
           position: absolute;
           right: 105%;
-          width: 1em;
-          height: 1em;
+          width: 0.9em;
+          height: 0.9em;
+          margin-top: 0.225em;
           border-radius: 50%;
           border: 5px solid black;
           background: black;
@@ -192,7 +194,7 @@ $transition: $animSpeed linear;
     font-size: 0.8rem;
   }
 }
-@media only screen and (max-height: 430px) {
+@media only screen and (max-height: 450px) {
   .TopNav_content {
     &_NavFooter > :first-child {
       display: none;

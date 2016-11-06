@@ -22,17 +22,17 @@ class TopNav extends Component {
   render() {
     return (
       <Backdrop hidden={!this.state.isOpen} onClick={this.toggleNav} duration="200" cssTimingFunc="linear">
-      <div className={'TopNav' + (this.state.isOpen ? '' : ' hidden')}>
+      <nav className={'TopNav' + (this.state.isOpen ? '' : ' hidden')}>
         <button className="TopNav_toggleButton" onClick={this.toggleNav} />
         <div className="TopNav_content">
           <div className="TopNav_content_logo">
-            <img src="src/assets/images/logo.png" />
+            <img src="src/assets/images/logo.png" alt="logo-jmc-in-block-letters"/>
           </div>
           <NavLinks links={navLinks} classes="TopNav_content_NavLinks" delay={150}/>
           <FabList links={socialLinks} className="TopNav_content_socialLinks"/>
           <NavFooter />
         </div>
-      </div>
+      </nav>
       </Backdrop>
     )
   }

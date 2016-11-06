@@ -31,10 +31,10 @@ class Backdrop extends React.Component {
   blockScroll(bool) {
     if(bool) {
       console.log('add block')
-      document.body.addEventListener('mousewheel', this.prevDefault, false)
+      document.body.style.overflow = "hidden";
     } else {
       console.log('remove block')
-      document.body.removeEventListener('mousewheel', this.prevDefault, false)
+      document.body.style.overflow = "auto"
     }
   }
   render() {

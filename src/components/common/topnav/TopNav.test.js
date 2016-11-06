@@ -20,7 +20,6 @@ describe("TopNav", function () {
     it("should render a NavLinks component", function () {
       const wrapper = setup()
       wrapper.setState({isOpen: true})
-      console.log('!!!!!', wrapper.children().length)
 
       expect(wrapper.find('NavLinks').length).toBe(1)
     });

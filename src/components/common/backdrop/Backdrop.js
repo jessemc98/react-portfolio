@@ -30,10 +30,8 @@ class Backdrop extends React.Component {
   }
   blockScroll(bool) {
     if(bool) {
-      console.log('add block')
       document.body.style.overflow = "hidden";
     } else {
-      console.log('remove block')
       document.body.style.overflow = "auto"
     }
   }

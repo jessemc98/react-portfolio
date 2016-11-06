@@ -5,7 +5,6 @@
   top: 0;
   z-index: 10;
   &::before {
-    pointer-events: none;
     z-index: 1;
     content: "";
     position: absolute;
@@ -15,12 +14,11 @@
     height: 100vh;
     background: black;
     opacity: 0.6;
-    will-change: opacity;
+    // will-change: opacity;
     transition: opacity 350ms ease;
   }
   &-hidden {
-    width: 0%;
-    height: 0%;
+    pointer-events: none;
   }
   &-hidden::before {
     opacity: 0;

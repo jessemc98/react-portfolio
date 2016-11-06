@@ -88,31 +88,36 @@ $transition: $animSpeed linear;
         transform: translateX(0%);
         transition: opacity 1s cubic-bezier(.215,.61,.355,1),transform .6s cubic-bezier(.215,.61,.355,1);
         will-change: opacity, transform;
-        // transition: opacity $animSpeed ease-in, transform $animSpeed ease-in;
       }
+
       a {
         font-size: 2em;
         font-weight: bold;
         color: $textColor;
         text-decoration: none;
-
-        &.active {
+        span {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        &.active span {
           text-decoration: underline;
         }
-        &:before {
-          content: "";
+        .NavLinks_bullet {
           display: block;
           position: absolute;
           right: 105%;
-          // margin-right: 7.25px;
           width: 1em;
           height: 1em;
           border-radius: 50%;
           border: 5px solid black;
+          background: black;
           overflow: visible;
         }
-        &.active:before {
-          background: lighten(black, 20%);
+        &:not(.active) .NavLinks_bullet{
+          background: transparent !important;
+        }
+        &.active .NavLinks_bullet {
           animation: TopNav_NavLinks--grow 2s ease-in-out infinite;
         }
       }
@@ -161,6 +166,9 @@ $transition: $animSpeed linear;
       opacity: 0;
       transform: translateX(100%);
       transition: all 0ms ease-in 0s;
+      .NavLinks_bullet {
+        pointer-events: auto;
+      }
     }
   }
 }

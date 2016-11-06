@@ -1,27 +1,28 @@
 import React, { PropTypes } from 'react'
 import './Modal.scss'
+import Backdrop from '../common/backdrop/Backdrop'
 
 class Modal extends React.Component {
   constructor(props, context) {
     super(props, context)
     //refs
-    this._modalContainer = null
-
+    this.state = {
+      hidden: false
+    }
     this.hide = this.hide.bind(this)
   }
   componentWillUnmount() {
     this.props.hide()
     this.props.unmount()
   }
-  hide(event) {
-    if(event.target !== this._modalContainer)
-      return
+  hide(){
+    this.setState({hidden: true})
     this.props.hide()
   }
   render () {
     const { content, imgSrc, title } = this.props
     return (
-      <div key="modal" className="Modal-container" onClick={this.hide} ref={e => this._modalContainer = e}>
+      <Backdrop key="modal" className="Modal-container" onClick={this.hide} hidden={this.state.hidden}>
         <div className="Modal">
           <button className="Modal_button" onClick={this.props.hide}>X</button>
           <div className="Modal_header">
@@ -32,7 +33,7 @@ class Modal extends React.Component {
             {content}
           </div>
         </div>
-      </div>
+      </Backdrop>
     )
   }
 }

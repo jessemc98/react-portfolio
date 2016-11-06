@@ -1,5 +1,5 @@
 import expect from 'expect'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import React from 'react'
 import NavLinks from './NavLinks'
 
@@ -97,5 +97,40 @@ describe("NavLinks", function () {
     wrapper.children().forEach((link, i) => {
       expect(link.prop("style").transitionDelay).toEqual(expected[i])
     })
+  });
+  it("renders a div and a span inside each link", function () {
+    const wrapper = shallow(<NavLinks links={[{path: '/', name: 'test'}]} />)
+    const link = wrapper.childAt(0)
+
+    expect(link.find('span').length).toEqual(1)
+    expect(link.find('div').length).toEqual(1)
+  });
+  describe("should map the passed colors styles to each rendered link", function () {
+    let links, wrapper, link;
+    beforeEach(function () {
+      links = [
+        {path:'/', name: 'test', color: '#fff'}
+      ]
+      wrapper = setup(links, "", 100)
+      link = wrapper.childAt(0)
+    });
+    it("sets the border-color and background of the div inside each link to the passed color", function () {
+      const div = link.find('div')
+
+      const expected = {
+        borderColor: '#fff',
+        background: '#fff'
+      }
+
+      expect(div.prop('style')).toEqual(expected)
+    });
+    it("sets the color of the text of the span inside each link", function () {
+      const span = link.find('span')
+
+      const expected = {
+        color: '#fff'
+      }
+      expect(span.prop('style')).toEqual(expected)
+    });
   });
 });

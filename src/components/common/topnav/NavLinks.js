@@ -8,11 +8,15 @@ const NavLinks = ({ links, classes, delay}) => {
       to: link.path,
       activeClassName: "active",
     }
+    const colorStyle = {
+      background: link.color,
+      borderColor: link.color
+    }
 
     if(!link.isIndex){
-      return <li key={i} style={{transitionDelay: delay + ((i+1) * delay) + "ms"}}><Link {...props}><span>{link.name}</span></Link></li>
+      return <li key={i} style={{transitionDelay: delay + ((i+1) * delay) + "ms"}}><Link {...props}><div className="NavLinks_bullet" style={colorStyle} /><span style={{color: link.color}}>{link.name}</span></Link></li>
     }
-    return <li key={i} style={{transitionDelay: delay + ((i+1) * delay) + "ms"}}><IndexLink {...props}><span>{link.name}</span></IndexLink></li>
+    return <li key={i} style={{transitionDelay: delay + ((i+1) * delay) + "ms"}}><IndexLink {...props}><div className="NavLinks_bullet" style={colorStyle} /><span style={{color: link.color}}>{link.name}</span></IndexLink></li>
   })
 
   return (

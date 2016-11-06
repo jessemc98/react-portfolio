@@ -10,9 +10,9 @@ const NavLinks = ({ links, classes, delay}) => {
     }
 
     if(!link.isIndex){
-      return <li key={i} style={{transitionDelay: delay + ((i+1) * delay) + "ms"}}><Link {...props}>{link.name}</Link></li>
+      return <li key={i} style={{transitionDelay: delay + ((i+1) * delay) + "ms"}}><Link {...props}><span>{link.name}</span></Link></li>
     }
-    return <li key={i} style={{transitionDelay: delay + ((i+1) * delay) + "ms"}}><IndexLink {...props}>{link.name}</IndexLink></li>
+    return <li key={i} style={{transitionDelay: delay + ((i+1) * delay) + "ms"}}><IndexLink {...props}><span>{link.name}</span></IndexLink></li>
   })
 
   return (

@@ -103,18 +103,21 @@ $transition: $animSpeed linear;
           content: "";
           display: block;
           position: absolute;
-          right: 100%;
-          margin-right: 7.25px;
-          transform: translateY(0.1em);
+          right: 105%;
+          // margin-right: 7.25px;
           width: 1em;
           height: 1em;
           border-radius: 50%;
           border: 5px solid black;
+          overflow: visible;
         }
         &.active:before {
           background: lighten(black, 20%);
           animation: TopNav_NavLinks--grow 2s ease-in-out infinite;
         }
+      }
+      span {
+        display: block;
       }
     }
 
@@ -136,6 +139,7 @@ $transition: $animSpeed linear;
     transform: translate(0);
     transition-delay: 0s;
   .TopNav_toggleButton {
+    pointer-events: auto;
     transform: translate(100%);
     border-radius: 0 0 100% 0;
     transition:
@@ -167,5 +171,147 @@ $transition: $animSpeed linear;
   }
   50% {
     transform: scale(0.8) translateY(0.1em);
+  }
+}
+
+@media only screen and (max-height: 530px) {
+  .TopNav_content {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-height: 470px) {
+  .TopNav_content {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-height: 430px) {
+  .TopNav_content {
+    &_NavFooter > :first-child {
+      display: none;
+    }
+  }
+}
+@media only screen and (max-height: 410px) {
+  .TopNav_content {
+    justify-content: space-around;
+    .FabList {
+      margin-bottom: 10px;
+    }
+    &_NavFooter {
+      display: none;
+    }
+  }
+}
+@media only screen and (max-height: 360px) {
+  .TopNav_content {
+    &_logo {
+      display: none;
+    }
+    .FabList {
+      margin-bottom: 10px;
+    }
+    &_NavFooter {
+      display: block;
+      & > :first-child {
+        display: block;
+      }
+    }
+  }
+}
+@media only screen and (max-height: 320px) {
+  .TopNav_content {
+    &_NavFooter {
+      display: none;
+    }
+  }
+}
+@media only screen and (min-height: 620px) {
+  .TopNav_content {
+    &_NavLinks {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+
+// larger than mobile styles
+@media only screen and (min-width: 600px) {
+  .container-fluid {
+    padding-left: 77px;
+  }
+  .TopNav {
+    left: 0;
+    right: initial;
+    width: 270px;
+    overflow: hidden;
+    transform: translate(0);
+    transition: width $transition;
+    will-change: width;
+    .TopNav_toggleButton {
+      background: transparent;
+      &:before {
+        margin-left: 10px;
+      }
+    }
+    &.hidden > .TopNav_toggleButton {
+      transform: translate(0);
+      box-shadow: none;
+    }
+    &_content {
+      width: 270px;
+      &_logo {
+        transition: all $animSpeed linear;
+      }
+      &_NavLinks {
+        a {
+          transition-delay: inherit;
+        }
+        span {
+          margin-left: 8px;
+          opacity: 1;
+          transform: translate(0%);
+          transition: opacity $animSpeed * 3 linear, transform $transition;
+          transition-delay: inherit;
+        }
+      }
+      .FabList {
+        transition: all 0.2s linear $animSpeed * 0.8;
+      }
+      &_NavFooter {
+        transition: all 0.2s linear $animSpeed * 1.1;
+      }
+    }
+
+    &.hidden {
+      width: 77px;
+      .TopNav_content {
+        &_logo {
+          opacity: 0;
+          transform: translate(-150px);
+          transition: opacity $animSpeed/2, transform $animSpeed/2 step-end;
+        }
+        &_NavLinks {
+          li {
+            opacity: 1;
+            transform: translateX(0%);
+          }
+          span {
+            opacity: 0;
+            transform: translate(100%);
+            transition: all 0s linear $animSpeed;
+          }
+        }
+        .FabList {
+          opacity: 0;
+          transform: translate(-150px);
+          transition: opacity $animSpeed/2, transform $animSpeed/2 step-end;
+        }
+        &_NavFooter {
+          opacity: 0;
+          transform: translate(150px);
+          transition: opacity $animSpeed/2, transform $animSpeed/2 step-end;
+        }
+      }
+    }
   }
 }

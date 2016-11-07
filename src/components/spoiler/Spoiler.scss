@@ -6,4 +6,40 @@
   .FabLink {
     margin-top: 1rem;
   }
+  .Fab {
+    img {
+      display: none;
+    }
+    &:before, &:after {
+      content: "";
+      width: 60%;
+      height: 0px;
+      border: 2px solid white;
+      position: absolute;
+      left: 22%;
+      top: 44%;
+      border-radius: 3px;
+      background: white;
+      transition: transform 220ms ease-in-out;
+    }
+    &:after {
+
+    }
+    &:hover {
+      &:before {
+        transform: rotateZ(180deg);
+      }
+      &:after {
+        transform: rotateZ(270deg);
+      }
+    }
+  }
+
+  &-hidden {
+    .Fab {
+      &:after {
+        transform: rotateZ(90deg)
+      }
+    }
+  }
 }

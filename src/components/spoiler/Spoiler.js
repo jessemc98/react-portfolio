@@ -15,13 +15,11 @@ class Spoiler extends Component {
     this._set_content = this._set_content.bind(this)
   }
 
-  componentDidMount() {
-    this._initialHeight = this._content.clientHeight
-    this._content.style.height = 0
-  }
-
   _set_content(domNode) {
     this._content = domNode
+  }
+  _getContentHeight() {
+    return this._content.offsetHeight || this._content.clientHeight || 0
   }
 
   toggleContent(){
@@ -30,27 +28,28 @@ class Spoiler extends Component {
 
   render() {
     const style = {
-      overflow: 'hidden'
+      overflow: 'hidden',
+      height: '0px'
     }
-    if(this._initialHeight){
-      style.height = this.state.hidden?'0px':this._initialHeight+'px'
+    if (this._content) {
+      style.height = (this.state.hidden?'0px':this._getContentHeight() + 'px')
     }
-    const { iconName, text, children } = this.props
+
+    const { iconName, text } = this.props
+    const children = React.cloneElement(this.props.children, {ref: this._set_content})
 
     return (
-      <div className="Spoiler">
-        <div children={children} style={style} ref={this._set_content} />
-        <FabLink onClick={this.toggleContent} iconName={iconName} text={text}/>
+      <div className={"Spoiler" + (this.state.hidden?" Spoiler-hidden":"")}>
+        <div children={children} style={style} />
+        <FabLink onClick={this.toggleContent} iconName={iconName} text={"View " + (this.state.hidden?"more":"less") + " info about me"}/>
       </div>
     )
-
   }
-
 }
 
 Spoiler.propTypes = {
   showDefault: PropTypes.bool,
-  children: PropTypes.object.isRequired,
+  children: PropTypes.element.isRequired,
   text: PropTypes.string.isRequired,
   iconName: PropTypes.string.isRequired
 }

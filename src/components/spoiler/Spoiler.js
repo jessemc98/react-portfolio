@@ -41,7 +41,7 @@ class Spoiler extends Component {
     return (
       <div className={"Spoiler" + (this.state.hidden?" Spoiler-hidden":"")}>
         <div children={children} style={style} />
-        <FabLink onClick={this.toggleContent} iconName={iconName} text={"View " + (this.state.hidden?"more":"less") + " info about me"}/>
+        <FabLink onClick={this.toggleContent} iconName={iconName || "delete"} text={"View " + (this.state.hidden?"more ":"less ") + text}/>
       </div>
     )
   }
@@ -51,7 +51,7 @@ Spoiler.propTypes = {
   showDefault: PropTypes.bool,
   children: PropTypes.element.isRequired,
   text: PropTypes.string.isRequired,
-  iconName: PropTypes.string.isRequired
+  iconName: PropTypes.string
 }
 
 export default Spoiler

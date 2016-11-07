@@ -132,4 +132,21 @@ describe("Spoiler:", function () {
       expect(wrapper.hasClass('Spoiler-hidden')).toBeFalsy()
     });
   });
+  describe("it renders with correct text in FabLink", function () {
+    it("renders 'View more ' + props.text when hidden", function () {
+      const wrapper = mount(<Spoiler text="info"><p /></Spoiler>)
+      const FabLinkText = wrapper.find('.FabLink').childAt(1)
+
+      expect(FabLinkText.text()).toEqual('View more info')
+    });
+    it("renders 'View less ' + props.text when hidden", function () {
+      const wrapper = mount(<Spoiler text="info"><p /></Spoiler>)
+      const FabLinkText = wrapper.find('.FabLink').childAt(1)
+
+      FabLinkText.simulate('click')
+
+      expect(FabLinkText.text()).toEqual('View less info')
+    });
+
+  });
 });

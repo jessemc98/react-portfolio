@@ -1,12 +1,41 @@
 import React, { PropTypes } from 'react'
 import ModalContainer from '../Modal/ModalContainer'
 import FabLink from '../common/fab/FabLink'
+import BulletList from '../bulletList/BulletList'
 
 const KeySkills = () => {
+  const programmingSkills = [
+    'scoping',
+    'closures',
+    'asynchronicity',
+    'currying',
+    'promises',
+    'hoisting',
+    'prototypal inheritance',
+    'classical inheritance',
+    'composition',
+    'ajax/RESTful/CRUD',
+    'object oriented programming',
+    'functional programming'
+  ]
+  const testingSkills = [
+    'jasmine',
+    'mocha',
+    'expect',
+    'jsdom',
+    'karma',
+    'enzyme',
+    'TDD vs BDD',
+    'unit testing',
+    'intergration testing',
+    'black box testing',
+    'glass box testing'
+  ]
+
   return (
     <div className="AboutPage_KeySkills">
       <div className="AboutPage_KeySkills_keyskills">
-        <ModalContainer title="React" imgSrc="https://avatars1.githubusercontent.com/u/1545643?v=3&s=200">
+        <ModalContainer title="React" imgSrc="src/assets/icons/react.svg">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -19,7 +48,7 @@ const KeySkills = () => {
             He determined
           </p>
         </ModalContainer>
-        <ModalContainer title="React" imgSrc="https://avatars1.githubusercontent.com/u/1545643?v=3&s=200">
+        <ModalContainer title="Redux" imgSrc="src/assets/icons/redux.svg">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -32,7 +61,7 @@ const KeySkills = () => {
             He determined
           </p>
         </ModalContainer>
-        <ModalContainer title="React" imgSrc="https://avatars1.githubusercontent.com/u/1545643?v=3&s=200">
+        <ModalContainer title="Mocha" imgSrc="src/assets/icons/mocha.svg">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -48,18 +77,24 @@ const KeySkills = () => {
       </div>
       <div className="AboutPage_KeySkills_lists">
         <ul>
-          <FabLink iconName="eye" path="/" text="Eye" />
-          <FabLink iconName="codepen" path="/" text="Codepen" />
-          <FabLink iconName="github" path="/" text="Github" />
-          <FabLink iconName="message" path="/" text="Message" />
+          <FabLink iconName="angular" path="/" text="Angular" />
+          <FabLink iconName="gulp" path="/" text="Gulp" />
+          <FabLink iconName="jquery" path="/" text="Jquery" extension="png"/>
+          <FabLink iconName="githubblack" path="/" text="Git/Github" />
+          <FabLink iconName="htmlfive" path="/" text="HTML" extension="png"/>
         </ul>
         <ul>
-        <FabLink iconName="eye" path="/" text="Eye" />
-        <FabLink iconName="codepen" path="/" text="Codepen" />
-        <FabLink iconName="github" path="/" text="Github" />
-        <FabLink iconName="message" path="/" text="Message" />
+        <FabLink iconName="webpack" path="/" text="Webpack" />
+        <FabLink iconName="sass" path="/" text="Sass" style={{transform: 'scale(1.5)'}}/>
+        <FabLink iconName="modernizr" path="/" text="Modernizr" />
+        <FabLink iconName="javascript" path="/" text="Javascript" extension="png"/>
+        <FabLink iconName="cssthree" path="/" text="CSS" extension="png"/>
         </ul>
-        </div>
+      </div>
+      <div className="AboutPage_KeySkills_other">
+        <BulletList title="Programming Knowlede" items={programmingSkills} />
+        <BulletList title="Testing Knowledge" items={testingSkills} />
+      </div>
     </div>
   )
 }

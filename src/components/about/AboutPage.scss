@@ -37,14 +37,15 @@
     max-width: 960px;
     margin: auto;
     &_keyskills {
-      max-width: 244.469px * 3;
+      max-width: 960px;
+      width: 90%;
       margin: auto;
     }
     &_lists {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      width: 80%;
+      width: 90%;
       margin: auto;
       ul {
         display: inline-block;
@@ -52,13 +53,26 @@
         .FabLink > .Fab {
           width: 1.8em;
           height: 1.8em;
+          background: transparent;
+          box-shadow: none;
+          img {
+            height: inherit;
+            width: auto;
+          }
         }
+      }
+    }
+    &_other {
+      margin: auto;
+      width: 90%;
+      .BulletList {
+        margin: 0 0.5em;
       }
     }
   }
 
   &_websiteInfo {
-    width: 90%;
+    width: 85%;
     max-width: 840px;
     margin: auto;
     margin-bottom: 1em;
@@ -94,8 +108,10 @@
 
     &_KeySkills {
       font-size: 1.2em;
-      ul {
-        font-size: 1.378em;
+      &_lists {
+        ul {
+          font-size: 1.378em;
+        }
       }
     }
   }
@@ -105,15 +121,26 @@
     &_aboutMe_AboutInfo {
       width: 100%;
     }
+    &_KeySkills {
+      &_other {
+        display: flex;
+        justify-content: space-around;
+      }
+    }
   }
 }
 @media only screen and (min-width : 720px) {
   .AboutPage {
-    &_KeySkills_lists {
-      justify-content: space-around;
-    }
-    &_KeySkills ul {
-      font-size: 1.8em;
+    &_KeySkills {
+      &_lists {
+        justify-content: space-around;
+        ul {
+          font-size: 1.8em;
+        }
+      }
+      &_other {
+        font-size: 1.2em;
+      }
     }
   }
 }
@@ -121,6 +148,9 @@
   .AboutPage {
     &_aboutMe {
       margin: 50px auto;
+    }
+    &_KeySkills_other {
+      font-size: 1.5em;
     }
   }
 }

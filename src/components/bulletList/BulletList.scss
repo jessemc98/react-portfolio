@@ -1,0 +1,11 @@
+@import '../../style/colors.scss';
+
+.BulletList {
+  &_title {
+    color: $primary;
+    font-size: 1.3em;
+  }
+  &_list {
+    font-size: 1em;
+  }
+}

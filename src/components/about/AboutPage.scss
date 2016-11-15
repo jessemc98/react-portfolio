@@ -7,7 +7,7 @@
 
     .PictureFrame {
       margin: 0px auto;
-      margin-top: 50px;
+      margin-top: 45px;
     }
 
     &_AboutInfo {
@@ -99,6 +99,7 @@
       .PictureFrame {
         float: right;
         width: 244.469px;
+        margin-left: 20px;
         & > img {
           height: 244.469px;
           margin-bottom: 5px;

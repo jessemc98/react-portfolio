@@ -217,6 +217,12 @@ $transition: $animSpeed linear;
     &_logo {
       display: none;
     }
+    &_NavLinks {
+      transition: transform $animSpeed * 1.5 ease-in;
+      .hidden & {
+        transform: translateY(50px);
+      }
+    }
     .FabList {
       margin-bottom: 10px;
     }
@@ -228,7 +234,7 @@ $transition: $animSpeed linear;
     }
   }
 }
-@media only screen and (max-height: 320px) {
+@media only screen and (max-height: 330px) {
   .TopNav_content {
     &_NavFooter {
       display: none;

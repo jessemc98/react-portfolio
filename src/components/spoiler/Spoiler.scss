@@ -22,23 +22,15 @@
       background: white;
       transition: transform 220ms ease-in-out;
     }
-    &:after {
-
-    }
-    &:hover {
-      &:before {
-        transform: rotateZ(180deg);
-      }
-      &:after {
-        transform: rotateZ(270deg);
-      }
-    }
   }
 
   &-hidden {
     .Fab {
       &:after {
-        transform: rotateZ(90deg)
+        transform: rotateZ(180deg);
+      }
+      &:before {
+        transform: rotateZ(270deg);
       }
     }
   }

@@ -17,7 +17,19 @@ const AboutPage = (props) => {
       <PageDivider title="About this Website" />
       <div className="AboutPage_websiteInfo">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+          This website was developed from the ground up using React. It follows
+          current best practices and is <a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fj-mcintosh.com">optimized for performance</a>.
+        </p>
+        <p>
+          I wrote a simple custom webpack configuration to properly bundle the
+          application with features such as hot reloading, automated testing
+          using mocha and jsdom, bundle splitting, filename hashing, minifying,
+          auto prefixing, code linting and much more
+          (check it out <a href="https://github.com/jessemc98/webpack-build">here</a>).
+        </p>
+        <p>
+          To view the source code for this website click the button below which
+          will redirect you to the project on Github.
         </p>
         <a href="https://github.com/jessemc98/react-portfolio" className="jmc_button">View Source on Github</a>
       </div>

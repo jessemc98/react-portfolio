@@ -37,58 +37,55 @@ const KeySkills = () => {
       <div className="AboutPage_KeySkills_keyskills">
         <ModalContainer title="React" imgSrc="src/assets/icons/react.svg">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd
-            qualms, when he reached the Father Superior's with Ivan: he felt ashamed of
-            havin lost his temper. He felt that he ought to have disdaimed that despicable
-            wretch, Fyodor Pavlovitch, too much to have been upset by him in Father Zossima's cell,
-            and so to have forgotten himself. "Teh monks were not to blame, in any case," he reflceted, on the steps. "And if they're decent people here (and the Father Superior, I understand, is a nobleman) why not be friendly and courteous withthem? I won't argue, I'll fall in with everything, I'll win them by politness, and show them that I've nothing to do with that Aesop, thta buffoon, that Pierrot, and have merely been takken in over this affair, just as they have."
-            He determined
+            Contrary to popular belief, React is not a javascript framework but
+            simply a UI library. React makes it painless to create interactive UIs.
+            Design simple views for each state in your application, and React
+            will efficiently update and render just the right components when your
+            data changes. React can also render on the server using Node and power mobile
+            apps using React Native. It is quickly becoming the most popular
+            presentation library to use for new web applications.
           </p>
         </ModalContainer>
         <ModalContainer title="Redux" imgSrc="src/assets/icons/redux.svg">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd
-            qualms, when he reached the Father Superior's with Ivan: he felt ashamed of
-            havin lost his temper. He felt that he ought to have disdaimed that despicable
-            wretch, Fyodor Pavlovitch, too much to have been upset by him in Father Zossima's cell,
-            and so to have forgotten himself. "Teh monks were not to blame, in any case," he reflceted, on the steps. "And if they're decent people here (and the Father Superior, I understand, is a nobleman) why not be friendly and courteous withthem? I won't argue, I'll fall in with everything, I'll win them by politness, and show them that I've nothing to do with that Aesop, thta buffoon, that Pierrot, and have merely been takken in over this affair, just as they have."
-            He determined
+            Redux is a predictable state container for JavaScript apps. Redux
+            evolves the ideas of Flux, but avoids its complexity. Redux can be
+            described in three fundamental principles; state is immutable, changes
+            are made with pure functions and it follows the single source of truth
+            principle. Though many developers associate Redux with React it can
+            be used with any view library e.g. Angular, Backbone, ect... and has
+            no relation to react.
           </p>
         </ModalContainer>
         <ModalContainer title="Mocha" imgSrc="src/assets/icons/mocha.svg">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            Miusov, as a man man of breeding and deilcacy, could not but feel some inwrd
-            qualms, when he reached the Father Superior's with Ivan: he felt ashamed of
-            havin lost his temper. He felt that he ought to have disdaimed that despicable
-            wretch, Fyodor Pavlovitch, too much to have been upset by him in Father Zossima's cell,
-            and so to have forgotten himself. "Teh monks were not to blame, in any case," he reflceted, on the steps. "And if they're decent people here (and the Father Superior, I understand, is a nobleman) why not be friendly and courteous withthem? I won't argue, I'll fall in with everything, I'll win them by politness, and show them that I've nothing to do with that Aesop, thta buffoon, that Pierrot, and have merely been takken in over this affair, just as they have."
-            He determined
+            Mocha is a feature-rich JavaScript test framework running on Node.js
+            and in the browser. It makes asynchronous testing simple and fun.
+            Mocha does not come with inbuilt assertions by default and so, it is
+            commonly used with an assertion library such as Chai or Expect. Testing
+            is an important step of any software development project and should
+            always be done, though you may disagree, I strongly believe that code
+            written without tests is not good code. Though testing a simple application
+            may seem like a waste of time at first, you will quickly see the value
+            of writting quality tests when you switch from writting new code to
+            refactoring old code.
           </p>
         </ModalContainer>
       </div>
       <div className="AboutPage_KeySkills_lists">
         <ul>
-          <FabLink iconName="angular" path="/" text="Angular" />
-          <FabLink iconName="gulp" path="/" text="Gulp" />
-          <FabLink iconName="jquery" path="/" text="Jquery" extension="png"/>
-          <FabLink iconName="githubblack" path="/" text="Git/Github" />
-          <FabLink iconName="htmlfive" path="/" text="HTML" extension="png"/>
+          <FabLink iconName="angular" path="https://angularjs.org/" text="Angular" />
+          <FabLink iconName="gulp" path="http://gulpjs.com/" text="Gulp" />
+          <FabLink iconName="jquery" path="https://jquery.com/" text="Jquery" extension="png"/>
+          <FabLink iconName="githubblack" path="https://github.com/" text="Git/Github" />
+          <FabLink iconName="htmlfive" path="https://www.w3.org/TR/html5/" text="HTML" extension="png"/>
         </ul>
         <ul>
-        <FabLink iconName="webpack" path="/" text="Webpack" />
-        <FabLink iconName="sass" path="/" text="Sass" style={{transform: 'scale(1.5)'}}/>
-        <FabLink iconName="modernizr" path="/" text="Modernizr" />
-        <FabLink iconName="javascript" path="/" text="Javascript" extension="png"/>
-        <FabLink iconName="cssthree" path="/" text="CSS" extension="png"/>
+        <FabLink iconName="webpack" path="https://webpack.github.io/" text="Webpack" />
+        <FabLink iconName="sass" path="http://sass-lang.com/" text="Sass" style={{transform: 'scale(1.5)'}}/>
+        <FabLink iconName="modernizr" path="https://modernizr.com/" text="Modernizr" />
+        <FabLink iconName="javascript" path="http://www.ecma-international.org/publications/standards/Ecma-262.htm" text="Javascript" extension="png"/>
+        <FabLink iconName="cssthree" path="https://www.w3.org/Style/CSS/specs.en.html" text="CSS" extension="png"/>
         </ul>
       </div>
       <div className="AboutPage_KeySkills_other">

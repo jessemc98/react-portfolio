@@ -5,9 +5,9 @@ const navLinks = [
 ]
 
 const socialLinks = [
-    {iconName:"github", path:"/"},
-    {iconName:"codepen", path:"/"},
-    {iconName:"linkedin", path:"/"}
+    {iconName:"github", path:"https://github.com/jessemc98"},
+    {iconName:"codepen", path:"http://codepen.io/jessemc98/"},
+    {iconName:"linkedin", path:"https://www.linkedin.com/in/jesse-mcintosh-61b842117"}
 ]
 
 export {navLinks, socialLinks}

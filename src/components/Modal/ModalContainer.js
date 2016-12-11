@@ -62,7 +62,7 @@ class ModalContainer extends React.Component {
     const { imgSrc, title } = this.props
     return (
       <button className="ModalContainer_button" onClick={this.state.hidden?this.showModal:this.hideModal}>
-        <img src={imgSrc} />
+        <img src={imgSrc} alt={title + ' modal button'} />
         <h3>{title}</h3>
       </button>
     )

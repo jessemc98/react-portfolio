@@ -26,7 +26,7 @@ class Modal extends React.Component {
         <div className="Modal">
           <button className="Modal_button" onClick={this.props.hide}>X</button>
           <div className="Modal_header">
-            <img className="Modal_image" src={imgSrc}/>
+            <img className="Modal_image" src={imgSrc} alt={title + ' logo'}/>
             <h2>{title}</h2>
           </div>
           <div className="Modal_content">

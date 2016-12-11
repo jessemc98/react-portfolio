@@ -8,7 +8,7 @@ import picture from '../../assets/images/logo.png'
 const PictureFrame = (props) => {
   return (
     <div className="PictureFrame">
-      <img src={picture} />
+      <img src={picture} alt="jmc logo: jmc in bold white letters"/>
       <FabList links={socialLinks}/>
     </div>
   )

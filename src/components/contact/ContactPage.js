@@ -5,6 +5,8 @@ import Fab from '../common/fab/Fab'
 import FabList from '../common/FabList/FabList'
 import { socialLinks } from '../../store/links'
 
+import locationIcon from '../../assets/icons/location.svg'
+
 const ContactPage = (props) => {
   return (
     <div className="ContactPage">
@@ -20,7 +22,7 @@ const ContactPage = (props) => {
       </div>
       <div className="ContactPage_buttons">
         <div className="ContactPage_buttons_location">
-          <Fab iconName="location" />
+          <Fab icon={locationIcon} alt="location icon"/>
         </div>
         <FabList links={socialLinks} />
       </div>

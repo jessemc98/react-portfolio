@@ -21,15 +21,15 @@ describe("FabLink", function () {
     expect(wrapper.find('Fab').length).toEqual(1)
   })
   it("should create small 'Fab' with correct props", function () {
-    const wrapper = setup({iconName: 'menu-button', path: '/test'})
+    const wrapper = setup({icon: '/assets/menu-button.png', path: '/test'})
 
     const expected = {
-      iconName: 'menu-button',
+      icon: '/assets/menu-button.png',
       path: '/test',
       small: true
     }
 
-    expect(wrapper.find('Fab').prop('iconName')).toEqual(expected.iconName);
+    expect(wrapper.find('Fab').prop('icon')).toEqual(expected.icon);
     expect(wrapper.find('Fab').prop('path')).toEqual(expected.path);
     expect(wrapper.find('Fab').prop('small')).toEqual(expected.small);
   });

@@ -20,15 +20,15 @@ describe("Fab", function () {
 
     expect(wrapper.prop('href')).toEqual('/testpath')
   });
-  it("contains an <Icon/> component", function () {
+  it("contains an <img/> element", function () {
     const wrapper = setup()
 
-    expect(wrapper.find("Icon").length).toEqual(1)
+    expect(wrapper.find("img").length).toEqual(1)
   });
-  it("<Icon /> should have iconName prop === props.iconName", function () {
-    const wrapper = setup({iconName: 'test'})
+  it("<img /> should a src prop === props.icon", function () {
+    const wrapper = setup({icon: 'test'})
 
-    expect(wrapper.find("Icon").prop('iconName')).toEqual('test')
+    expect(wrapper.find("img").prop('src')).toEqual('test')
   });
   it("should have a class of 'Fab' on the returned element", function () {
     const wrapper = setup()

@@ -6,6 +6,7 @@ import FabList from '../FabList/FabList'
 import NavFooter from './NavFooter'
 
 import { navLinks, socialLinks } from '../../../store/links'
+import logoSrc from '../../../assets/images/logo.png'
 
 class TopNav extends Component {
   constructor(props, context){
@@ -26,7 +27,7 @@ class TopNav extends Component {
         <button className="TopNav_toggleButton" onClick={this.toggleNav} />
         <div className="TopNav_content">
           <div className="TopNav_content_logo">
-            <img src="src/assets/images/logo.png" alt="logo-jmc-in-block-letters"/>
+            <img src={logoSrc} alt="logo-jmc-in-block-letters"/>
           </div>
           <NavLinks links={navLinks} classes="TopNav_content_NavLinks" delay={150}/>
           <FabList links={socialLinks} className="TopNav_content_socialLinks"/>

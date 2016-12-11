@@ -29,7 +29,7 @@ require.extensions['.css'] = function () {return null;};
 require.extensions['.scss'] = function () {return null;};
 require.extensions['.png'] = function () {return null;};
 require.extensions['.jpg'] = function () {return null;};
-
+require.extensions['.svg'] = function () {return null;};
 // Configure JSDOM and set global variables
 // to simulate a browser environment for tests.
 var jsdom = require('jsdom').jsdom;

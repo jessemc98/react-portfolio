@@ -3,6 +3,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const fs = require("fs")
+const path = require("path")
+const url = require("url")
 
 exports.devServer = function(options) {
   return {
@@ -11,15 +14,12 @@ exports.devServer = function(options) {
       // routing works. This is a good default that will come
       // in handy in more complicated setups.
       historyApiFallback: true,
-
       // Unlike the cli flag, this doesn't set
       // HotModuleReplacementPlugin!
       hot: true,
       inline: true,
-
       // Display only errors to reduce the amount of output.
       stats: 'errors-only',
-
       // Parse host and port from env to allow customization.
       //
       // If you use Vagrant or Cloud9, set
@@ -43,11 +43,24 @@ exports.browserSync = function() {
   return {
     plugins: [
       new BrowserSyncPlugin({
-        // browse to http://localhost:3000/ during development, 
-        // ./bin directory is being served 
+        // browse to http://localhost:3000/ during development,
+        // ./bin directory is being served
         host: 'localhost',
         port: 3000,
-        server: { baseDir: ['bin'] }
+        server: {
+          baseDir: ['bin'],
+          middleware: function(req, res, next) {
+            // ensures browser-sync serves .bin/index.html
+            // even if not on index route
+              var fileName = url.parse(req.url);
+              fileName = fileName.href.split(fileName.search).join("");
+              var fileExists = fs.existsSync('bin/' + fileName);
+              if (!fileExists && fileName.indexOf("browser-sync-client") < 0) {
+                  req.url = "/index.html";
+              }
+              return next();
+          }
+        }
       })
     ]
   }
@@ -76,7 +89,8 @@ exports.extractBundle = function(options) {
       // Extract bundle and manifest files. Manifest is
       // needed for reliable caching.
       new webpack.optimize.CommonsChunkPlugin({
-        names: [options.name, 'manifest']
+        names: [options.name , 'manifest'],
+        filename: '[name].[chunkhash].js'
       })
     ]
   };
@@ -119,7 +133,7 @@ exports.lint = function(paths) {
   }
 }
 // css-loader will resolve @import and url statements in our CSS files.
-// style-loader deals with require statements in our JavaScript. 
+// style-loader deals with require statements in our JavaScript.
 // A similar approach works with CSS preprocessors, like Sass and Less, and their loaders.
 exports.setupCSS = function(paths) {
   return {

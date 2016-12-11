@@ -55,22 +55,35 @@ switch(process.env.npm_lifecycle_event) {
         'process.env.NODE_ENV',
         'production'
       ),
-       parts.extractBundle({
+      {
+        resolve: {
+          alias: {
+            'react': 'react-lite',
+            'react-dom': 'react-lite'
+          }
+        }
+      },
+      parts.extractBundle({
         name: 'vendor',
-        entries: ['react', 'react-dom', 'react-router', 'babel-polyfill']
+        entries: ['react', 'react-dom', 'react-router']
       }),
       parts.loadImages(PATHS.images),
       parts.extractCSS(PATHS.app),
-      parts.uglifyJs()
-      // {
-      //   resolve: {
-      //     alias: {
-      //       'react': 'react-lite',
-      //       'react-dom': 'react-lite'
-      //     }
-      //   }
-      // }
+      parts.uglifyJs(),
+      parts.browserSync()
     );
+    break;
+  case 'serve:build':
+    config = merge(
+      common,
+      {
+        output: {
+          path: PATHS.temp,
+          filename: '[name].js'
+        }
+      },
+      parts.browserSync()
+    )
     break;
 
   default:

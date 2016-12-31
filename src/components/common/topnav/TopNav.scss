@@ -5,7 +5,9 @@ $border: 1px solid $backgroundIndent;
 
 $animSpeed: 0.2s;
 $transition: $animSpeed linear;
-
+.TopNav_content-wrapper {
+  height: 100%;
+}
 .TopNav {
   z-index: 999;
   position: fixed;
@@ -31,7 +33,7 @@ $transition: $animSpeed linear;
     background: darken($background, 5%);
     border: 1px solid $textColor;
     border: none;
-    outline: none;
+    // outline: none;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     border-radius: 29% 33% 36% 35%;

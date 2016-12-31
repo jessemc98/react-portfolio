@@ -24,7 +24,11 @@ class Modal extends React.Component {
     const { content, imgSrc, title } = this.props
     return (
       <Backdrop key="modal" className="Modal-container" onClick={this.hide} hidden={this.state.hidden}>
-        <FocusTrap>
+        <FocusTrap
+          focusTrapOptions={{
+            onDeactivate: this.hide,
+            clickOutsideDeactivates: true
+          }}>
           <div className="Modal">
             <button className="Modal_button" onClick={this.hide}>X</button>
             <div className="Modal_header">

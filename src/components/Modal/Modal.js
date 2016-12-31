@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import './Modal.scss'
 import Backdrop from '../common/backdrop/Backdrop'
+import FocusTrap from 'focus-trap-react'
 
 class Modal extends React.Component {
   constructor(props, context) {
@@ -23,16 +24,22 @@ class Modal extends React.Component {
     const { content, imgSrc, title } = this.props
     return (
       <Backdrop key="modal" className="Modal-container" onClick={this.hide} hidden={this.state.hidden}>
-        <div className="Modal">
-          <button className="Modal_button" onClick={this.props.hide}>X</button>
-          <div className="Modal_header">
-            <img className="Modal_image" src={imgSrc} alt={title + ' logo'}/>
-            <h2>{title}</h2>
+        <FocusTrap
+          focusTrapOptions={{
+            onDeactivate: this.hide,
+            clickOutsideDeactivates: true
+          }}>
+          <div className="Modal">
+            <button className="Modal_button" onClick={this.hide}>X</button>
+            <div className="Modal_header">
+              <img className="Modal_image" src={imgSrc} alt={title + ' logo'}/>
+              <h2>{title}</h2>
+            </div>
+            <div className="Modal_content">
+              {content}
+            </div>
           </div>
-          <div className="Modal_content">
-            {content}
-          </div>
-        </div>
+        </FocusTrap>
       </Backdrop>
     )
   }

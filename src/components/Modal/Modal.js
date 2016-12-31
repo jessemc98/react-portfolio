@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import './Modal.scss'
 import Backdrop from '../common/backdrop/Backdrop'
-import FocusTrap from 'react-focus-trap'
+import FocusTrap from 'focus-trap-react'
 
 class Modal extends React.Component {
   constructor(props, context) {

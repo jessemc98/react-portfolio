@@ -63,13 +63,14 @@ switch(process.env.npm_lifecycle_event) {
         resolve: {
           alias: {
             'react': 'react-lite',
-            'react-dom': 'react-lite'
+            'react-dom': 'react-lite',
+            'react-router': 'react-router/es6'
           }
         }
       },
       parts.extractBundle({
         name: 'vendor',
-        entries: ['react', 'react-dom', 'react-router', 'focus-trap-react']
+        entries: ['react', 'react-dom', 'focus-trap-react']
       }),
       parts.loadImages(PATHS.images),
       parts.extractCSS(PATHS.app),

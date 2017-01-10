@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel serve test:watch",
     "build": "webpack && npm run serve:build",
-    "serve:build": "webpack --watch",
+    "serve:build": "node libs/devServer.js",
     "serve": "webpack-dev-server",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --cache",
     "test": "mocha --color --reporter spec libs/test.js src/*.test.js src/**/*.test.js src/components/**/*.test.js src/components/**/**/*.test.js",

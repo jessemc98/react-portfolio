@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const parts = require('./libs/parts')
 
 const merge = require('webpack-merge')
-const validate = require('webpack-validator')
 const PATHS = {
   app: path.join(__dirname, 'src'),
   build: path.join(__dirname, 'bin'),
@@ -19,14 +18,14 @@ const common = {
     app: PATHS.app
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader'
+      use: ['babel-loader']
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   plugins: [new HtmlWebpackPlugin({
     template: './src/index.html'
@@ -44,7 +43,12 @@ switch(process.env.npm_lifecycle_event) {
         output: {
           path: PATHS.build,
           filename: '[name].[chunkhash].js'
-        }
+        },
+        plugins: [
+          new webpack.LoaderOptionsPlugin({
+            minimize: true
+          })
+        ]
       },
       {
         devtool: 'source-map'
@@ -65,7 +69,7 @@ switch(process.env.npm_lifecycle_event) {
       },
       parts.extractBundle({
         name: 'vendor',
-        entries: ['react', 'react-dom', 'react-router']
+        entries: ['react', 'react-dom', 'react-router', 'focus-trap-react']
       }),
       parts.loadImages(PATHS.images),
       parts.extractCSS(PATHS.app),
@@ -108,4 +112,4 @@ switch(process.env.npm_lifecycle_event) {
     );
 }
 
-module.exports = validate(config);
+module.exports = config;

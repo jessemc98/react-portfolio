@@ -99,32 +99,55 @@ exports.extractBundle = function(options) {
 exports.extractCSS = function(paths) {
   return {
     module: {
-      loaders: [
+      rules: [
         // Extract CSS during build
         {
           test: /\.(scss|css|sass)$/,
-          loader: ExtractTextPlugin.extract('style', 'css!postcss!sass'),
+          loader: ExtractTextPlugin.extract({
+            fallbackLoader: "style-loader",
+            loader: [
+              {
+                loader: "css-loader"
+              },
+              {
+                loader: "postcss-loader"
+                // options: {
+                //   plugins: function () {
+                //     return [autoprefixer]
+                //   }
+                // }
+              },
+              {
+                loader: "sass-loader"
+              }
+            ]
+          }),
           include: paths
         }
       ]
     },
-    postcss: function(){
-      return [autoprefixer]
-    },
     plugins: [
+      new webpack.LoaderOptionsPlugin({
+         options: {
+            postcss: [autoprefixer]
+        }
+      }),
       // Output extracted CSS to a file
-      new ExtractTextPlugin('[name].[hash].min.css')
+      new ExtractTextPlugin({
+        filename: '[name].[hash].min.css'
+      })
     ]
   };
 }
 exports.lint = function(paths) {
   return {
     module: {
-      preLoaders: [
+      rules: [
         {
           // the regex tests for js | jsx
           test: /\.jsx?$/,
-          loaders: ['eslint'],
+          enforce: "pre",
+          loader: "eslint-loader",
           // define an include so we check just the files we need
           include: paths
         }
@@ -138,10 +161,14 @@ exports.lint = function(paths) {
 exports.setupCSS = function(paths) {
   return {
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.(scss|css|sass)$/,
-          loaders: ['style', 'css', 'sass'],
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader'
+          ],
           include: paths
         }
       ]
@@ -152,15 +179,29 @@ exports.setupCSS = function(paths) {
 exports.setupImages = function(paths) {
   return {
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.(jpg|png)$/,
-          loader: 'url?limit=25000',
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: '25000'
+              }
+            }
+          ],
           include: paths
         },
         {
           test: /\.svg$/,
-          loader: 'file?name=[path][name].[hash].[ext]',
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[hash].[ext]'
+              }
+            }
+          ],
           include: paths
         }
       ]
@@ -171,10 +212,17 @@ exports.setupImages = function(paths) {
 exports.loadImages = function(paths) {
   return {
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.(jpg|png|svg)$/,
-          loader: 'file?name=[path][name].[hash].[ext]',
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[hash].[ext]'
+              }
+            }
+          ],
           include: paths
         }
       ]
@@ -187,6 +235,8 @@ exports.uglifyJs = function() {
     plugins: [
       new webpack.optimize.UglifyJsPlugin(
         {
+          minimize: true,
+          debug: false,
           compress: {
             warnings: false,
           },

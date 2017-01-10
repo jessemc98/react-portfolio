@@ -74,8 +74,7 @@ switch(process.env.npm_lifecycle_event) {
       }),
       parts.loadImages(PATHS.images),
       parts.extractCSS(PATHS.app),
-      parts.uglifyJs(),
-      parts.browserSync()
+      parts.uglifyJs()
     );
     break;
   case 'serve:build':

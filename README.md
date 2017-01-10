@@ -2,7 +2,7 @@
 
 ## This project uses the following technologies
 * *JS Framework*: ReactJS
-* *Router*: ReactRouter 
+* *Router*: ReactRouter
 * *CSS pre-processor*: Sass with Node
 * *Testing framework*: Mocha
 * *Assertion library*: Expect
@@ -15,10 +15,11 @@ This project uses a simple Webpack config for an automated workflow. Check out t
 
 ## Usage
 
-* *npm start*: serves a development server at localhost on port 8080 and runs npm test whith --watch flag.
-* *npm run serve*: serves a development server using /src folder.
+* *npm start*: serves a development server at localhost on port 8080 and runs npm test with --watch flag.
+* *npm run serve*: serves a development server in /src folder.
+* *npm run serve:build*: serves a node/express server in /bin folder.
 * *npm test*: runs all test files with the format '*.test.js'. Tests are run using Mocha in the node environment using 'jsdom'.
-* *npm run build*: builds an optimized version of the project in the ./bin/ directory
+* *npm run build*: builds an optimized version of the project in the ./bin directory and serves the project on a express server at localhost:8080.
 
 ## Directory structure
 

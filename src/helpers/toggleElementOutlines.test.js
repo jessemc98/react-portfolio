@@ -22,7 +22,7 @@ function mockKeyDown(){
   document.body.dispatchEvent(keyboardEvent);
 }
 
-describe.only("toggleElementOutlines", function () {
+describe("toggleElementOutlines", function () {
   let cancel;
 
   beforeEach(function () {

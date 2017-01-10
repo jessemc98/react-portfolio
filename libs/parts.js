@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const fs = require("fs")
 const path = require("path")
@@ -38,32 +37,6 @@ exports.devServer = function(options) {
       })
     ]
   };
-}
-exports.browserSync = function() {
-  return {
-    plugins: [
-      new BrowserSyncPlugin({
-        // browse to http://localhost:3000/ during development,
-        // ./bin directory is being served
-        host: 'localhost',
-        port: 3000,
-        server: {
-          baseDir: ['bin'],
-          middleware: function(req, res, next) {
-            // ensures browser-sync serves .bin/index.html
-            // even if not on index route
-              var fileName = url.parse(req.url);
-              fileName = fileName.href.split(fileName.search).join("");
-              var fileExists = fs.existsSync('bin/' + fileName);
-              if (!fileExists && fileName.indexOf("browser-sync-client") < 0) {
-                  req.url = "/index.html";
-              }
-              return next();
-          }
-        }
-      })
-    ]
-  }
 }
 
 exports.clean = function(path) {

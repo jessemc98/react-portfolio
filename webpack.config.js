@@ -19,11 +19,28 @@ const common = {
     app: PATHS.app
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: ['babel-loader']
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      // ensure manifest icons are properly bundled
+      {
+        test: /manifest.json$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'manifest.json'
+            }
+          },
+          {
+            loader: 'web-app-manifest-loader'
+          }
+        ]
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx']

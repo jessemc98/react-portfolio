@@ -1,0 +1,44 @@
+{
+  "name": "Jesse's React Portfolio",
+  "short_name": "JesseMc",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#197DB0",
+  "description": "A portfolio written by Jesse McIntosh using bleeding edge technologies, including, React, Webpack, ServiceWorkers and more.",
+  "icons": [
+    {
+      "src": "./assets/appIcon/react48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/appIcon/react72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/appIcon/react96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/appIcon/react144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/appIcon/react168.png",
+      "sizes": "168x168",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/appIcon/react192.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [{
+    "platform": "web"
+  }]
+}

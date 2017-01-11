@@ -192,7 +192,7 @@ exports.loadImages = function(paths) {
             {
               loader: 'file-loader',
               options: {
-                name: '[path][name].[hash].[ext]'
+                name: '/assets/[name].[hash].[ext]'
               }
             }
           ],

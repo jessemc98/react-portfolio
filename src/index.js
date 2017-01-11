@@ -7,6 +7,9 @@ import './style/index.scss'
 import toggleElementOutlines from './helpers/toggleElementOutlines'
 import OfflinePlugin from 'offline-plugin/runtime'
 
+// import manifest so app can be installed to homescreen
+import './manifest.json'
+
 const rootElement = document.createElement('div')
 document.body.appendChild(rootElement)
 

@@ -10,6 +10,9 @@ function setup() {
   return shallow(<TopNav />)
 }
 
+// mock raf synchronously
+global.requestAnimationFrame = (fn) => fn()
+
 describe("TopNav", function () {
   it("should render an element with class of TopNav", function () {
     const wrapper = setup()

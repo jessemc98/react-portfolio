@@ -22,7 +22,7 @@ class TopNav extends Component {
     this.closeNav = this.closeNav.bind(this)
   }
   closeNav() {
-    this.setState({isOpen: false})
+    requestAnimationFrame(() => this.setState({isOpen: false}))
   }
   toggleNav() {
     this.setState({isOpen: !this.state.isOpen})

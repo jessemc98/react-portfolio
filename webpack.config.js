@@ -48,14 +48,6 @@ const common = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
-    new OfflinePlugin({
-      ServiceWorker: {
-        navigateFallbackURL: 'index.html'
-      },
-      AppCache: {
-        FALLBACK: { '/': '/index.html' }
-      }
     })
   ]
 }
@@ -75,6 +67,14 @@ switch(process.env.npm_lifecycle_event) {
         plugins: [
           new webpack.LoaderOptionsPlugin({
             minimize: true
+          }),
+          new OfflinePlugin({
+            ServiceWorker: {
+              navigateFallbackURL: 'index.html'
+            },
+            AppCache: {
+              FALLBACK: { '/': '/index.html' }
+            }
           })
         ]
       },

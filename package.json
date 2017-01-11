@@ -47,6 +47,7 @@
     "style-loader": "0.13.1",
     "url": "0.11.0",
     "url-loader": "0.5.7",
+    "web-app-manifest-loader": "^0.1.1",
     "webpack": "2.1.0-beta.28",
     "webpack-dev-server": "^1.16.2",
     "webpack-merge": "2.3.1"

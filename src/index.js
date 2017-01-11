@@ -10,8 +10,10 @@ import OfflinePlugin from 'offline-plugin/runtime'
 // import manifest so app can be installed to homescreen
 import './manifest.json'
 
-const rootElement = document.createElement('div')
-document.body.appendChild(rootElement)
+// get root element and remove loading class
+// then render react to root element
+const rootElement = document.getElementById('root')
+rootElement.className = ""
 
 render(
   <Router history={browserHistory} routes={routes}/>,

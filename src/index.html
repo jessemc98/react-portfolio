@@ -6,7 +6,57 @@
 	<link rel="manifest" href="manifest.json">
 	<meta name="theme-color" content="#197DB0">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"/>
+	<style>
+		html, body {
+			margin: 0;
+			background: #F0F1F1;
+			height: 100%;
+			width: 100%;
+		}
+		#root.loading {
+		  box-sizing: border-box;
+		  width: 100px;
+		  height: 100px;
+		  padding: 30px 30px;
+			margin: auto;
+			top: 50%;
+			transform: translate(0,-50%);
+			position: relative;
+		}
+		.spinner {
+			display: block;
+		  position: absolute;
+		  width: 40px;
+		  height: 40px;
+		  background: #599ab9;
+		  border-radius: 50%;
+			transform: scale(0.6);
+			transform-origin: 0% 50%;
+			top: 0;
+			animation: figure8delay 3s linear infinite;
+		}
+ 		.spinner1 {
+	    background: #197DB0;
+	    animation-delay: -1s;
+		}
+	  .spinner3 {
+	    background: #77909D;
+	    animation-delay: -2s;
+		}
+		@keyframes figure8delay {
+		  0% {transform-origin: 100% 50%; transform: rotate(0deg);}
+		  16.66%, 33.33% {transform: rotate(180deg);}
+		  50% {transform-origin: 100% 50%; transform: rotate(360deg);}
+		  50.01% {transform-origin: 0% 50%; transform: rotate(360deg);}
+		  66.66%, 83.33% {transform: rotate(180deg);}
+		  100% {transform: rotate(0deg);}}
+	</style>
 </head>
 <body>
+	<div id="root" class="loading">
+			<span class="spinner spinner1" ></span>
+			<span class="spinner" ></span>
+			<span class="spinner spinner3" ></span>
+  </div>
 </body>
 </html>

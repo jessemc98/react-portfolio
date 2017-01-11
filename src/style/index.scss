@@ -8,12 +8,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.02em;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
-}
-body {
-  margin: 0;
-  background: $background;
 }
 
 .jmc_button {

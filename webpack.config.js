@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const OfflinePlugin = require("offline-plugin")
 
 const parts = require('./libs/parts')
 
@@ -27,9 +28,19 @@ const common = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: './src/index.html'
-  })]
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
+    new OfflinePlugin({
+      ServiceWorker: {
+        navigateFallbackURL: 'index.html'
+      },
+      AppCache: {
+        FALLBACK: { '/': '/index.html' }
+      }
+    })
+  ]
 }
 
 let config;

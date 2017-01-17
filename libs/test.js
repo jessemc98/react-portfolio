@@ -25,7 +25,8 @@ require('babel-register')({
   "presets": [
     "es2015",
     "react"
-  ]
+  ],
+  "plugins": ["rewire"]
 });
 
 // Disable webpack-specific features for tests since

@@ -12,26 +12,28 @@ describe("Modal:", function () {
   let wrapper;
   let hideFunc;
   beforeEach(function () {
+    //mock dependencies
+    Modal.__Rewire__('Backdrop', React.createClass({
+      render: function() {return <div {...this.props}>{this.props.children}</div>}
+    }))
+    Modal.__Rewire__('FocusTrap', React.createClass({
+      render: function() {return <div {...this.props}>{this.props.children}</div>}
+    }))
+
     hideFunc = expect.createSpy()
     wrapper = mount(<Modal title="modal" content="test test test" hide={hideFunc} />)
   });
-  describe("Modal-container", function () {
-    it("should call props.hide when clicked", function () {
-      //arrange
-      const ModalContainer = wrapper.find('.Modal-container')
-      //act
-      ModalContainer.simulate('click')
-      //assert
-      expect(hideFunc).toHaveBeenCalled()
-    });
-    it("should not call props.hide if click was on children", function () {
-      //arrange
-      const child = wrapper.find('.Modal')
-      //act
-      child.simulate('click')
-      //assert
-      expect(hideFunc).toNotHaveBeenCalled();
-    });
+  afterEach(function () {
+    Modal.__ResetDependency__('Backdrop')
+    Modal.__ResetDependency__('FocusTrap')
+  });
+  it("should call props.hide when Modal-container is clicked", function () {
+    //arrange
+    const ModalContainer = wrapper.find('.Modal-container')
+    //act
+    ModalContainer.simulate('click')
+    //assert
+    expect(hideFunc).toHaveBeenCalled()
   });
   it("should call props.hide if close button is clicked", function () {
     //arrange

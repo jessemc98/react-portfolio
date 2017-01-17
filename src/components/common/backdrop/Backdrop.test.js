@@ -9,6 +9,12 @@ function setup(props) {
   return shallow(<Backdrop {...props} />)
 }
 describe("Backdrop", function () {
+  beforeEach(function () {
+    Backdrop.__Rewire__('pointerEventsAvailable', () => true)
+  });
+  afterEach(function () {
+    Backdrop.__ResetDependency__('pointerEventsAvailable')
+  });
   it("renders passed children inside a div", function(){
     const wrapper = shallow(<Backdrop><p className="testParagraph">random content</p></Backdrop>)
 
@@ -71,4 +77,12 @@ describe("Backdrop", function () {
 
     expect(wrapper.prop('style').transitionTimingFunction).toEqual('ease-in-out')
   })
+  it("renders only the passed children, no Backdrop, when pointer events are not available", function () {
+    Backdrop.__Rewire__('pointerEventsAvailable', () => false)
+    const wrapper = shallow(<Backdrop><input /></Backdrop>)
+
+    expect(wrapper.is('input')).toBeTruthy()
+
+    Backdrop.__ResetDependency__('pointerEventsAvailable')
+  });
 });

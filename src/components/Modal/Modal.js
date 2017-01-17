@@ -3,7 +3,7 @@ import './Modal.scss'
 import Backdrop from '../common/backdrop/Backdrop'
 import FocusTrap from 'focus-trap-react'
 
-class Modal extends React.Component {
+class Modal extends React.PureComponent {
   constructor(props, context) {
     super(props, context)
     this.state = {

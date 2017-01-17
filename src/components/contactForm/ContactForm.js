@@ -3,7 +3,7 @@ import MyForm from '../common/form/MyForm'
 import MyInput from '../common/inputs/MyInput'
 import MyTextArea from '../common/inputs/MyTextArea'
 
-class ContactForm extends React.Component {
+class ContactForm extends React.PureComponent {
   constructor(props, context) {
     super(props, context)
 

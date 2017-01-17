@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router'
 import Modal from './Modal'
 import modals from '../../store/modals'
 
-class ModalContainer extends React.Component {
+class ModalContainer extends React.PureComponent {
   constructor(...args){
     super(...args)
     this.hideModal = this.hideModal.bind(this)

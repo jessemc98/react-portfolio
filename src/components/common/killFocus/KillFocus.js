@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import getFocusable from './getFocusable'
 
-class KillFocus extends React.Component {
+class KillFocus extends React.PureComponent {
   constructor(props, ctx) {
     super(props, ctx)
 

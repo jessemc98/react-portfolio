@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import './MyForm.scss'
 
-class MyForm extends React.Component {
+class MyForm extends React.PureComponent {
   constructor(props, context) {
     super(props, context)
 

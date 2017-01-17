@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import './MyInput.scss'
 
-class MyInput extends React.Component {
+class MyInput extends React.PureComponent {
   constructor(props, context){
     super(props, context)
     this.state = {

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import './MyTextArea.scss'
 
-class MyTextArea extends React.Component {
+class MyTextArea extends React.PureComponent {
   constructor(props, context){
     super(props, context)
     this.state = {

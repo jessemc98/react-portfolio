@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import pointerEventsAvailable from '../../../helpers/pointerEventsAvailable'
 import './Backdrop.scss'
 
-class Backdrop extends React.Component {
+class Backdrop extends React.PureComponent {
   constructor(props, context){
     super(props, context)
     this.onClick = this.onClick.bind(this)

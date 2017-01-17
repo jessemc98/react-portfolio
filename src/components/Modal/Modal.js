@@ -6,15 +6,13 @@ import FocusTrap from 'focus-trap-react'
 class Modal extends React.Component {
   constructor(props, context) {
     super(props, context)
-    //refs
     this.state = {
-      hidden: false
+      hidden: true
     }
     this.hide = this.hide.bind(this)
   }
-  componentWillUnmount() {
-    this.props.hide()
-    this.props.unmount()
+  componentDidMount(){
+    this.setState({hidden: false})
   }
   hide(){
     this.setState({hidden: true})
@@ -36,7 +34,7 @@ class Modal extends React.Component {
               <h2>{title}</h2>
             </div>
             <div className="Modal_content">
-              {content}
+              <p>{content}</p>
             </div>
           </div>
         </FocusTrap>
@@ -46,8 +44,7 @@ class Modal extends React.Component {
 }
 Modal.propTypes = {
   hide: PropTypes.func.isRequired,
-  unmount: PropTypes.func.isRequired,
-  content: PropTypes.element,
+  content: PropTypes.string,
   title: PropTypes.string,
   imgSrc: PropTypes.string
 }

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import PictureFrame from '../pictureFrame/PictureFrame'
 import PageDivider from '../common/pageDivider/PageDivider'
 import AboutInfo from './AboutInfo'
 import KeySkills from './KeySkills'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import './AboutPage.scss'
 
 const AboutPage = (props) => {
@@ -12,8 +13,10 @@ const AboutPage = (props) => {
         <PictureFrame />
         <AboutInfo />
       </div>
+
       <PageDivider title="Key Skills"/>
       <KeySkills />
+
       <PageDivider title="About this Website" />
       <div className="AboutPage_websiteInfo">
         <p>
@@ -33,8 +36,18 @@ const AboutPage = (props) => {
         </p>
         <a href="https://github.com/jessemc98/react-portfolio" className="jmc_button">View Source on Github</a>
       </div>
+
+      // Renders ModalContainer when passed as props.children
+      <ReactCSSTransitionGroup
+          transitionName="modal"
+          transitionEnterTimeout={16}
+          transitionLeaveTimeout={0} >
+        {props.children&&props.children}
+      </ReactCSSTransitionGroup>
   </div>
   )
 }
-
+AboutPage.propTypes = {
+  children: PropTypes.element
+}
 export default AboutPage

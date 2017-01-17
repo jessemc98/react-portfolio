@@ -31,7 +31,24 @@
     }
 
   }
-
+  .ModalContainer_button {
+    display: inline-block;
+    width: 33.333%;
+    background: none;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    img {
+      width: 100%;
+    }
+    h3 {
+      font-size: 2.229em;
+      margin: 0;
+    }
+  }
   &_KeySkills {
     width: 90%;
     max-width: 960px;
@@ -78,6 +95,7 @@
     margin-bottom: 1em;
   }
 }
+
 
 @media only screen and (min-width : 450px) {
   .AboutPage {

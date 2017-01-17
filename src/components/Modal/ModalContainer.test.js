@@ -3,43 +3,33 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 
 import ModalContainer from './ModalContainer'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import Modal from './Modal'
 
+const modals = {
+  react: {title: 'react', imgSrc: '/assets/test'},
+  redux: {title: 'redux', imgSrc: '/assets/test2'}
+}
 describe("ModalContainer", function () {
-  it("renders a ModalContainer_button", function () {
-    const wrapper = shallow(<ModalContainer />)
-    expect(wrapper.find('.ModalContainer_button')).toExist()
-  });
+  // mock modals
+  ModalContainer.__Rewire__('modals', modals)
+  describe("renders a Modal", function () {
+    it("depending on route params", function () {
+      const wrapper = shallow(<ModalContainer params={{modalId: 'react'}}/>)
+      const modal = wrapper.find(Modal)
 
-  it("renders a ModalContainer to the body when ModalContainer_button is clicked", function () {
-    //arrange
-    const wrapper = mount(<ModalContainer />)
-    const body = window.document.body
-    const button = wrapper.find('.ModalContainer_button')
-    //act
-    button.simulate('click')
-    //assert
-    const modalContainer = document.querySelector('.ModalContainer')
-    expect(modalContainer).toExist()
-    //cleanup
-    body.removeChild(modalContainer)
-  });
-  it("doesnt render a ModalContainer to the body if ModalContainer_button has not been clicked", function () {
-    const wrapper = mount(<ModalContainer />)
-    const body = window.document.body
-    const button = wrapper.find('.ModalContainer_button')
+      expect(modal.prop('title')).toEqual(modals.react.title)
+      expect(modal.prop('imgSrc')).toEqual(modals.react.imgSrc)
+    });
+    it("calls browserHistory.push(/about) when modal.props.hide is called", function () {
+      const push = expect.createSpy()
+      // stub browserHistory
+      ModalContainer.__Rewire__('browserHistory', { push })
+      const wrapper = shallow(<ModalContainer params={{modalId: 'react'}} />)
+      const modal = wrapper.find(Modal)
 
-    const modalContainer = document.querySelector('.ModalContainer')
-    expect(modalContainer).toNotExist()
+      modal.prop('hide')()
 
+      expect(push).toHaveBeenCalledWith('/about')
+    });
   });
-  // it("cleans up body when component is unmounted", function () {
-  //   const wrapper = mount(<ModalContainer />)
-  //   const body = window.document.body
-  //   const button = wrapper.find('.ModalContainer_button')
-  //   button.simulate('click')
-  //
-  //   const modalContainer = document.querySelector('.ModalContainer')
-  //   expect(wrapper.unmount() && modalContainer).toNotExist()
-  // });
 });

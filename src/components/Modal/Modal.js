@@ -7,9 +7,12 @@ class Modal extends React.Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      hidden: false
+      hidden: true
     }
     this.hide = this.hide.bind(this)
+  }
+  componentDidMount(){
+    this.setState({hidden: false})
   }
   hide(){
     this.setState({hidden: true})

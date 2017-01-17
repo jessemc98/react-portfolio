@@ -43,7 +43,7 @@
     "path": "0.12.7",
     "postcss-loader": "1.2.1",
     "react-addons-test-utils": "15.3.2",
-    "react-lite": "0.15.6",
+    "react-lite": "0.15.30",
     "sass-loader": "4.1.1",
     "style-loader": "0.13.1",
     "url": "0.11.0",

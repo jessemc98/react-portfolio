@@ -21,7 +21,13 @@ export default (
       System.import('./components/about/AboutPage')
         .then(loadRoute(cb))
         .catch(errorLoading)
-      }} />
+      }}>
+      <Route path=":modalId" getComponent={(location, cb) => {
+        System.import('./components/Modal/ModalContainer')
+          .then(loadRoute(cb))
+          .catch(errorLoading)
+        }} />
+    </Route>
     <Route path="contact" getComponent={(location, cb) => {
       System.import('./components/contact/ContactPage')
         .then(loadRoute(cb))

@@ -14,7 +14,7 @@
     height: 100vh;
     background: black;
     opacity: 0.6;
-    // will-change: opacity;
+    will-change: transform;
     transition: opacity 350ms ease;
   }
   &-hidden {

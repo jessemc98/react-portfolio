@@ -28,3 +28,31 @@ html {
 a {
   color: $primaryLight;
 }
+
+.route, .container-fluid, #root {
+  height: 100%;
+}
+.route-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.route-enter.route-enter-active {
+  opacity: 1;
+}
+
+.route-leave {
+  opacity: 0;
+  transition: opacity .5s ease-in;
+}
+
+.route-leave.route-leave-active {
+  opacity: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  // add body on tablet to allow space for sidenav
+  #root {
+    padding-left: 77px;
+  }
+}

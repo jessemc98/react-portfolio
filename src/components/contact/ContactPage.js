@@ -9,7 +9,7 @@ import locationIcon from '../../assets/icons/location.svg'
 
 const ContactPage = (props) => {
   return (
-    <div className="ContactPage">
+    <div className="ContactPage route">
       <h2>ContactPage</h2>
       <div className="ContactPage_info">
         <p>

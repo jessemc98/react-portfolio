@@ -1,15 +1,22 @@
 //handles layout/template used on every page
-import React, { PropTypes, Component} from 'react'
+import React, { PropTypes, PureComponent} from 'react'
 import TopNav from './common/topnav/TopNav'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-class Layout extends Component {
+class Layout extends PureComponent {
   render() {
     let { children } = this.props
     return (
-      <div className="container-fluid">
-        <TopNav />
-        {children}
-      </div>
+      <ReactCSSTransitionGroup
+        transitionName="route"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
+        className="container-fluid">
+        <TopNav key="TopNav"/>
+        {React.cloneElement(children, {
+          key: children.type.name
+        })}
+      </ReactCSSTransitionGroup>
     )
   }
 }

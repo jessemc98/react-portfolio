@@ -8,7 +8,7 @@ import './AboutPage.scss'
 
 const AboutPage = (props) => {
   return (
-    <div className="AboutPage">
+    <div className="AboutPage route">
       <div className="AboutPage_aboutMe">
         <PictureFrame />
         <AboutInfo />
@@ -37,7 +37,6 @@ const AboutPage = (props) => {
         <a href="https://github.com/jessemc98/react-portfolio" className="jmc_button">View Source on Github</a>
       </div>
 
-      // Renders ModalContainer when passed as props.children
       <ReactCSSTransitionGroup
           transitionName="modal"
           transitionEnterTimeout={16}

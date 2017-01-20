@@ -105,6 +105,32 @@ describe("NavLinks", function () {
     expect(link.find('span').length).toEqual(1)
     expect(link.find('div').length).toEqual(1)
   });
+  describe("should call props.onClick when links are clicked", function () {
+    it("for normal links", function () {
+      const props = {
+        links: [{path: '/about', name:'test'}],
+        onClick: expect.createSpy()
+      }
+      const wrapper = shallow(<NavLinks {...props} />)
+      const link = wrapper.childAt(0)
+
+      link.simulate('click')
+
+      expect(props.onClick).toHaveBeenCalled()
+    });
+    it("for index links", function () {
+      const props = {
+        links: [{path: '/about', name:'test', isIndex: true}],
+        onClick: expect.createSpy()
+      }
+      const wrapper = shallow(<NavLinks {...props} />)
+      const link = wrapper.childAt(0)
+
+      link.simulate('click')
+
+      expect(props.onClick).toHaveBeenCalled()
+    });
+  });
   describe("should map the passed colors styles to each rendered link", function () {
     let links, wrapper, link;
     beforeEach(function () {

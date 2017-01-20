@@ -49,8 +49,14 @@ class TopNav extends Component {
             <div className="TopNav_content_logo">
               <img src={logoSrc} alt="logo-jmc-in-block-letters"/>
             </div>
-            <NavLinks links={navLinks} classes="TopNav_content_NavLinks" delay={150}/>
-            <FabList links={socialLinks} className="TopNav_content_socialLinks"/>
+            <NavLinks
+              onClick={this.closeNav}
+              links={navLinks}
+              classes="TopNav_content_NavLinks"
+              delay={150} />
+            <FabList
+              links={socialLinks}
+              className="TopNav_content_socialLinks" />
             <NavFooter />
           </FocusTrap>
         </KillFocus>

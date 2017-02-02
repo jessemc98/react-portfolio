@@ -17,6 +17,7 @@ class Backdrop extends React.PureComponent {
   onClick(event) {
     if(this.props.hidden) return
     if (event.target === this._node) {
+      event.stopPropagation()
       return this.props.onClick()
     }
   }

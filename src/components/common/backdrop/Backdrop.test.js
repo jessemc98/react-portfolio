@@ -42,6 +42,14 @@ describe("Backdrop", function () {
 
     expect(mySpy).toNotHaveBeenCalled()
   });
+  it("calls event.stopPropagation onClick", function () {
+    const stopPropagation = expect.createSpy()
+    const wrapper = mount(<Backdrop onClick={() => {}} hidden={false}/>)
+
+    wrapper.simulate('click', { stopPropagation })
+
+    expect(stopPropagation).toHaveBeenCalled()
+  });
   it("renders .Backdrop class on element by default", function () {
     const wrapper = setup()
 

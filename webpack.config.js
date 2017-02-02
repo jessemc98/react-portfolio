@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const OfflinePlugin = require("offline-plugin")
 
 const parts = require('./libs/parts')
@@ -48,6 +49,10 @@ const common = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      sync: ['manifest'],
+      defaultAttribute: 'defer'
     })
   ]
 }

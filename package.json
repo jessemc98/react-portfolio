@@ -45,6 +45,7 @@
     "react-addons-test-utils": "15.3.2",
     "react-lite": "0.15.30",
     "sass-loader": "4.1.1",
+    "script-ext-html-webpack-plugin": "^1.5.0",
     "style-loader": "0.13.1",
     "url": "0.11.0",
     "url-loader": "0.5.7",

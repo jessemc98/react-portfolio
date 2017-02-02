@@ -12,7 +12,9 @@ class Modal extends React.PureComponent {
     this.hide = this.hide.bind(this)
   }
   componentDidMount(){
+    /* eslint-disable react/no-did-mount-set-state */
     this.setState({hidden: false})
+    /* eslint-enable react/no-did-mount-set-state */
   }
   hide(){
     this.setState({hidden: true})
@@ -23,10 +25,7 @@ class Modal extends React.PureComponent {
     return (
       <Backdrop key="modal" className="Modal-container" onClick={this.hide} hidden={this.state.hidden}>
         <FocusTrap
-          focusTrapOptions={{
-            onDeactivate: this.hide,
-            clickOutsideDeactivates: true
-          }}>
+          focusTrapOptions={{clickOutsideDeactivates: true}}>
           <div className="Modal">
             <button className="Modal_button" onClick={this.hide}>X</button>
             <div className="Modal_header">

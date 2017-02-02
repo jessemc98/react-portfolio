@@ -21,7 +21,7 @@ const AboutPage = (props) => {
       <div className="AboutPage_websiteInfo">
         <p>
           This website was developed from the ground up using React. It follows
-          current best practices and is <a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fj-mcintosh.com">optimized for performance</a>.
+          current best practices and is <a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fdev-jesse.com">optimized for performance</a>.
         </p>
         <p>
           I wrote a simple custom webpack configuration to properly bundle the

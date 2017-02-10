@@ -37,22 +37,24 @@
       img {
         width: 80%;
       }
-      &:after {
-        content: "Gibraltar";
-        color: #fff;
-        background: #000;
-        font-size: 1.3em;
-      line-height: 1.3em;
-      padding: 0 4px;
-      position: absolute;
-      top: 105%;
-      right: 50%;
-      transform: translate(50%);
-      transition: opacity 150ms ease-in-out;
-      opacity: 0;
-      }
-      &:hover:after {
-        opacity: 0.6;
+      .Fab {
+        &:after {
+          content: "Gibraltar";
+          color: #fff;
+          background: #000;
+          font-size: 1.3em;
+          line-height: 1.3em;
+          padding: 0 4px;
+          position: absolute;
+          top: 105%;
+          right: 50%;
+          transform: translate(50%);
+          transition: opacity 150ms ease-in-out;
+          opacity: 0;
+        }
+        &:focus:after, &:hover:after {
+          opacity: 0.6;
+        }
       }
     }
     .FabList {

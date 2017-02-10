@@ -22,7 +22,7 @@ const ContactPage = (props) => {
       </div>
       <div className="ContactPage_buttons">
         <div className="ContactPage_buttons_location">
-          <Fab icon={locationIcon} alt="location icon"/>
+          <Fab icon={locationIcon} alt="location icon" tabIndex="0" />
         </div>
         <FabList links={socialLinks} />
       </div>

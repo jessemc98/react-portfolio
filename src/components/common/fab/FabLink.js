@@ -3,10 +3,27 @@ import Fab from './Fab'
 import './FabLink.scss'
 
 const FabLink = ({ icon, path, text, onClick}) => {
+  const linkProps = {
+    onClick,
+    href: path,
+    children: text,
+    tabIndex: 0,
+    className: "FabLink-link",
+  }
   return (
     <div className="FabLink">
-      <Fab onClick={onClick} icon={icon} alt={text} path={path} small />
-      <a tabIndex="0" onClick={onClick} href={path}>{text}</a>
+      <Fab
+        onClick={onClick}
+        icon={icon}
+        alt={text}
+        path={path}
+        small
+        tabIndex="-1" />
+      {
+        linkProps.href ?
+        <a {...linkProps} /> :
+        <button {...linkProps} />
+      }
     </div>
   )
 }

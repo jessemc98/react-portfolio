@@ -20,6 +20,11 @@ describe("Fab", function () {
 
     expect(wrapper.prop('href')).toEqual('/testpath')
   });
+  it("returned a.props.tabIndex should === props.tabIndex", function () {
+    const wrapper = setup({tabIndex: '-1'})
+
+    expect(wrapper.prop('tabIndex')).toEqual('-1')
+  });
   it("contains an <img/> element", function () {
     const wrapper = setup()
 

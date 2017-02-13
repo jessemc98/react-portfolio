@@ -10,6 +10,7 @@ const CardHeader = ({ title, onClick, colors={} }) => (
       <Fab
         className="Card_toggleButton"
         icon={closeIcon}
+        onClick={onClick}
         alt="toggle modal"/>
     </div>
     <div className="Card_header_highlight"

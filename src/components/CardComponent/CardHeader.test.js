@@ -83,6 +83,15 @@ describe("CardManager", function () {
       expect(fab.prop('icon')).toBe(closeIcon)
     });
     CardHeader.__ResetDependency__('closeIcon')
+    it("which calls props.onClick when clicked", function () {
+      const spy = expect.createSpy()
+      const wrapper = setup({onClick: spy})
+      const fab = wrapper.find(mockFab)
+
+      fab.simulate('click')
+
+      expect(spy).toHaveBeenCalled()
+    });
   });
   it("renders a .Card_header_highlight", function () {
     const wrapper = setup()

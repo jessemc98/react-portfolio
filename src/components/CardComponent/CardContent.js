@@ -23,6 +23,7 @@ class CardContent extends React.Component {
           </div>
         </div>
         <div className="Card_content_footer">
+          <h3 className="Card_content_footer_title">Project Links</h3>
           {links.map(link => (
             <FabLink {...link} />
           ))}

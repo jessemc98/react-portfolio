@@ -9,16 +9,18 @@ class CardContent extends React.Component {
         <p className="Card_content_description">
           {description}
         </p>
-        {image &&
-          <img className="Card_content_image"
-            src={image} alt={imageAlt} />}
-        <div className="Card_content_appliedSkills">
-          <h3>Skills Applied</h3>
-          <ul className="Card_content_appliedSkills_list">
-            {skills.map(skill => (
-              <li>{skill}</li>
-            ))}
-          </ul>
+        <div className="Card_content_inner">
+          {image &&
+            <img className="Card_content_image"
+              src={image} alt={imageAlt} />}
+          <div className="Card_content_appliedSkills">
+            <h3>Skills Applied</h3>
+            <ul className="Card_content_appliedSkills_list">
+              {skills.map(skill => (
+                <li>{skill}</li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="Card_content_footer">
           {links.map(link => (

@@ -12,7 +12,8 @@ const CardHeader = ({ title, onClick, colors={} }) => (
         icon={closeIcon}
         alt="toggle modal"/>
     </div>
-    <div className="Card_header_highlight" />
+    <div className="Card_header_highlight"
+      style={{background: colors.highlight}}/>
   </div>
 )
 CardHeader.propTypes = {

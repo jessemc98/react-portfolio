@@ -89,4 +89,13 @@ describe("CardManager", function () {
 
     expect(wrapper.find(".Card_header_highlight").length > 0).toBeTruthy()
   });
+  it("renders a .Card_header_highlight with style.background of props.colors.highlight", function () {
+    const wrapper = setup({colors: {
+      highlight: "#fff"
+    }})
+
+    const Card_header_highlight = wrapper.find(".Card_header_highlight")
+
+    expect(Card_header_highlight.prop("style").background).toBe("#fff")
+  });
 });

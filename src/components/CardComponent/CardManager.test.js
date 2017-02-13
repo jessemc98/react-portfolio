@@ -15,9 +15,9 @@ describe("CardManager", function () {
   afterEach(function () {
     CardManager.__ResetDependency__('CardHeader')
   });
-  it("has a class of .Card", function () {
+  it("has a class of .Card_wrapper", function () {
     const wrapper = shallow(<CardManager />)
-    expect(wrapper.hasClass('Card')).toBeTruthy()
+    expect(wrapper.hasClass('Card_wrapper')).toBeTruthy()
   });
   it("renders with a class of .Card-open when state.isOpen is true", function () {
     const wrapper = shallow(<CardManager />)
@@ -32,6 +32,12 @@ describe("CardManager", function () {
     wrapper.setState({isOpen: false})
 
     expect(wrapper.hasClass("Card-open")).toBeFalsy()
+  });
+  it("renders a Card element", function () {
+    const wrapper = shallow(<CardManager />)
+    const child = wrapper.childAt(0)
+
+    expect(child.is(".Card")).toBeTruthy()
   });
   describe("renders a CardHeader", function () {
     it(":renders", function () {

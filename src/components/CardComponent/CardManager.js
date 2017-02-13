@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import CardHeader from './CardHeader'
+import CardContent from './CardContent'
 import './CardManager.scss'
 
 class CardManager extends React.Component {
@@ -16,13 +17,21 @@ class CardManager extends React.Component {
   }
   render () {
     const { isOpen } = this.state
-    const { title, colors } = this.props
+    const { title, colors, image, skills, links, description } = this.props
     return (
-      <div className={`Card ${isOpen ? "Card-open":""}`}>
-        <CardHeader
-          title={title}
-          onClick={this.toggleCardState}
-          colors={colors}/>
+      <div className={`Card_wrapper ${isOpen ? "Card-open":""}`}>
+        <div className="Card">
+          <CardHeader
+            title={title}
+            onClick={this.toggleCardState}
+            colors={colors}/>
+          <CardContent
+            description={description}
+            image={image}
+            imageAlt={'image of ' + title}
+            links={links}
+            skills={skills} />
+        </div>
       </div>
     )
   }

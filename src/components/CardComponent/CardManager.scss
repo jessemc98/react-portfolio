@@ -42,11 +42,69 @@
       height: 35%;
       width: 140%;
       background: #f0f1f1;
-      transform: skew(0, -6deg) translate(-20%, 0%) scaleY(1.2);
+      transform: skew(0, -2.5deg) translate(-20%, 0%) scaleY(1.2);
     }
   }
-  
-// tablet styles and up
+  // Card_content's content styles
+  &_content {
+    // TODO add background through js
+    display: none;
+    z-index: -1;
+    background: #dedede;
+    padding: 0 28px;
+    font-size: 1.1643em;
+    height: 100%;
+    &_description {
+      margin: 0;
+    }
+    &_inner {
+      display: flex;
+      flex-direction: column;
+    }
+    &_image {
+      width: 100%;
+      max-width: 256px;
+    }
+    &_footer {
+      clear: left;
+      font-weight: 500;
+      .Fab.small {
+        width: 42px;
+        height: 42px;
+      }
+    }
+  }
+}
+
+// set card to opened position
+.Card-open > .Card {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: auto;
+  height: auto;
+  right: 20px;
+  z-index: 4;
+
+  .Card_header {
+    height: 182px;
+  }
+  .Card_content {
+    display: block;
+  }
+}
+
+// split card content into two columns
+@media only screen and (min-width: 400px) {
+  .Card_content_inner {
+    flex-direction: row;
+    .Card_content_image {
+      width: 50%;
+    }
+  }
+}
+
+// 3 Cards per row
 @media only screen and (min-width: 500px) {
   .Card_wrapper {
     width: 31%;

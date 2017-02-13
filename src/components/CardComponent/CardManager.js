@@ -17,7 +17,8 @@ class CardManager extends React.Component {
   }
   render () {
     const { isOpen } = this.state
-    const { title, colors, image, skills, links, description } = this.props
+    const colors = this.props.colors || {}
+    const { title, image, skills, links, description } = this.props
     return (
       <div className={`Card_wrapper ${isOpen ? "Card-open":""}`}>
         <div className="Card">

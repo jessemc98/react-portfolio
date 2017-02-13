@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import CardHeader from './CardHeader'
+import './CardManager.scss'
 
 class CardManager extends React.Component {
   constructor(...args) {
@@ -14,9 +15,10 @@ class CardManager extends React.Component {
     this.setState({isOpen: !this.state.isOpen})
   }
   render () {
+    const { isOpen } = this.state
     const { title, colors } = this.props
     return (
-      <div>
+      <div className={`Card ${isOpen ? "Card-open":""}`}>
         <CardHeader
           title={title}
           onClick={this.toggleCardState}

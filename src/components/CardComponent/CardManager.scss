@@ -1,0 +1,52 @@
+.Card {
+  display: inline-block;
+  margin: 2%;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+  width: 46%;
+  height: 234px;
+  &_header {
+    height: 100%;
+    overflow: hidden;
+    background: #197db0;
+    &_main {
+      position: relative;
+      text-align: center;
+      height: 70%;
+      background: rgb(25, 125, 176);
+      & > .Fab {
+        font-size: 12px;
+        z-index: 3;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        background: #4a5767;
+        & > img {
+          width: 54%;
+        }
+      }
+    }
+    &_title {
+      position: absolute;
+      width: 92%;
+      margin: 4%;
+      bottom: 40%;
+      transform: translateY(50%);
+      color: #fff;
+    }
+    &_highlight {
+      height: 35%;
+      width: 140%;
+      background: #f0f1f1;
+      transform: skew(0, -6deg) translate(-20%, 0%) scaleY(1.2);
+    }
+  }
+
+}
+// tablet styles and up
+@media only screen and (min-width: 500px) {
+  .Card {
+    width: 31%;
+    margin: 1%;
+  }
+}

@@ -3,9 +3,17 @@ import FabLink from '../common/fab/FabLink'
 
 class CardContent extends React.Component {
   render () {
-    const { description, image, imageAlt, skills, links } = this.props
+    const {
+      description,
+      image,
+      imageAlt,
+      skills,
+      links,
+      background
+    } = this.props
     return (
-      <div className="Card_content">
+      <div className="Card_content"
+        style={{background}}>
         <p className="Card_content_description">
           {description}
         </p>
@@ -33,6 +41,7 @@ class CardContent extends React.Component {
   }
 }
 CardContent.propTypes = {
+  background: PropTypes.string.isRequired,
   showContent: PropTypes.bool.isRequired,
   description: PropTypes.string,
   image: PropTypes.string,

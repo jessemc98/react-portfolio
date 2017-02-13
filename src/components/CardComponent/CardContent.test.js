@@ -27,6 +27,12 @@ describe("CardContent", function () {
 
     expect(wrapper.hasClass('Card_content')).toBeTruthy()
   });
+  it("renders with style.background of props.background", function () {
+    const background = "#fff"
+    const wrapper = setup({ background })
+
+    expect(wrapper.prop("style").background).toEqual(background)
+  });
   describe("renders a .Card_content_description element", function () {
     it(":renders", function () {
       const wrapper = setup()

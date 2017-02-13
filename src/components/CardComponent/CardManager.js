@@ -30,7 +30,8 @@ class CardManager extends React.Component {
             image={image}
             imageAlt={'image of ' + title}
             links={links}
-            skills={skills} />
+            skills={skills}
+            background={colors.highlight} />
         </div>
       </div>
     )

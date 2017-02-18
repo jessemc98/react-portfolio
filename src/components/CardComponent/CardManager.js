@@ -207,7 +207,7 @@ class CardManager extends React.Component {
     return (
       <div className={`Card_closed-wrapper ${isOpen ? "Card-open":""}`} ref={this.getNodes}>
         <div className="Card_open-wrapper">
-          <div className="Card" style={{overflow: isOpen ? "hidden" : "visible"}}>
+          <article className="Card" style={{overflow: isOpen ? "hidden" : "visible"}}>
             <CardHeader
               title={title}
               onClick={this.toggleCardState}
@@ -219,7 +219,7 @@ class CardManager extends React.Component {
               links={links}
               skills={skills}
               background={colors.highlight} />
-          </div>
+          </article>
         </div>
       </div>
     )

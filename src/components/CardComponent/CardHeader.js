@@ -4,7 +4,7 @@ import closeIcon from '../../assets/icons/delete.svg'
 
 const CardHeader = ({ title, onClick, colors={} }) => (
   <div className="Card_header" >
-    <div className="Card_header_main"
+    <header className="Card_header_main"
       style={{background: colors.main}} >
       <h1 className="Card_header_title">
         <span className="Card_header_title-inner">
@@ -17,7 +17,7 @@ const CardHeader = ({ title, onClick, colors={} }) => (
           onClick={onClick}
           alt="toggle modal"/>
       </div>
-    </div>
+    </header>
     <div className="Card_header_highlight"
       style={{background: colors.highlight}}/>
   </div>

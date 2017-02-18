@@ -17,32 +17,32 @@ class CardContent extends React.Component {
         <p className="Card_content_description">
           {description}
         </p>
-        <div className="Card_content_inner">
+        <section className="Card_content_inner">
           {image &&
             <img className="Card_content_image"
               src={image} alt={imageAlt} />}
+
           <div className="Card_content_appliedSkills">
-            <h3>Skills Applied</h3>
+            <h2>Skills Applied</h2>
             <ul className="Card_content_appliedSkills_list">
               {skills.map((skill, i) => (
                 <li key={i}>{skill}</li>
               ))}
             </ul>
           </div>
-        </div>
-        <div className="Card_content_footer">
+        </section>
+        <footer className="Card_content_footer">
           <h3 className="Card_content_footer_title">Project Links</h3>
           {links.map((link, i) => (
             <FabLink {...link} key={link.text}/>
           ))}
-        </div>
+        </footer>
       </div>
     )
   }
 }
 CardContent.propTypes = {
   background: PropTypes.string.isRequired,
-  showContent: PropTypes.bool.isRequired,
   description: PropTypes.string,
   image: PropTypes.string,
   imageAlt: PropTypes.string,

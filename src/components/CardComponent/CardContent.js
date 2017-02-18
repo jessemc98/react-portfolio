@@ -24,16 +24,16 @@ class CardContent extends React.Component {
           <div className="Card_content_appliedSkills">
             <h3>Skills Applied</h3>
             <ul className="Card_content_appliedSkills_list">
-              {skills.map(skill => (
-                <li>{skill}</li>
+              {skills.map((skill, i) => (
+                <li key={i}>{skill}</li>
               ))}
             </ul>
           </div>
         </div>
         <div className="Card_content_footer">
           <h3 className="Card_content_footer_title">Project Links</h3>
-          {links.map(link => (
-            <FabLink {...link} />
+          {links.map((link, i) => (
+            <FabLink {...link} key={link.text}/>
           ))}
         </div>
       </div>

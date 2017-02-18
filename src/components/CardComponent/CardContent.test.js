@@ -129,6 +129,16 @@ describe("CardContent", function () {
         expect(listItems.at(i).text()).toEqual(skill)
       })
     });
+    it("for 'i' in props.skills renders an li with key of 'i'", function () {
+      const skills = ["first skill", "second skill"]
+      const wrapper = setup({ skills })
+      const list = wrapper.find(".Card_content_appliedSkills_list")
+      const listItems = list.find("li")
+
+      skills.forEach((skill, i) => {
+        expect(listItems.at(i).key()).toEqual(i)
+      })
+    });
   });
   describe("renders a .Card_content_footer element", function () {
     it(":renders", function () {
@@ -169,6 +179,19 @@ describe("CardContent", function () {
 
         links.forEach((link, i) => {
           expect(fablinks.at(i).props()).toEqual(link)
+        })
+      });
+      it("sets 'FabLink.props.key' to equal 'text'", function () {
+        const links = [
+          { text: "google", icon: 'assets/google.svg', path: 'https://google.com' },
+          { text: "youtube", icon: 'assets/youtube.svg', path: 'https://youtube.com'}
+        ]
+        const wrapper = setup({ links })
+        const footer = wrapper.find(".Card_content_footer")
+        const fablinks = wrapper.find(mockFabLink)
+
+        links.forEach((link, i) => {
+          expect(fablinks.at(i).key()).toEqual(link.text)
         })
       });
     });

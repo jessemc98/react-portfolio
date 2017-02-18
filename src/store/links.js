@@ -4,7 +4,8 @@ import linkedinIcon from '../assets/icons/linkedin.svg'
 
 const navLinks = [
     {path: '/', name: 'HOME', isIndex: true, color: "#0F4E6E"},
-    {path: '/about', name: 'ABOUT', color: "#1370A0"},
+    {path: '/projects', name: 'PROJECTS', color: "#1370A0"},
+    {path: '/about', name: 'ABOUT', color: "#257DAA"},
     {path: '/contact', name: 'CONTACT', color: "#3FBEFE"}
 ]
 

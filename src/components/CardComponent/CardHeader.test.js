@@ -6,7 +6,7 @@ import CardHeader from './CardHeader'
 function setup(props) {
   return shallow(<CardHeader {...props} />)
 }
-describe("CardManager", function () {
+describe("CardHeader", function () {
   const mockFab = (props) => (<div {...props} />)
   beforeEach(function () {
     // mock dependencies
@@ -47,27 +47,46 @@ describe("CardManager", function () {
 
       expect(Card_header_title.length > 0).toBeTruthy()
     });
-    it("with text of props.title", function () {
+    it("contains a span", function () {
+      const wrapper = setup()
+
+      const Card_header_title = wrapper.find(".Card_header_title")
+
+      expect(Card_header_title.find("span").length > 0).toBeTruthy()
+    });
+    it("contains a span with class of .Card_header_title-inner", function () {
       const title = "i am a title"
       const wrapper = setup({ title })
 
       const Card_header_title = wrapper.find(".Card_header_title")
+      const span = Card_header_title.find("span")
 
-      expect(Card_header_title.prop("children")).toEqual(title)
+      expect(span.prop("className")).toEqual("Card_header_title-inner")
+    });
+    it("contains a span with text of props.title", function () {
+      const title = "i am a title"
+      const wrapper = setup({ title })
+
+      const Card_header_title = wrapper.find(".Card_header_title")
+      const span = Card_header_title.find("span")
+
+      expect(span.prop("children")).toEqual(title)
     });
   });
-  describe("renders a Fab component", function () {
+  describe("renders a .Card_toggleButton", function () {
     it("renders", function () {
       const wrapper = setup()
 
-      expect(wrapper.find(mockFab).length > 0).toBeTruthy()
+      expect(wrapper.find(".Card_toggleButton").length > 0).toBeTruthy()
     });
-    it("with a className of .Card_toggleButton", function () {
+    it("contains a Fab component", function () {
       const wrapper = setup()
-      const fab = wrapper.find(mockFab)
+      const toggle = wrapper.find(".Card_toggleButton")
 
-      expect(fab.hasClass("Card_toggleButton")).toBeTruthy()
+      expect(toggle.find(mockFab).length > 0).toBeTruthy()
     });
+  });
+  describe("rendered Fab component", function () {
     it("with props.alt of 'toggle modal'", function () {
       const wrapper = setup()
       const fab = wrapper.find(mockFab)

@@ -6,12 +6,17 @@ const CardHeader = ({ title, onClick, colors={} }) => (
   <div className="Card_header" >
     <div className="Card_header_main"
       style={{background: colors.main}} >
-      <h1 className="Card_header_title">{title}</h1>
-      <Fab
-        className="Card_toggleButton"
-        icon={closeIcon}
-        onClick={onClick}
-        alt="toggle modal"/>
+      <h1 className="Card_header_title">
+        <span className="Card_header_title-inner">
+          {title}
+        </span>
+      </h1>
+      <div className="Card_toggleButton">
+        <Fab
+          icon={closeIcon}
+          onClick={onClick}
+          alt="toggle modal"/>
+      </div>
     </div>
     <div className="Card_header_highlight"
       style={{background: colors.highlight}}/>

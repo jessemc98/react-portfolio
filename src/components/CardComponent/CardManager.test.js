@@ -20,10 +20,6 @@ describe("CardManager", function () {
     CardManager.__ResetDependency__('CardHeader')
     CardManager.__ResetDependency__('CardContent')
   });
-  it("has a class of .Card_wrapper", function () {
-    const wrapper = shallow(<CardManager />)
-    expect(wrapper.hasClass('Card_wrapper')).toBeTruthy()
-  });
   it("renders with a class of .Card-open when state.isOpen is true", function () {
     const wrapper = shallow(<CardManager />)
 
@@ -40,9 +36,8 @@ describe("CardManager", function () {
   });
   it("renders a Card element", function () {
     const wrapper = shallow(<CardManager />)
-    const child = wrapper.childAt(0)
 
-    expect(child.is(".Card")).toBeTruthy()
+    expect(wrapper.find(".Card")).toBeTruthy()
   });
   describe("renders a CardHeader", function () {
     it(":renders", function () {
@@ -66,26 +61,6 @@ describe("CardManager", function () {
       const CardHeader = wrapper.find(mockCardHeader)
 
       expect(CardHeader.prop("colors")).toEqual(colors)
-    });
-    describe("toggles CardManager.state.isOpen when clicked", function () {
-      it("when state.isOpen is false", function () {
-        const wrapper = shallow(<CardManager />)
-        wrapper.setState({isOpen: false})
-
-        const CardHeader = wrapper.find(mockCardHeader)
-        CardHeader.simulate("click")
-
-        expect(wrapper.state().isOpen).toBeTruthy()
-      });
-      it("when state.isOpen is true", function () {
-        const wrapper = shallow(<CardManager />)
-        wrapper.setState({isOpen: true})
-
-        const CardHeader = wrapper.find(mockCardHeader)
-        CardHeader.simulate("click")
-
-        expect(wrapper.state().isOpen).toBeFalsy()
-      });
     });
   });
   describe("renders a CardContent component", function () {

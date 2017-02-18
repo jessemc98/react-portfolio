@@ -1,47 +1,73 @@
-.Card_wrapper {
+// wrapper so when card expands the wrapper stays
+// in the cards collapsed position as a placeholder
+.Card_closed-wrapper {
   display: inline-block;
   margin: 2%;
   width: 46%;
   height: 234px;
 }
+// wrapper so we can scroll the card when it is expanded without scrolling the body
+.Card_open-wrapper {
+  width: 100%;
+  height: 100%;
+  .Card-open & {
+    position: fixed;
+    overflow: scroll;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.4);
+  }
+}
+// closed card mobile styling
 .Card {
-  box-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+  position: relative;
   height: 100%;
   width: 100%;
   &_header {
+    position: relative;
+    z-index: 1;
     height: 100%;
     overflow: hidden;
     background: #197db0;
+    // top part of header
     &_main {
       position: relative;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 70%;
       background: rgb(25, 125, 176);
-      & > .Fab {
+
+      // open/close button
+      & > .Card_toggleButton {
         font-size: 12px;
         z-index: 3;
         position: absolute;
         bottom: 0;
         left: 50%;
         transform: translate(-50%, 50%);
-        background: #4a5767;
-        & > img {
+        .Fab {
+          background: #4a5767;
+        }
+        img {
           width: 54%;
         }
       }
     }
+
     &_title {
-      position: absolute;
-      width: 92%;
-      margin: 4%;
-      bottom: 40%;
-      transform: translateY(50%);
+      position: relative;
       color: #fff;
+      text-align: center;
+      max-width: 200px;
     }
+    // bottom skewed bar on header
     &_highlight {
       height: 35%;
       width: 140%;
-      background: #f0f1f1;
       transform: skew(0, -2.5deg) translate(-20%, 0%) scaleY(1.2);
     }
   }
@@ -52,6 +78,7 @@
     padding: 0 28px;
     font-size: 1.1643em;
     height: 100%;
+    display: none;
     &_description {
       margin: 0;
     }
@@ -74,14 +101,16 @@
   }
 }
 
-// set card to opened position
-.Card-open > .Card {
+// sets card to open/expanded position
+.Card-open .Card {
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 20px;
+  right: 20px;
+  margin-bottom: 20px;
   width: auto;
   height: auto;
-  right: 20px;
+  // bring the card to the top of the window, over the other cards when open
   z-index: 4;
 
   .Card_header {
@@ -92,6 +121,23 @@
   }
 }
 
+.Card-transition {
+  // bring card to top of window when transitioning
+  .Card {
+    z-index: 10;
+  }
+
+  // transition transforms on header when expanding/collapsing
+  .Card_header, .Card_header_title, .Fab {
+    will-change: transform;
+    transition: transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1) 0ms;
+  }
+  // transition transforms when sliding content up/down
+  .Card_content {
+    will-change: transform;
+    transition: transform 450ms cubic-bezier(0.22, 0.61, 0.36, 1) 0ms;
+  }
+}
 // split card content into two columns
 @media only screen and (min-width: 400px) {
   .Card_content_inner {

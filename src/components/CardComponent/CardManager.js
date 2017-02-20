@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import CardHeader from './CardHeader'
 import CardContent from './CardContent'
+import FocusTrap from 'focus-trap-react'
 import './CardManager.scss'
 import {
   watchForTransitionEnd,
@@ -218,7 +219,10 @@ class CardManager extends React.Component {
         role="dialog"
         aria-label={`${title} project card/modal`}
         ref={this.getNodes}>
-        <div className="Card_open-wrapper">
+        <FocusTrap
+          className="Card_open-wrapper"
+          active={isOpen}
+          onDeactivate={this.closeCard}>
           <div className="Card_backdrop" onClick={this.handleBackdropClick}/>
           <article className="Card" style={{overflow: isOpen ? "hidden" : "visible"}} role="article">
             <CardHeader
@@ -234,7 +238,7 @@ class CardManager extends React.Component {
               skills={skills}
               background={colors.highlight} />
           </article>
-        </div>
+        </FocusTrap>
       </div>
     )
   }

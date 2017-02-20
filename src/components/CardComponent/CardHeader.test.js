@@ -112,6 +112,12 @@ describe("CardHeader", function () {
 
       expect(spy).toHaveBeenCalled()
     });
+    it("with tabIndex of 0", function () {
+      const wrapper = setup()
+      const fab = wrapper.find(mockFab)
+
+      expect(fab.prop("tabIndex")).toBe("0")
+    });
   });
   it("renders a .Card_header_highlight", function () {
     const wrapper = setup()

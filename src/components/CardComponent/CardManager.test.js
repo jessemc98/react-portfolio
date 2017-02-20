@@ -1,8 +1,11 @@
 import React from 'react'
 import expect from 'expect'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import CardManager from './CardManager'
 
+const mockFocusTrap = (props) => {
+  return <div {...props} />
+}
 const mockCardHeader = (props) => {
   return <div {...props} className="Card_header" />
 }
@@ -14,11 +17,13 @@ describe("CardManager", function () {
   beforeEach(function () {
     CardManager.__Rewire__('CardHeader', mockCardHeader)
     CardManager.__Rewire__('CardContent', mockCardContent)
+    CardManager.__Rewire__('FocusTrap', mockFocusTrap)
   });
   // reset dependencies after each test
   afterEach(function () {
     CardManager.__ResetDependency__('CardHeader')
     CardManager.__ResetDependency__('CardContent')
+    CardManager.__ResetDependency__('FocusTrap')
   });
   it("renders with a class of .Card-open when state.isOpen is true", function () {
     const wrapper = shallow(<CardManager />)
@@ -43,6 +48,36 @@ describe("CardManager", function () {
     const wrapper = shallow(<CardManager title={'my app'}/>)
 
     expect(wrapper.prop('aria-label')).toBe('my app project card/modal')
+  });
+  describe("renders a FocusTrap", function () {
+    it("renders", function () {
+      const wrapper = shallow(<CardManager />)
+      const FocusTrap = wrapper.find(mockFocusTrap)
+
+      expect(FocusTrap.length).toBe(1)
+    });
+    it("with class of Card_open-wrapper", function () {
+      const wrapper = shallow(<CardManager />)
+      const FocusTrap = wrapper.find(mockFocusTrap)
+
+      expect(FocusTrap.hasClass("Card_open-wrapper")).toBeTruthy()
+    });
+    it("with props.active of state.isOpen when it is true", function () {
+      const wrapper = mount(<CardManager />)
+      const FocusTrap = wrapper.find(mockFocusTrap)
+
+      wrapper.setState({isOpen: true})
+
+      expect(FocusTrap.prop("active")).toBeTruthy()
+    });
+    it("with props.active of state.isOpen when it is false", function () {
+      const wrapper = mount(<CardManager />)
+      const FocusTrap = wrapper.find(mockFocusTrap)
+
+      wrapper.setState({isOpen: false})
+
+      expect(FocusTrap.prop("active")).toBeFalsy()
+    });
   });
   describe("renders a CardHeader", function () {
     it(":renders", function () {

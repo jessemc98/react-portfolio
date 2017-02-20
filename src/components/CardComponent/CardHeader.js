@@ -14,6 +14,7 @@ const CardHeader = ({ title, onClick, colors={} }) => (
       </h1>
       <div className="Card_toggleButton">
         <Fab
+          tabIndex="0"
           icon={closeIcon}
           onClick={onClick}
           alt={`toggle ${title} project modal`}/>

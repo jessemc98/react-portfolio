@@ -24,6 +24,7 @@ class CardManager extends React.Component {
 
   // gets all the individual nodes/parts of the card and 'caches' them in this.nodes
   getNodes(element) {
+    if (!element) return
     const parts = {
       card: "Card",
       header: "Card_header",

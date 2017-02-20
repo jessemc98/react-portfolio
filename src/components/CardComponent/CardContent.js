@@ -1,9 +1,16 @@
 import React, { PropTypes } from 'react'
 import FabLink from '../common/fab/FabLink'
 
+// import SyntaxHighlighter and register javascript syntax highlighting
+import SyntaxHighlighter, { registerLanguage } from "react-syntax-highlighter/dist/light"
+import js from 'highlight.js/lib/languages/javascript';
+import docco from 'react-syntax-highlighter/dist/styles/docco';
+registerLanguage('javascript', js);
+
 class CardContent extends React.Component {
   render () {
     const {
+      code,
       description,
       image,
       imageAlt,
@@ -21,6 +28,12 @@ class CardContent extends React.Component {
           {image &&
             <img className="Card_content_image"
               src={image} alt={imageAlt} />}
+
+          {code &&
+            <SyntaxHighlighter className="Card_content_code"
+              language="javascript" style={docco}>
+              {code}
+            </SyntaxHighlighter>}
 
           <div className="Card_content_appliedSkills">
             <h2>Skills Applied</h2>

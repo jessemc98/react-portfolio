@@ -24,25 +24,27 @@ export default [
   {
     title: "simple-store",
     description : "Simple store is a small, experimental, javascript library I wrote for dealing with state, inspired by redux. Its published as an npm package '@jessemc98/simple-store'.",
-    code : `function numberReducer(state, event) {
-              switch (event.type) {
-                case "increment":
-                  return state + 1
-                case "decrement":
-                  return state - 1
-                default:
-                  return state
-              }
-            }
-            const subscribers = { number: numberReducer }
-            const initialState = { number: 10 }
+    code :
+`function numberReducer(state, event) {
+  switch (event.type) {
+    case "increment":
+      return state + 1
+    case "decrement":
+      return state - 1
+    default:
+      return state
+  }
+}
+const subscribers = { number: numberReducer }
+const initialState = { number: 10 }
 
-            const store = createStore(subscribers, initialState)
+const store = createStore(subscribers, initialState)
 
-            store.emit({type: "increment"})
-            // expect(store.getState().number).toEqual(11)
-            store.emit({type: "decrement"})
-            // expect(store.getState().number).toEqual(10)`,
+store.emit({type: "increment"})
+// expect(store.getState().number).toEqual(11)
+store.emit({type: "decrement"})
+// expect(store.getState().number).toEqual(10)
+    `,
     skills: [
       "javascript",
       "state management",
@@ -105,7 +107,6 @@ export default [
       autoprefixing css, filename fingerprinting/hashing, mocha/jsdom testing
       environment, hot reloading and more.`
       ,
-    image : reactMotionImage,
     skills: [
       "webpack",
       "migrating from webpack 1 to webpack 2",

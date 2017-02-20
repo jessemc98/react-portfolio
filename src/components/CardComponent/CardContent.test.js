@@ -14,13 +14,16 @@ function setup(props) {
 
 describe("CardContent", function () {
   const mockFabLink = (props) => (<a {...props} />)
+  const mockSyntaxHighlighter = (props) => (<div {...props} />)
   beforeEach(function () {
     // mock dependencies
     CardContent.__Rewire__("FabLink", mockFabLink)
+    CardContent.__Rewire__("SyntaxHighlighter", mockSyntaxHighlighter)
   });
   afterEach(function () {
     // reset mocked dependencies
     CardContent.__ResetDependency__("FabLink")
+    CardContent.__ResetDependency__("SyntaxHighlighter")
   });
   it("renders with a class or .Card_content", function () {
     const wrapper = setup()
@@ -52,7 +55,7 @@ describe("CardContent", function () {
       expect(Card_content_description.text()).toBe(description)
     });
   });
-  describe("renders an image element", function () {
+  describe("renders an image", function () {
     it("with class of .Card_content_image", function () {
       const wrapper = setup({image: 'img.svg'})
       const img = wrapper.find('img')
@@ -80,6 +83,36 @@ describe("CardContent", function () {
       const img = wrapper.find('img')
 
       expect(img.prop('alt')).toEqual(imageAlt)
+    });
+  });
+  describe("renders a SyntaxHighlighter element", function () {
+    it("with class of .Card_content_code", function () {
+      const code = "this is some code"
+      const wrapper = setup({ code })
+      const msh = wrapper.find(mockSyntaxHighlighter)
+
+      expect(msh.hasClass('Card_content_code')).toBeTruthy()
+    });
+    it("doesnt render if props.code is not defined", function () {
+      const wrapper = setup()
+      expect(wrapper.find(mockSyntaxHighlighter).length > 0).toBeFalsy()
+    });
+    it("if props.code is defined", function () {
+      const wrapper = setup({ code: "var x = 2;" })
+      expect(wrapper.find(mockSyntaxHighlighter).length > 0).toBeTruthy()
+    });
+    it("renders with props.language of javascript", function () {
+      const wrapper = setup({ code: "var y = 3;" })
+      const msh = wrapper.find(mockSyntaxHighlighter)
+
+      expect(msh.prop("language")).toEqual("javascript")
+    });
+    it("renders with props.children of props.code", function () {
+      const code = "while (true) { writeCode(); }"
+      const wrapper = setup({ code })
+      const msh = wrapper.find(mockSyntaxHighlighter)
+
+      expect(msh.prop("children")).toEqual(code)
     });
   });
   describe("renders a .Card_content_appliedSkills element", function () {

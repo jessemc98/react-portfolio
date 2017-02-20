@@ -90,6 +90,19 @@ describe("CardManager", function () {
 
       expect(CardContent.prop("imageAlt")).toBe("image of " + title)
     });
+    it("with props.code of self.code", function () {
+      const code = `
+      // just keep moving
+      var x = 1;
+      for (var i = 0; i < x; i += 1) {
+        x + 1
+      }
+      `
+      const wrapper = shallow(<CardManager code={code} />)
+      const CardContent = wrapper.find(mockCardContent)
+
+      expect(CardContent.prop("code")).toEqual(code)
+    });
     it("with props.links of self.links", function () {
       const links = [{},{}]
       const wrapper = shallow(<CardManager links={links} />)

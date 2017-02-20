@@ -19,11 +19,13 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
   .Card-open & {
     position: fixed;
     overflow: scroll;
-    z-index: 10;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+  }
+  .Card-open &, .Card-transition & {
+    z-index: 10;
   }
 }
 .Card_backdrop {
@@ -41,8 +43,10 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
     transition: opacity
       ($headerTransitionDuration + $contentTransitionDuration)
       $headerTransitionEasing;
-    z-index: 3;
     opacity: 1;
+  }
+  .Card-open &, .Card-transition & {
+    z-index: 4;
   }
 }
 

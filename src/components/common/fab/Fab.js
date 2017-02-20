@@ -6,14 +6,17 @@ const Fab = ({ icon, alt, path, small, onClick, tabIndex }) => {
   if(small){
     className += " small"
   }
-  return (
-      <a
-        className={className}
-        href={path}
-        onClick={onClick}
-        tabIndex={tabIndex}>
-        <img src={icon} alt={alt} />
-      </a>
+  const linkProps = {
+    className: className,
+    href: path,
+    onClick: onClick,
+    tabIndex: tabIndex,
+    "aria-label": alt
+  }
+  return React.createElement(
+    path ? 'a' : 'button',
+    linkProps,
+    (<img src={icon} alt={alt} />)
   )
 }
 

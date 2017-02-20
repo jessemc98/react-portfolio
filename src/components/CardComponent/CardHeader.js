@@ -5,7 +5,8 @@ import closeIcon from '../../assets/icons/delete.svg'
 const CardHeader = ({ title, onClick, colors={} }) => (
   <div className="Card_header" >
     <header className="Card_header_main"
-      style={{background: colors.main}} >
+      style={{background: colors.main}}
+      role="banner">
       <h1 className="Card_header_title">
         <span className="Card_header_title-inner">
           {title}
@@ -15,7 +16,7 @@ const CardHeader = ({ title, onClick, colors={} }) => (
         <Fab
           icon={closeIcon}
           onClick={onClick}
-          alt="toggle modal"/>
+          alt={`toggle ${title} project modal`}/>
       </div>
     </header>
     <div className="Card_header_highlight"

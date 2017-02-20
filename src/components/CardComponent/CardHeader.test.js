@@ -87,11 +87,12 @@ describe("CardHeader", function () {
     });
   });
   describe("rendered Fab component", function () {
-    it("with props.alt of 'toggle modal'", function () {
-      const wrapper = setup()
+    it("with props.alt of 'toggle ${props.title} project modal'", function () {
+      const title = 'my amazing app'
+      const wrapper = setup({ title })
       const fab = wrapper.find(mockFab)
 
-      expect(fab.prop('alt')).toBe('toggle modal')
+      expect(fab.prop('alt')).toBe('toggle my amazing app project modal')
     });
     it("with icon of closeIcon", function () {
       const closeIcon = '/assets/closedIcon.png'

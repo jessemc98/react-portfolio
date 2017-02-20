@@ -213,10 +213,14 @@ class CardManager extends React.Component {
     const colors = this.props.colors || {}
     const { title, image, skills, links, description, code } = this.props
     return (
-      <div className={`Card_closed-wrapper ${isOpen ? "Card-open":""}`} ref={this.getNodes}>
+      <div
+        className={`Card_closed-wrapper ${isOpen ? "Card-open":""}`}
+        role="dialog"
+        aria-label={`${title} project card/modal`}
+        ref={this.getNodes}>
         <div className="Card_open-wrapper">
           <div className="Card_backdrop" onClick={this.handleBackdropClick}/>
-          <article className="Card" style={{overflow: isOpen ? "hidden" : "visible"}}>
+          <article className="Card" style={{overflow: isOpen ? "hidden" : "visible"}} role="article">
             <CardHeader
               title={title}
               onClick={this.toggleCardState}

@@ -44,7 +44,7 @@ class CardContent extends React.Component {
             </ul>
           </div>
         </section>
-        <footer className="Card_content_footer">
+        <footer className="Card_content_footer" role="contentinfo">
           <h3 className="Card_content_footer_title">Project Links</h3>
           {links.map((link, i) => (
             <FabLink {...link} key={link.text}/>

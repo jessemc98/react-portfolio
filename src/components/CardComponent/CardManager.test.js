@@ -39,6 +39,11 @@ describe("CardManager", function () {
 
     expect(wrapper.find(".Card")).toBeTruthy()
   });
+  it("renders with an aria-label of`${props.title} project card/modal`", function () {
+    const wrapper = shallow(<CardManager title={'my app'}/>)
+
+    expect(wrapper.prop('aria-label')).toBe('my app project card/modal')
+  });
   describe("renders a CardHeader", function () {
     it(":renders", function () {
       const wrapper = shallow(<CardManager />)

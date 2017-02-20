@@ -20,6 +20,7 @@ class CardManager extends React.Component {
     this.toggleCardState = this.toggleCardState.bind(this)
     this.slideInContent_ = this.slideInContent_.bind(this)
     this.flipHeader_ = this.flipHeader_.bind(this)
+    this.handleBackdropClick = this.handleBackdropClick.bind(this)
   }
 
   // gets all the individual nodes/parts of the card and 'caches' them in this.nodes
@@ -62,6 +63,12 @@ class CardManager extends React.Component {
     }
   }
 
+  /*if click is not on child elements calls closeCard else does nothing*/
+  handleBackdropClick(event){
+    if (event.target !== event.currentTarget) return
+
+    this.closeCard()
+  }
   /* given an array of nodeNames
      forEach 'node':
       removes style.transform from this.nodes['node'] */
@@ -208,6 +215,7 @@ class CardManager extends React.Component {
     return (
       <div className={`Card_closed-wrapper ${isOpen ? "Card-open":""}`} ref={this.getNodes}>
         <div className="Card_open-wrapper">
+          <div className="Card_backdrop" onClick={this.handleBackdropClick}/>
           <article className="Card" style={{overflow: isOpen ? "hidden" : "visible"}}>
             <CardHeader
               title={title}

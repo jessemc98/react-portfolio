@@ -26,8 +26,9 @@ class CardContent extends React.Component {
         </p>
         <section className="Card_content_inner">
           {image &&
-            <img className="Card_content_image"
-              src={image} alt={imageAlt} />}
+            <img
+              className="Card_content_image"
+              src={image.src} srcSet={image.srcSet} alt={imageAlt} />}
 
           {code &&
             <SyntaxHighlighter className="Card_content_code"

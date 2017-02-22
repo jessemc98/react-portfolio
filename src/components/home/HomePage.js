@@ -4,13 +4,13 @@ import { Link } from 'react-router'
 
 const HomePage = (props) => {
   return (
-    <div className="HomePage route">
-      <div className="HomePage-welcome">
+    <main className="HomePage route">
+      <header className="HomePage-welcome" role="banner">
         <h1>JESSE MCINTOSH</h1>
         <h2>Front-end Developer</h2>
         <Link to="/about" className="jmc_button">ABOUT</Link>
-      </div>
-    </div>
+      </header>
+    </main>
   )
 }
 

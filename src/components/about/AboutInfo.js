@@ -3,7 +3,7 @@ import Spoiler from '../spoiler/Spoiler'
 
 const AboutInfo = (props) => {
   return (
-    <div className="AboutPage_aboutMe_AboutInfo">
+    <section className="AboutPage_aboutMe_AboutInfo">
       <h1>Hi,</h1>
       <p>
         Self taught Front end developer with a background in computer sciences.
@@ -37,7 +37,7 @@ const AboutInfo = (props) => {
           understand the whole code base and implementation details.
         </p>
       </Spoiler>
-    </div>
+    </section>
   )
 }
 

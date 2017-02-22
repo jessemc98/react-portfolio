@@ -37,7 +37,7 @@ class TopNav extends Component {
         duration="200"
         cssTimingFunc="linear" >
       <nav className={'TopNav' + (isOpen ? '' : ' hidden')}>
-        <button className="TopNav_toggleButton" onClick={this.toggleNav} />
+        <button className="TopNav_toggleButton" onClick={this.toggleNav} aria-label="toggle navigation visibility"/>
         <KillFocus enabled={!isOpen}>
           <FocusTrap
             className="TopNav_content"

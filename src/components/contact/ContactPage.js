@@ -9,8 +9,8 @@ import locationIcon from '../../assets/icons/location.svg'
 
 const ContactPage = (props) => {
   return (
-    <div className="ContactPage route">
-      <h2>ContactPage</h2>
+    <main className="ContactPage route">
+      <h1>ContactPage</h1>
       <div className="ContactPage_info">
         <p>
           Interested in developing something awesome together?
@@ -27,7 +27,7 @@ const ContactPage = (props) => {
         <FabList links={socialLinks} />
       </div>
       <ContactForm />
-    </div>
+    </main>
   )
 }
 

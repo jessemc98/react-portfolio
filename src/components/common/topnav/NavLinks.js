@@ -20,7 +20,7 @@ const NavLinks = ({ links, classes, delay, onClick }) => {
   })
 
   return (
-    <ul className={classes}>
+    <ul className={classes} aria-label="page navigation links">
       {routeLinks}
     </ul>
   )

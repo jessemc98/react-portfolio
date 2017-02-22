@@ -3,11 +3,11 @@ import './PageDivider.scss'
 
 const PageDivider = ({ title }) => {
   return (
-    <div className="PageDivider">
+    <header className="PageDivider">
       <span />
       <h2>{title}</h2>
       <span />
-    </div>
+    </header>
   )
 }
 PageDivider.propTypes = {

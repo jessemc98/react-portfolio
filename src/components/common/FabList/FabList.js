@@ -8,9 +8,9 @@ const FabList = ({ links }) => {
   })
 
   return (
-    <div className="FabList">
+    <ul className="FabList">
       {linksToFabs}
-    </div>
+    </ul>
   )
 }
 

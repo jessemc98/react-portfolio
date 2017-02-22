@@ -52,7 +52,7 @@ const icons = iconsSrc.reduce((obj, icon) => {
 }, {})
 
 const KeySkills = () => (
-  <div className="AboutPage_KeySkills">
+  <section className="AboutPage_KeySkills">
     <div className="AboutPage_KeySkills_keyskills">
       <Link to="/about/react" className="ModalContainer_button">
         <img src={icons.reactIcon}/>
@@ -67,7 +67,7 @@ const KeySkills = () => (
         <h3>Mocha</h3>
       </Link>
     </div>
-    <div className="AboutPage_KeySkills_lists">
+    <article className="AboutPage_KeySkills_lists">
       <ul>
         <FabLink icon={icons.angularIcon} path="https://angularjs.org/" text="Angular" />
         <FabLink icon={icons.gulpIcon} path="http://gulpjs.com/" text="Gulp" />
@@ -82,12 +82,12 @@ const KeySkills = () => (
       <FabLink icon={icons.javascriptIcon} path="http://www.ecma-international.org/publications/standards/Ecma-262.htm" text="Javascript" extension="png"/>
       <FabLink icon={icons.cssthreeIcon} path="https://www.w3.org/Style/CSS/specs.en.html" text="CSS" extension="png"/>
       </ul>
-    </div>
-    <div className="AboutPage_KeySkills_other">
+    </article>
+    <article className="AboutPage_KeySkills_other">
       <BulletList title="Programming Knowlede" items={programmingSkills} />
       <BulletList title="Testing Knowledge" items={testingSkills} />
-    </div>
-  </div>
+    </article>
+  </section>
 )
 
 export default KeySkills

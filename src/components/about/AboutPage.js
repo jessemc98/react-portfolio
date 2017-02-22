@@ -8,17 +8,17 @@ import './AboutPage.scss'
 
 const AboutPage = (props) => {
   return (
-    <div className="AboutPage route">
-      <div className="AboutPage_aboutMe">
+    <main className="AboutPage route">
+      <section className="AboutPage_aboutMe">
         <PictureFrame />
         <AboutInfo />
-      </div>
+      </section>
 
       <PageDivider title="Key Skills"/>
       <KeySkills />
 
       <PageDivider title="About this Website" />
-      <div className="AboutPage_websiteInfo">
+      <section className="AboutPage_websiteInfo">
         <p>
           This website was developed from the ground up using React. It follows
           current best practices and is <a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fdev-jesse.com">optimized for performance</a>.
@@ -35,7 +35,7 @@ const AboutPage = (props) => {
           will redirect you to the project on Github.
         </p>
         <a href="https://github.com/jessemc98/react-portfolio" className="jmc_button">View Source on Github</a>
-      </div>
+      </section>
 
       <ReactCSSTransitionGroup
           transitionName="modal"
@@ -43,7 +43,7 @@ const AboutPage = (props) => {
           transitionLeaveTimeout={0} >
         {props.children&&props.children}
       </ReactCSSTransitionGroup>
-  </div>
+    </main>
   )
 }
 AboutPage.propTypes = {

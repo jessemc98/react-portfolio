@@ -1,0 +1,16 @@
+.ProjectsPage {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: auto;
+  .PageDivider {
+    font-size: 1.618em;
+    span {
+      visibility: hidden;
+    }
+  }
+  &_cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

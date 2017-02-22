@@ -10,10 +10,20 @@ function setup(props) {
 }
 
 describe("Fab", function () {
-  it("returns an a element", function () {
-    const wrapper = setup()
+  it("returns an a element when props.path is defined", function () {
+    const wrapper = setup({ path: '/lol' })
 
     expect(wrapper.type()).toEqual('a')
+  });
+  it("returns a button element when props.path is undefined", function () {
+    const wrapper = setup()
+
+    expect(wrapper.type()).toEqual('button')
+  });
+  it("returned elements aria-label is equal to props.alt", function () {
+    const wrapper = setup({ alt: "i am alternative"})
+
+    expect(wrapper.prop("aria-label")).toBe("i am alternative")
   });
   it("returned a.props.href should === props.path", function () {
     const wrapper = setup({path: '/testpath'})

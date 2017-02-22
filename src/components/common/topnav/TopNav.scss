@@ -93,7 +93,7 @@ $transition: $animSpeed linear;
       }
 
       a {
-        font-size: 2em;
+        font-size: 1.6em;
         font-weight: bold;
         color: $textColor;
         text-decoration: none;
@@ -134,6 +134,8 @@ $transition: $animSpeed linear;
 
     .FabList {
       margin: 0 10px;
+      font-size: 0.9rem;
+      padding: 0.2rem;
     }
 
     &_NavFooter {

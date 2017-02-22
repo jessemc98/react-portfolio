@@ -19,6 +19,7 @@ export default (
         .then(scrollBodyToTop)
         .catch(errorLoading)
       }} />
+
     <Route path="about" getComponent={(location, cb) => {
       System.import('./components/about/AboutPage')
         .then(loadRoute(cb))
@@ -32,8 +33,16 @@ export default (
           .catch(errorLoading)
         }} />
     </Route>
+
     <Route path="contact" getComponent={(location, cb) => {
       System.import('./components/contact/ContactPage')
+        .then(loadRoute(cb))
+        .then(scrollBodyToTop)
+        .catch(errorLoading)
+      }} />
+
+    <Route path="projects" getComponent={(location, cb) => {
+      System.import('./components/projects/ProjectsPage')
         .then(loadRoute(cb))
         .then(scrollBodyToTop)
         .catch(errorLoading)

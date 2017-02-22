@@ -149,6 +149,36 @@ exports.setupCSS = function(paths) {
   }
 }
 
+exports.setupResponsiveImages = function(enabled) {
+  return {module: {
+    rules: [
+      {
+        test: /\.(jpg|png)$/,
+        use: [
+          {
+            loader: 'responsive-loader',
+            options: {
+              sizes: [128, 320, 640, 720, 1024, 1280],
+              pass: !enabled
+            }
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '/assets/[name].[hash].[ext]'
+            }
+          }
+        ]
+      }
+    ]
+  }}
+}
+
 exports.setupImages = function(paths) {
   return {
     module: {

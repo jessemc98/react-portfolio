@@ -105,7 +105,7 @@ switch(process.env.npm_lifecycle_event) {
         name: 'vendor',
         entries: ['react', 'react-dom', 'focus-trap-react']
       }),
-      parts.loadImages(PATHS.images),
+      parts.setupResponsiveImages(PATHS.images),
       parts.extractCSS(PATHS.app),
       parts.uglifyJs()
     );
@@ -135,7 +135,7 @@ switch(process.env.npm_lifecycle_event) {
       {
         devtool: 'eval-source-map'
       },
-      parts.setupImages(PATHS.images),
+      parts.setupResponsiveImages(true),
       parts.setupCSS(PATHS.app),
       parts.lint(PATHS.app),
       parts.devServer({

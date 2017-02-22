@@ -70,12 +70,25 @@ describe("CardContent", function () {
       const wrapper = setup({ image: "image.png" })
       expect(wrapper.find('img').length > 0).toBeTruthy()
     });
-    it("renders with src of props.image", function () {
-      const image = 'assets/image.png'
+    it("renders with src of props.image.src", function () {
+      const image = {
+        src: 'assets/image.png',
+        srcSet: 'image.png 100w'
+      }
       const wrapper = setup({ image })
       const img = wrapper.find('img')
 
-      expect(img.prop('src')).toEqual(image)
+      expect(img.prop('src')).toEqual(image.src)
+    });
+    it("renders with srcSet of props.image.srcSet", function () {
+      const image = {
+        src: 'assets/image.png',
+        srcSet: 'image.png 100w'
+      }
+      const wrapper = setup({ image })
+      const img = wrapper.find('img')
+
+      expect(img.prop('srcSet')).toEqual(image.srcSet)
     });
     it("renders with alt of props.imageAlt", function () {
       const imageAlt = "i am an image of a project"

@@ -1,4 +1,6 @@
 import reactMotionImage from '../../assets/images/motion-menu.jpg'
+import portfolioImage from '../../assets/images/portfolio.jpg'
+import vanillaTodoImage from '../../assets/images/vanilla-todo.png'
 import github from '../../assets/icons/github.svg'
 
 export default [
@@ -80,7 +82,7 @@ store.emit({type: "decrement"})
       Everything is unit tested using 'mocha', 'expect' for assertions,
       'enzyme' for testing react components and 'jsdom' to mock the DOM.`
       ,
-    image : reactMotionImage,
+    image : portfolioImage,
     skills: [
       "react",
       "webpack",
@@ -134,7 +136,7 @@ store.emit({type: "decrement"})
       understanding of higher level concepts such as the javascript event loop,
       tasks, microtasks, queues and browser rendering.`
       ,
-    image : reactMotionImage,
+    image : vanillaTodoImage,
     skills: [
       "event loop - tasks, microtasks, queues",
       "browser compatibility",

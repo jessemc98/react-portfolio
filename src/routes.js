@@ -23,13 +23,16 @@ export default (
     <Route path="about" getComponent={(location, cb) => {
       System.import('./components/about/AboutPage')
         .then(loadRoute(cb))
-        .then(scrollBodyToTop)
+        .then(() => {
+          if (location.location.pathname === '/about') {
+            scrollBodyToTop()
+          }
+        })
         .catch(errorLoading)
       }}>
       <Route path=":modalId" getComponent={(location, cb) => {
         System.import('./components/Modal/ModalContainer')
           .then(loadRoute(cb))
-          .then(scrollBodyToTop)
           .catch(errorLoading)
         }} />
     </Route>

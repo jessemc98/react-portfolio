@@ -9,7 +9,7 @@ class ModalContainer extends React.PureComponent {
     this.hideModal = this.hideModal.bind(this)
   }
   hideModal(){
-    browserHistory.push('/about')
+    browserHistory.goBack('/about')
   }
   render() {
     const { modalId } = this.props.params

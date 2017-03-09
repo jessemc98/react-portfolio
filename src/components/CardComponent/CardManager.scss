@@ -88,7 +88,9 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
           background: #4a5767;
         }
         img {
-          width: 54%;
+          width: 34%;
+          transform: rotate(45deg);
+          transition: transform $headerTransition;
         }
       }
     }
@@ -97,7 +99,7 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
       position: relative;
       color: #fff;
       text-align: center;
-      max-width: 200px;
+      max-width: 150px;
     }
     // bottom skewed bar on header
     &_highlight {
@@ -161,6 +163,11 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
 
   .Card_header {
     height: 182px;
+    &_main > .Card_toggleButton {
+      img {
+        transform: rotate(-90deg);
+      }
+    }
   }
   .Card_content {
     display: block;

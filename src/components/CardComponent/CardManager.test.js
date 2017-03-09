@@ -3,28 +3,22 @@ import expect from 'expect'
 import { shallow, mount } from 'enzyme'
 import CardManager from './CardManager'
 
-const mockFocusTrap = (props) => {
-  return <div {...props} />
+const mockFocusTrap = (props) => (<div {...props} />)
+const mockCardHeader = (props) => (<div {...props} className="Card_header" />)
+const mockCardContent = (props) => (<div {...props} className="Card_content" />)
+function mockDependencies() {
+  CardManager.__Rewire__('CardHeader', mockCardHeader)
+  CardManager.__Rewire__('CardContent', mockCardContent)
+  CardManager.__Rewire__('FocusTrap', mockFocusTrap)
 }
-const mockCardHeader = (props) => {
-  return <div {...props} className="Card_header" />
-}
-const mockCardContent = (props) => {
-  return <div {...props} className="Card_content" />
+function resetDependencies() {
+  CardManager.__ResetDependency__('CardHeader')
+  CardManager.__ResetDependency__('CardContent')
+  CardManager.__ResetDependency__('FocusTrap')
 }
 describe("CardManager", function () {
-  // mock dependencies before each test
-  beforeEach(function () {
-    CardManager.__Rewire__('CardHeader', mockCardHeader)
-    CardManager.__Rewire__('CardContent', mockCardContent)
-    CardManager.__Rewire__('FocusTrap', mockFocusTrap)
-  });
-  // reset dependencies after each test
-  afterEach(function () {
-    CardManager.__ResetDependency__('CardHeader')
-    CardManager.__ResetDependency__('CardContent')
-    CardManager.__ResetDependency__('FocusTrap')
-  });
+  beforeEach(mockDependencies);
+  afterEach(resetDependencies);
   it("renders with a class of .Card-open when state.isOpen is true", function () {
     const wrapper = shallow(<CardManager />)
 
@@ -39,16 +33,34 @@ describe("CardManager", function () {
 
     expect(wrapper.hasClass("Card-open")).toBeFalsy()
   });
-  it("renders a Card element", function () {
-    const wrapper = shallow(<CardManager />)
-
-    expect(wrapper.find(".Card")).toBeTruthy()
-  });
   it("renders with an aria-label of`${props.title} project card/modal`", function () {
     const wrapper = shallow(<CardManager title={'my app'}/>)
 
     expect(wrapper.prop('aria-label')).toBe('my app project card/modal')
   });
+
+  describe("renders a Card element", function () {
+    it("renders", function () {
+      const wrapper = shallow(<CardManager />)
+
+      expect(wrapper.find(".Card")).toBeTruthy()
+    });
+    it("with style.overflow = hidden when state.isOpen is true", function () {
+      const wrapper = shallow(<CardManager />)
+      wrapper.setState({isOpen: true})
+      const card = wrapper.find('.Card')
+
+      expect(card.prop('style').overflow).toEqual('hidden')
+    });
+    it("with style.overflow = visible when state.isOpen is false", function () {
+      const wrapper = shallow(<CardManager />)
+      wrapper.setState({isOpen: false})
+      const card = wrapper.find('.Card')
+
+      expect(card.prop('style').overflow).toEqual('visible')
+    });
+  });
+
   describe("renders a FocusTrap", function () {
     it("renders", function () {
       const wrapper = shallow(<CardManager />)
@@ -79,6 +91,7 @@ describe("CardManager", function () {
       expect(FocusTrap.prop("active")).toBeFalsy()
     });
   });
+
   describe("renders a CardHeader", function () {
     it(":renders", function () {
       const wrapper = shallow(<CardManager />)
@@ -103,6 +116,7 @@ describe("CardManager", function () {
       expect(CardHeader.prop("colors")).toEqual(colors)
     });
   });
+
   describe("renders a CardContent component", function () {
     it(":renders", function () {
       const wrapper = shallow(<CardManager />)

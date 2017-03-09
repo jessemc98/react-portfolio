@@ -63,7 +63,7 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
     font-size: 1.3em;
     position: relative;
     z-index: 1;
-    height: 100%;
+    height: 101%;
     overflow: hidden;
     background: #197db0;
     // top part of header
@@ -73,7 +73,6 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
       justify-content: center;
       align-items: center;
       height: 70%;
-      background: rgb(25, 125, 176);
       padding-bottom: 10px;
 
       // open/close button

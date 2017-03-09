@@ -3,9 +3,8 @@ import Fab from '../common/fab/Fab'
 import closeIcon from '../../assets/icons/delete.svg'
 
 const CardHeader = ({ title, onClick, colors={} }) => (
-  <div className="Card_header" >
+  <div className="Card_header" style={{background: colors.main}}>
     <header className="Card_header_main"
-      style={{background: colors.main}}
       role="banner">
       <h1 className="Card_header_title">
         <span className="Card_header_title-inner">

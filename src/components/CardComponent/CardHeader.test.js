@@ -21,6 +21,13 @@ describe("CardHeader", function () {
 
     expect(wrapper.hasClass("Card_header")).toBeTruthy()
   });
+  it("with style.background of props.colors.main", function () {
+    const wrapper = setup({colors: {
+      main: "#fff"
+    }})
+
+    expect(wrapper.prop("style").background).toBe("#fff")
+  });
   describe("renders a .Card_header_main element", function () {
     it(":renders", function () {
       const wrapper = setup()
@@ -28,15 +35,6 @@ describe("CardHeader", function () {
       const Card_header_main = wrapper.find(".Card_header_main")
 
       expect(Card_header_main.length > 0).toBeTruthy()
-    });
-    it("with style.background of props.colors.main", function () {
-      const wrapper = setup({colors: {
-        main: "#fff"
-      }})
-
-      const Card_header_main = wrapper.find(".Card_header_main")
-
-      expect(Card_header_main.prop("style").background).toBe("#fff")
     });
   });
   describe("renders a .Card_header_title", function () {

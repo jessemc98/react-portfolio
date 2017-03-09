@@ -84,6 +84,7 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
         left: 50%;
         transform: translate(-50%, 50%);
         .Fab {
+          will-change: transform;
           background: #4a5767;
         }
         img {
@@ -102,7 +103,8 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
     &_highlight {
       height: 35%;
       width: 140%;
-      transform: skew(0, -2.5deg) translate(-20%, 0%) scaleY(1.2);
+      position: relative;
+      // transform: skew(0, -2.5deg) translate(-20%, 0%) scaleY(1.2);
     }
   }
   // Card_content's content styles
@@ -113,6 +115,7 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
     font-size: 1.1643em;
     height: 100%;
     display: none;
+    will-change: transform;
     &_description {
       margin: 0;
     }

@@ -18,62 +18,62 @@ describe("ContactForm", function () {
       describe("name input", function () {
         it("is required", function () {
           const wrapper = shallow(<ContactForm />)
-          const state = {name: "", email: "", message: ""}
+          const state = {name: "", email: "", comment: ""}
 
           wrapper.instance().onSubmit(state)
           wrapper.update()
 
-          const nameInput = wrapper.childAt(0)
+          const nameInput = wrapper.find('#name')
           expect(nameInput.prop('error')).toExist()
         });
         it("needs to be atleast 3 characters long", function () {
           const wrapper = shallow(<ContactForm />)
-          const state = {name: "jm", email: "", message: ""}
+          const state = {name: "jm", email: "", comment: ""}
 
 
           wrapper.instance().onSubmit(state)
           wrapper.update()
           const nameInput =
-          expect(wrapper.childAt(0).prop('error')).toExist()
+          expect(wrapper.find('#name').prop('error')).toExist()
 
           state.name = "jmc"
           wrapper.instance().onSubmit(state)
           wrapper.update()
 
-          expect(wrapper.childAt(0).prop('error')).toNotExist()
+          expect(wrapper.find('#name').prop('error')).toNotExist()
         });
       });
       describe("email input", function () {
         it("is required", function () {
           const wrapper = shallow(<ContactForm />)
-          const state = {name: "", email: "", message: ""}
+          const state = {name: "", email: "", comment: ""}
 
           wrapper.instance().onSubmit(state)
           wrapper.update()
 
-          const emailInput = wrapper.childAt(1)
+          const emailInput = wrapper.find('#email')
           expect(emailInput.prop('error')).toExist()
         });
         it("must contain an @ symbol", function () {
           const wrapper = shallow(<ContactForm />)
-          const state = {name: "", email: "hello", message: ""}
+          const state = {name: "", email: "hello", comment: ""}
 
           wrapper.instance().onSubmit(state)
           wrapper.update()
 
-          const emailInput = wrapper.childAt(1)
+          const emailInput = wrapper.find('#email')
           expect(emailInput.prop('error')).toExist()
         });
       });
-      describe("message input", function () {
+      describe("comment input", function () {
         it("is required", function () {
           const wrapper = shallow(<ContactForm />)
-          const state = {name: "", email: "", message: ""}
+          const state = {name: "", email: "", comment: ""}
 
           wrapper.instance().onSubmit(state)
           wrapper.update()
 
-          const emailInput = wrapper.childAt(2)
+          const emailInput = wrapper.find('#comment')
           expect(emailInput.prop('error')).toExist()
         });
       });

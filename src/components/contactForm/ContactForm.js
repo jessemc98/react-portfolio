@@ -3,77 +3,92 @@ import MyForm from '../common/form/MyForm'
 import MyInput from '../common/inputs/MyInput'
 import MyTextArea from '../common/inputs/MyTextArea'
 
+const INPUTS = {
+  name: {
+    id: 'name',
+    name: 'name',
+    placeHolder: 'Name'
+  },
+  email: {
+    id: 'email',
+    name: 'email',
+    placeHolder: 'Email'
+  },
+  comment: {
+    id: 'comment',
+    name: 'comment',
+    placeHolder: 'Message'
+  }
+}
 class ContactForm extends React.PureComponent {
   constructor(props, context) {
     super(props, context)
-
     this.state = {
-      inputs: {
-        name: {
-          id: 'name',
-          placeHolder: 'Name'
-        },
-        email: {
-          id: 'email',
-          placeHolder: 'Email'
-        },
-        message: {
-          id: 'message',
-          placeHolder: 'Message'
-        }
-      },
       errors: {}
     }
-
     this.onSubmit = this.onSubmit.bind(this)
   }
   onSubmit(form, resetForm) {
-    //send email here
-    this.isValidForm(form) && resetForm({name: "message sent!"})
+    if (this.isValidForm(form)) {
+      //send email here
+      document.hgmailer.submit()
+    }
   }
 
-  isValidForm(state) {
+  isValidForm(form) {
     let errors = {}
     //name input validation
-    errors.name = this.validateName(state.name || "")
+    errors.name = this.validateName(form.name || "")
     //email input validation
-    errors.email = this.validateEmail(state.email || "")
+    errors.email = this.validateEmail(form.email || "")
     //message input validation
-    if(!state.message || state.message === "") {
-      errors.message = "this field is required"
+    if(!form.comment || form.comment === "") {
+      errors.comment = "This field is required"
     }
 
     this.setState({ errors })
 
-    if (errors.name || errors.email || errors.message) {
+    if (errors.name || errors.email || errors.comment) {
       return false
     }
     return true
   }
   validateEmail(value) {
     if(!value || value === "") {
-      return "this field is required"
+      return "Please enter an email address"
     }
     if(value.indexOf("@") === -1){
-      return "email address must contain an '@' symbol"
+      return "Email address must contain an '@' symbol"
+    }
+    if (!/^\S+@[a-z0-9_.-]+\.[a-z]{2,6}$/i.test(value)) {
+      return "A valid email address is required."
     }
   }
   validateName(value) {
-    if(!value || value === "") {
-      return "this field is required"
-    }
     if(value.length < 3) {
-      return "please enter a name longer than 3 characters"
+      return "Please enter a name longer than 3 characters"
+    }
+    if (!/\S+/.test(value)) {
+      return "Please provide your name."
+    }
+    if(!value || value === "") {
+      return "This field is required"
     }
   }
 
   render () {
-    const { name, email, message } = this.state.inputs
+    const { name, email, comment } = INPUTS
     return (
-      <MyForm onSubmit={this.onSubmit}>
-        <MyInput name={name.id} {...name} error={this.state.errors.name}/>
-        <MyInput name={email.id} {...email} error={this.state.errors.email}/>
-        <MyTextArea name={message.id} {...message} error={this.state.errors.message}/>
+      <MyForm name="hgmailer"
+        onSubmit={this.onSubmit}
+        action="http://dev-jesse.com/cgi-sys/formmail.pl"
+        method="post">
+        <input id="recipient"type="hidden" name="recipient" value="contact@dev-jesse.com"/>
+        <input id="subject" type="hidden" name="subject" value="FormMail E-Mail"/>
+        <MyInput {...name} error={this.state.errors.name}/>
+        <MyInput {...email} error={this.state.errors.email}/>
+        <MyTextArea {...comment} error={this.state.errors.comment}/>
+        <input id="redirect" type="hidden" name="redirect" value="http://dev-jesse.com/contact"/>
       </MyForm>
     )
   }

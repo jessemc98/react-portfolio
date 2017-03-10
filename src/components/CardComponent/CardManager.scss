@@ -58,6 +58,10 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
   font-size: 1rem;
   h2, h3 {
     font-size: 1.5em;
+    margin: 0 0 1.6475rem;
+  }
+  h2 {
+    padding-left: 1rem;
   }
   &_header {
     font-size: 1.3em;
@@ -119,20 +123,23 @@ $contentTransition: $contentTransitionDuration $contentTransitionEasing 0ms;
     display: none;
     will-change: transform;
     &_description {
-      margin: 0;
+      margin: 0 0 1.6475rem;
     }
     &_inner {
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin: 0 0 1.6475rem;
     }
     &_image {
       width: 100%;
       height: 100%;
-      max-width: 256px;
+      max-width: 360px;
+      margin: 0 0 1.6475rem;
     }
     &_code {
       max-width: 100%;
+      margin: 0 0 1.6475rem;
     }
     &_footer {
       clear: left;

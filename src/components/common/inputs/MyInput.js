@@ -38,6 +38,7 @@ class MyInput extends React.PureComponent {
         <input className="MyInput_input"
           type={type}
           id={name}
+          name={name}
           onChange={onChange}
           onFocus={this.focus}
           onBlur={this.blur}

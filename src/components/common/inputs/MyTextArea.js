@@ -45,6 +45,7 @@ class MyTextArea extends React.PureComponent {
         <textarea className="MyTextArea_input"
           type={type}
           id={name}
+          name={name}
           onChange={onChange}
           onFocus={this.focus}
           onBlur={this.blur}

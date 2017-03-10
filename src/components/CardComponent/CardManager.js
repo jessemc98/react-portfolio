@@ -152,6 +152,7 @@ class CardManager extends React.Component {
   }
 
   openCard() {
+    this.isAnimating = true
     // disable scrolling on body
     document.body.style.overflow = 'hidden'
 
@@ -173,9 +174,11 @@ class CardManager extends React.Component {
         // when header finishes animating, slide in the content
         .then(this.slideInContent_)
         .then(() => this.setState({isOpen: true}))
+        .then(() => this.isAnimating = false)
     })
   }
   closeCard() {
+    this.isAnimating = true
     // re-enable scrolling on body
     document.body.style.overflow = 'auto'
 
@@ -199,10 +202,12 @@ class CardManager extends React.Component {
           this.removeTransformFromHeaderElements_()
             // set state.isOpen to false when done animating
             .then(() => this.setState({isOpen: false}))
+            .then(() => this.isAnimating = false)
         })
       })
   }
   toggleCardState() {
+    if (this.isAnimating) return
     if (this.state.isOpen) {
       return this.closeCard()
     }

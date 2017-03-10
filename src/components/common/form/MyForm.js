@@ -6,7 +6,9 @@ class MyForm extends React.PureComponent {
     super(props, context)
 
     this.state = {
-      form: React.Children.toArray(props.children).reduce((total, child) => {
+      form: React.Children
+        .toArray(props.children)
+        .reduce((total, child) => {
           total[child.props.id] = child.props.value
           return total
         }, {})
@@ -23,9 +25,15 @@ class MyForm extends React.PureComponent {
     this._childrenWithProps = this._mapOnChangeToChildren(newProps.children)
   }
   _mapOnChangeToChildren(children) {
-    return React.Children.map(children, (child, i)=> {
-      return React.cloneElement(child, {onChange: (e) => this.onChange(e), key: i})
-    })
+    return (React.Children
+      .toArray(children)
+      .map((child, i) =>
+        React.cloneElement(child, {
+          onChange: e => this.onChange(e),
+          key: i
+        })
+      )
+    )
   }
   onChange(e) {
     const newForm = Object.assign({}, this.state.form)
@@ -47,16 +55,14 @@ class MyForm extends React.PureComponent {
     this.setState({form})
   }
   render () {
-    if(this._childrenWithProps){
-      //maps values stored in state to internal _childrenWithProps
-      this._childrenWithProps = this._childrenWithProps.map((child, i)=> {
-        return React.cloneElement(child, {value: this.state.form[child.props.id]})
-      })
-    }
-
     return (
-      <form className="MyForm" onSubmit={this.onSubmit}>
-        {this._childrenWithProps}
+      <form className="MyForm" {...this.props} onSubmit={this.onSubmit}>
+        {this._childrenWithProps &&
+          this._childrenWithProps
+            .map((child, i) => React.cloneElement(child, {
+              value: this.state.form[child.props.id]
+            }))
+        }
         <input className="MyForm_button-submit jmc_button" type="submit" value="SEND"/>
       </form>
     )

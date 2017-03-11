@@ -2,6 +2,7 @@ import reactMotionImage from '../../assets/images/motion-menu.jpg'
 import portfolioImage from '../../assets/images/portfolio.jpg'
 import vanillaTodoImage from '../../assets/images/vanilla-todo.png'
 import github from '../../assets/icons/github.svg'
+import { COLORS } from '../../store/links'
 
 export default [
   {
@@ -19,8 +20,8 @@ export default [
       {icon: github, path: "https://www.npmjs.com/package/@jessemc98/motion-menu", text: "npm"}
     ],
     colors: {
-      main: "#197DB0",
-      highlight: "#dedede"
+      main: COLORS[0],
+      highlight: "#D0D3D6"
     }
   },
   {
@@ -59,8 +60,8 @@ store.emit({type: "decrement"})
       {icon: github, path: "https://www.npmjs.com/package/@jessemc98/simple-store", text: "npm"}
     ],
     colors: {
-      main: "#197DB0",
-      highlight: "#dedede"
+      main: COLORS[1],
+      highlight: "#D0D3D6"
     }
   },
   {
@@ -96,8 +97,8 @@ store.emit({type: "decrement"})
       {icon: github, path: "http://dev-jesse.com", text: "Live site"}
     ],
     colors: {
-      main: "#197DB0",
-      highlight: "#dedede"
+      main: COLORS[2],
+      highlight: "#D0D3D6"
     }
   },
   {
@@ -121,8 +122,8 @@ store.emit({type: "decrement"})
       {icon: github, path: "http://github.com/jessemc98/webpack-build", text: "Github"}
     ],
     colors: {
-      main: "#197DB0",
-      highlight: "#dedede"
+      main: COLORS[3],
+      highlight: "#D0D3D6"
     }
   },
   {
@@ -148,8 +149,8 @@ store.emit({type: "decrement"})
       {icon: github, path: "http://github.com/jessemc98/vanilla-todo-app", text: "Github"}
     ],
     colors: {
-      main: "#197DB0",
-      highlight: "#dedede"
+      main: COLORS[0],
+      highlight: "#D0D3D6"
     }
   }
 ]

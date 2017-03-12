@@ -8,7 +8,7 @@ const HomePage = (props) => {
       <header className="HomePage-welcome" role="banner">
         <h1>JESSE MCINTOSH</h1>
         <h2>Front-end Developer</h2>
-        <Link to="/about" className="jmc_button">ABOUT</Link>
+        <Link to="/projects" className="jmc_button">PROJECTS</Link>
       </header>
     </main>
   )

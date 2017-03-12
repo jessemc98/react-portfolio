@@ -1,7 +1,11 @@
 import reactMotionImage from '../../assets/images/motion-menu.jpg'
 import portfolioImage from '../../assets/images/portfolio.jpg'
 import vanillaTodoImage from '../../assets/images/vanilla-todo.png'
+
 import github from '../../assets/icons/github.svg'
+import npm from '../../assets/icons/npm.svg'
+import eye from '../../assets/icons/eye.svg'
+
 import { COLORS } from '../../store/links'
 
 export default [
@@ -17,7 +21,7 @@ export default [
     ],
     links: [
       {icon: github, path: "http://github.com/jessemc98/react-motion-menu", text: "Github"},
-      {icon: github, path: "https://www.npmjs.com/package/@jessemc98/motion-menu", text: "npm"}
+      {icon: npm, path: "https://www.npmjs.com/package/@jessemc98/motion-menu", text: "npm"}
     ],
     colors: {
       main: COLORS[0],
@@ -57,7 +61,7 @@ store.emit({type: "decrement"})
     ],
     links: [
       {icon: github, path: "http://github.com/jessemc98/simple-store", text: "Github"},
-      {icon: github, path: "https://www.npmjs.com/package/@jessemc98/simple-store", text: "npm"}
+      {icon: npm, path: "https://www.npmjs.com/package/@jessemc98/simple-store", text: "npm"}
     ],
     colors: {
       main: COLORS[1],
@@ -94,7 +98,7 @@ store.emit({type: "decrement"})
     ],
     links: [
       {icon: github, path: "http://github.com/jessemc98/react-portfolio", text: "Github"},
-      {icon: github, path: "http://dev-jesse.com", text: "Live site"}
+      {icon: eye, path: "http://dev-jesse.com", text: "Live site"}
     ],
     colors: {
       main: COLORS[2],

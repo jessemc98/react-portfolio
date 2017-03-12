@@ -20,21 +20,36 @@ const AboutPage = (props) => {
       <PageDivider title="About this Website" />
       <section className="AboutPage_websiteInfo">
         <p>
-          This website was developed from the ground up using React. It follows
-          current best practices and is <a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fdev-jesse.com">optimized for performance</a>.
+          This website was developed from the ground up using React for the UI
+          and a personal webpack build to bundle the application with features
+          such as script bundling, transpiling with babel, asset minification,
+          autoprefixing, tree shaking, bundle/route splitting, code linting,
+          automated testing and much more.
         </p>
         <p>
-          I wrote a simple custom webpack configuration to properly bundle the
-          application with features such as hot reloading, automated testing
-          using mocha and jsdom, bundle splitting, filename hashing, minifying,
-          auto prefixing, code linting and much more
-          (check it out <a href="https://github.com/jessemc98/webpack-build">here</a>).
+          It adheres to performance best practices, with animations running at
+          60fps on average and under 1 second to first meaningful paint
+          (with an iPhone 4 on a 3g connection).
         </p>
         <p>
-          To view the source code for this website click the button below which
-          will redirect you to the project on Github.
+          Service worker and app manifest are used to enable offline loading on
+          newer browsers and add to homescreen on mobile devices. When service
+          worker is unavailable, offline loading is supported by using the
+          browser cache.
         </p>
-        <a href="https://github.com/jessemc98/react-portfolio" className="jmc_button">View Source on Github</a>
+        <p>
+          Everything is unit tested using 'mocha', 'expect' for assertions,
+          'enzyme' for testing react components and 'jsdom' to mock the DOM. For
+          the most part, all UI components comply with WAI-ARIA specification
+          and are accessibile to users with assistive technology such as screen
+          readers or those who choose to use the keyboard for navigating the
+          webpage.
+        </p>
+        <p>
+          Click the button below to view this websites source code on Github.
+        </p>
+        <a href="https://github.com/jessemc98/react-portfolio"
+          className="jmc_button">View Source on Github</a>
       </section>
 
       <ReactCSSTransitionGroup

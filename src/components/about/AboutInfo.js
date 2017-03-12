@@ -24,9 +24,10 @@ const AboutInfo = (props) => {
         <p>
           Somewhat of a javascript ninja, I have become confident with the more
           obscure concepts such as how scoping and closures work, hoisting and
-          the primitive features of the language which make it possible to write
-          functional code e.g. ability to use functions as arguments, pass them
-          to other functions, return functions, compose functions and so on...
+          the prototypal inheritance model. I consider myself a versatile web
+          developer, with knowledge on a wide range of front-end topics
+          including:  UI/UX, bundling/build systems, unit testing, performance
+          optimisation, cross browser compatibility and more. 
           <br /><br />
           I strongly believe that writing clear, understandable code that’s easy
           to read at a glance is just as important as writing functional code.

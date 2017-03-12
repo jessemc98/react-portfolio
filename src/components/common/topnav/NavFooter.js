@@ -13,8 +13,8 @@ const NavFooter = () => {
         path="https://github.com/jessemc98/react-portfolio" />
       <FabLink
         icon={messageIcon}
-        text="jessemc98@hotmail.com"
-        path="mailto:jessemc98@hotmail.com?" />
+        text="contact@dev-jesse.com"
+        path="mailto:contact@dev-jesse.com?" />
     </div>
   )
 }

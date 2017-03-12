@@ -18,7 +18,7 @@ const ContactPage = (props) => {
         <p>
           To get in touch contact me at
         </p>
-        <a href="mailto:jessemc98@hotmail.com?">jessemc98@hotmail.com</a>
+        <a href="mailto:contact@dev-jesse.com?">contact@dev-jesse.com</a>
       </div>
       <div className="ContactPage_buttons">
         <div className="ContactPage_buttons_location">
